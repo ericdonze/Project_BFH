@@ -54,7 +54,7 @@ int main()
 
 
 
-    cout << vecteur_entity[0]->IsAlive() << endl;
+    cout << vecteur_entity[0]->IsAlive() << endl;//hei DU
     cout << vecteur_entity[0]->get_coord_x() << endl;
     cout << vecteur_entity[0]->get_test() << endl;
 
