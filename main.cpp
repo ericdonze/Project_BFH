@@ -3,15 +3,19 @@
 #include <stdlib.h>
 #include <vector>
 
-
+// header/funktionen____________________________________________________________________________________________________________
 #include "Aircraft.h"
 #include "Bigaircraft.h"
 #include "Smallaircraft.h"
+// Variabeln____________________________________________________________________________________________________________________
 unsigned char ende=1;
-unsigned char Menu;
+unsigned char Menu=0;
+// Definitionen_________________________________________________________________________________________________________________
 #define Hauptmenu 0
 #define Spielablauf 1
 #define Spielendcard 2
+
+
 using namespace std;
 
 int main()
