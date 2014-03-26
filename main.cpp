@@ -7,9 +7,11 @@
 #include "Aircraft.h"
 #include "Bigaircraft.h"
 #include "Smallaircraft.h"
-
-
-
+unsigned char ende=1;
+unsigned char Menu;
+#define Hauptmenu 0
+#define Spielablauf 1
+#define Spielendcard 2
 using namespace std;
 
 int main()
@@ -18,7 +20,27 @@ int main()
 
     std::vector <Entity*> vecteur_entity;
 
+    while(ende)
+    {
+        switch(Menu)
+        {
+            case Hauptmenu:
+                //Input;
+                //Output;
+            break;
+            case Spielablauf:
+                //Input;
+                //Berechnung;
+                //Output;
+            break;
 
+            case Spielendcard:
+                //Input;
+                //Output;
+            break;
+        }
+
+    }
 
 
 
