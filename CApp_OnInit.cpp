@@ -26,7 +26,7 @@ bool Capp::OnInit() {
 
 
 
-    Loading_Surf = SDL_LoadBMP("arrow.bmp");
+    Loading_Surf = SDL_LoadBMP("Spielfeld.bmp");
 
     Background = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
 
