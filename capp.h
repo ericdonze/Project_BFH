@@ -43,8 +43,8 @@ class Capp
         SDL_Rect* src = NULL;
         std::vector<Entity*> Stock;
 
-        static const int WindowWidth = 640;
-        static const int WindowHeight = 580;
+        static const int WindowWidth = 2000;
+        static const int WindowHeight = 900;
         unsigned int frameLimit = SDL_GetTicks() + 16;
 
 };
