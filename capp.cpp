@@ -42,13 +42,13 @@ int Capp::OnExecute() {
 
             OnEvent(&Event);
 
-                if(Event.type == SDL_QUIT) {    //cross up-right
+                if(Event.type == SDL_QUIT)
+                {    //cross up-right
                     Running = false;
                 }
 
                 else if( Event.type == SDL_KEYDOWN ) //all key-touch
-					{
-
+                {
 						switch( Event.key.keysym.sym )// which key
 						{
 
@@ -91,6 +91,21 @@ int Capp::OnExecute() {
                                 }
 
                     }
+                    else if( Event.type == SDL_MOUSEBUTTONDOWN )
+                    {
+                        Cap_next2 += 1;
+                        //SDL_GetMouseState( &x_mouse, &y_mouse ); Gibt die Mouseposition heraus
+
+                        /*vector_x=x_mouse-DestR.x;             Misst denn winkel des Vectors zwischen Objekt und Maus
+                        vector_y=DestR.y-y_mouse;
+                        winkel=(atan2(vector_y, vector_x)*(180/3.14159));
+                        if(winkel<0)
+                        {
+                            winkel+=360;
+                        }
+                        printf("%f/%fwinkel=%f\n",vector_y,vector_x,winkel);*/
+                    }
+
 
 
         }
