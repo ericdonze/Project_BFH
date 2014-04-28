@@ -1,6 +1,8 @@
 #include "entity.h"
 #include <string.h>
 #include <stdio.h>
+#include <SDL2/SDL.h>
+#include <SDL2_image.h>
 
 Entity::Entity()
 {
@@ -191,7 +193,7 @@ void Entity::loadbild(SDL_Renderer* Renderer, const char *image)
 {
     SDL_Surface* Loading_Surf = NULL;
 
-    Loading_Surf = SDL_LoadBMP(image);
+    Loading_Surf = SDL_LoadIMG(image);
 
     Bild = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
 

@@ -88,3 +88,36 @@
 	<string.h>
 	<stdio.h>
 
+1398252320 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
+	"capp.h"
+
+1398252320 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
+	<SDL.h>
+	"entity.h"
+	<vector>
+
+1398252195 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
+	<SDL.h>
+	<iostream>
+	<string>
+
+1398251389 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oncleanp.cpp
+	"Capp.h"
+
+1398251389 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
+	"Capp.h"
+
+1398252320 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
+	"Capp.h"
+
+1398251389 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
+	"Capp.h"
+
+1398251389 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
+	"Capp.h"
+
+1398252187 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
+	"entity.h"
+	<string.h>
+	<stdio.h>
+
