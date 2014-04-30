@@ -88,36 +88,45 @@
 	<string.h>
 	<stdio.h>
 
-1398252320 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
+1398784649 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
 	"capp.h"
 
-1398252320 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
+1398784056 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
 	<SDL.h>
 	"entity.h"
 	<vector>
 
-1398252195 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
+1398785292 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
 	<SDL.h>
+	<SDL_image.h>
 	<iostream>
 	<string>
 
-1398251389 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oncleanp.cpp
+1398773906 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oncleanp.cpp
+	"Capp.h"
+	<SDL_image.h>
+
+1398691638 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
 	"Capp.h"
 
-1398251389 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
+1398839137 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
+	"Capp.h"
+	<SDL.h>
+	<SDL_image.h>
+	<stdio.h>
+
+1398780907 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
 	"Capp.h"
 
-1398252320 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
+1398780907 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
 	"Capp.h"
 
-1398251389 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
-	"Capp.h"
-
-1398251389 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
-	"Capp.h"
-
-1398252187 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
+1398785304 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
+	<SDL.h>
+	<SDL_image.h>
+	"math.h"
+	"capp.h"
 

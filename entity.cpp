@@ -1,8 +1,12 @@
 #include "entity.h"
 #include <string.h>
 #include <stdio.h>
-#include <SDL2/SDL.h>
-#include <SDL2_image.h>
+#include <SDL.h>
+#include <SDL_image.h>
+#include "math.h"
+#include "capp.h"
+
+#define PI 3.14159265
 
 Entity::Entity()
 {
@@ -10,6 +14,7 @@ Entity::Entity()
     new_Posx = 0;
     new_Posy = 0;
     new_Cap = 4;
+    angle = 0;
 
     src_test.x = 0;
     src_test.y = 0;
@@ -18,16 +23,18 @@ Entity::Entity()
 
     dest_test.x = 100;
     dest_test.y = 100;
-    dest_test.w = 100;
-    dest_test.h = 100;
+    dest_test.w = 20;
+    dest_test.h = 20;
 }
 
-Entity::Entity(int xposition, int yposition)
+Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi)
 {
     //ctor
     new_Posx = 0;
     new_Posy = 0;
     new_Cap = 4;
+    angle = 0;
+
 
     src_test.x = 0;
     src_test.y = 0;
@@ -36,8 +43,62 @@ Entity::Entity(int xposition, int yposition)
 
     dest_test.x = xposition;
     dest_test.y = yposition;
-    dest_test.w = 100;
-    dest_test.h = 100;
+
+    if((aircraft = Heli))
+    {
+        dest_test.w = 20;
+        dest_test.h = 20;
+    }
+
+    else if((aircraft = Small))
+    {
+        dest_test.w = 30;
+        dest_test.h = 30;
+    }
+
+    else
+    {
+        dest_test.w = 50;
+        dest_test.h = 50;
+    }
+
+
+
+    if((aircraft = Heli))
+    {
+        Loading_Surf_Entity = IMG_Load("hughes_20-20.png");
+    }
+
+    else if((aircraft = Small))
+    {
+        Loading_Surf_Entity = IMG_Load("Pitts_23-23.png");
+    }
+
+    else
+    {
+        Loading_Surf_Entity = IMG_Load("Pitts_23-23.png");
+    }
+
+
+
+    if( Loading_Surf_Entity == NULL )
+	{
+		printf( "Unable to load image %s! SDL_image Error: %s\n", "Entity.png", IMG_GetError() );
+	}
+	else
+	{
+		SDL_QueryTexture(Bild, NULL, NULL, &dest_test.w, &dest_test.h);
+                                                                                                //Create texture from surface
+        Bild = SDL_CreateTextureFromSurface(moi, Loading_Surf_Entity);
+		if( Bild == NULL )
+		{
+			printf( "Unable to create texture from %s! SDL Error: %s\n", "Entity.png", SDL_GetError() );
+		}
+
+
+		SDL_FreeSurface(Loading_Surf_Entity);
+	}
+
 }
 
 Entity::~Entity()
@@ -84,7 +145,7 @@ void Entity::fly(int cap)
 
 
     printf("cap:%d\n",cap);
-
+/*
     if (cap != new_Cap)         //difference of cap
     {
 
@@ -97,107 +158,142 @@ void Entity::fly(int cap)
              case 0:
                 new_Posx = 0;
                 new_Posy = 2;
+                angle = 90;
              break;
 
              case 1:
                 new_Posx = 1;
                 new_Posy = 2;
+                angle = 67.5;
              break;
 
              case 2:
                 new_Posx = 2;
                 new_Posy = 2;
+                angle = 45;
              break;
 
              case 3:
                 new_Posx = 2;
                 new_Posy = 1;
+                angle = 22.5;
              break;
 
              case 4:
                 new_Posx = 2;
                 new_Posy = 0;
+                angle = 0;
              break;
 
              case 5:
                 new_Posx = 2;
                 new_Posy = -1;
+                angle = 337.5;
              break;
 
              case 6:
                 new_Posx = 2;
                 new_Posy = -2;
+                angle = 315;
              break;
 
              case 7:
                 new_Posx = 1;
                 new_Posy = -2;
+                angle = 292.5;
              break;
 
              case 8:
                 new_Posx = 0;
                 new_Posy = -2;
+                angle = 270;
              break;
 
              case 9:
                 new_Posx = -1;
                 new_Posy = -2;
+                angle = 247.5;
              break;
 
              case 10:
                 new_Posx = -2;
                 new_Posy = -2;
+                angle = 225;
              break;
 
              case 11:
                 new_Posx = -2;
                 new_Posy = -1;
+                angle = 202.5;
              break;
 
              case 12:
                 new_Posx = -2;
                 new_Posy = 0;
+                angle = 180;
              break;
 
              case 13:
                 new_Posx = -2;
                 new_Posy = 1;
+                angle = 157.5;
              break;
 
              case 14:
                 new_Posx = -2;
                 new_Posy = 2;
+                angle = 135;
              break;
 
              case 15:
                 new_Posx = -1;
                 new_Posy = 2;
+                angle = 112.5;
              break;
 
 
              break;
          }
 
-    }
 
-        dest_test.x += new_Posx;
-        dest_test.y += new_Posy;
+
+    }
+*/
+
+        angle = cap;
+        dest_test.x += cos( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
+        dest_test.y += sin( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
+
 }
 
 void Entity::render(SDL_Renderer* Renderer)
 {
-    SDL_RenderCopy(Renderer, Bild, &src_test, &dest_test);  //
+
+    SDL_RenderCopyEx(Renderer, Bild, &src_test, &dest_test, angle, NULL, SDL_FLIP_NONE);
+
 }
 
 void Entity::loadbild(SDL_Renderer* Renderer, const char *image)
 {
-    SDL_Surface* Loading_Surf = NULL;
 
-    Loading_Surf = SDL_LoadIMG(image);
+    Loading_Surf_Entity = IMG_Load(image);
 
-    Bild = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+    if( Loading_Surf_Entity == NULL )
+	{
+		printf( "Unable to load image %s! SDL_image Error: %s\n", "Entity.png", IMG_GetError() );
+	}
+	else
+	{
+		SDL_QueryTexture(Bild, NULL, NULL, &dest_test.w, &dest_test.h);         //Create texture from surface
+        Bild = SDL_CreateTextureFromSurface(Renderer, Loading_Surf_Entity);
+		if( Bild == NULL )
+		{
+			printf( "Unable to create texture from %s! SDL Error: %s\n", "Entity.png", SDL_GetError() );
+		}
 
-    SDL_QueryTexture(Bild, NULL, NULL, &dest_test.w, &dest_test.h);
 
-    SDL_FreeSurface(Loading_Surf);
+		SDL_FreeSurface(Loading_Surf_Entity);
+	}
 }
+
+
