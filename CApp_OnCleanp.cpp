@@ -1,4 +1,5 @@
 #include "Capp.h"
+#include <SDL_image.h>
 
 void Capp::OnCleanup(){
 
@@ -28,6 +29,6 @@ void Capp::OnCleanup(){
             Window = NULL;
         }
 
-
+    IMG_Quit();
     SDL_Quit();
 }

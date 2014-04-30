@@ -25,6 +25,7 @@ class Capp
         void OnRender_1();
         void OnRender_2();
         void OnCleanup();
+        SDL_Renderer* get_Renderer();
 
     private:
 

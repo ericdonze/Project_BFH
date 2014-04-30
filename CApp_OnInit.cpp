@@ -1,4 +1,7 @@
 #include "Capp.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <stdio.h>
 
 bool Capp::OnInit() {
 
@@ -11,62 +14,56 @@ bool Capp::OnInit() {
     }
 
     if((Window = SDL_CreateWindow("My SDL Game",    //creation main-window
-     0, 50,
+     SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
      WindowWidth, WindowHeight, 0)) == NULL) {
         return false;
     }
 
+    int imgFlags = IMG_INIT_PNG;
+    if( !( IMG_Init( imgFlags ) & imgFlags ) )
+    {
+        printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
+        return false;
+    }
 
-    Stock.push_back(new Entity());
-    Stock.push_back(new Entity(200,200));
 
-    button.push_back(new Button());
-    button.push_back(new Button(0,0));
-    button.push_back(new Button());
-    button.push_back(new Button(0,0));
 
 
     Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED); //creation renderer
 
+    Stock.push_back(new Entity(Heli,100,100,Renderer));
+    Stock.push_back(new Entity(Heli,200,200,Renderer));
 
 
 
 
-    Loading_Surf = SDL_LoadBMP("Spielfeld.bmp");
 
-    Background_1 = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+    Loading_Surf = IMG_Load("Spielfeld.png");
+	if( Loading_Surf == NULL )
+	{
+		printf( "Unable to load image %s! SDL_image Error: %s\n", "Spielfeld.png", IMG_GetError() );
+	}
+	else
+	{
+		//Create texture from surface pixels
+        Background = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+		if( Background == NULL )
+		{
+			printf( "Unable to create texture from %s! SDL Error: %s\n", "Spielfeld.png", SDL_GetError() );
+		}
 
-    SDL_RenderCopy(Renderer, Background_1, NULL, NULL);
-
-    SDL_FreeSurface(Loading_Surf);
-
-
-    Loading_Surf = SDL_LoadBMP("Homescreen.bmp");
-
-    Background_2 = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
-
-    SDL_RenderCopy(Renderer, Background_2, NULL, NULL);
-
-    SDL_FreeSurface(Loading_Surf);
-
-
-    const char *super1 = "hughes_20-20.bmp";
-    const char *button_1 = "button_1.bmp";
+		//Get rid of old loaded surface
+		SDL_FreeSurface(Loading_Surf);
+	}
 
 
-    button[0]->loadbild(Renderer, button_1);
-    button[1]->loadbild(Renderer, button_1);
-    button[2]->loadbild(Renderer, button_1);
-    button[0]->position(0,0);
-    button[1]->position(100,100);
-    button[2]->position(200,200);
-    button[0]->render(Renderer);
-    button[1]->render(Renderer);
-    button[2]->render(Renderer);
+
+    //const char *super1 = "hughes_20-20.png";
+    //const char *super2 = "Pitts_23-23.png";
 
 
-    Stock[0]->loadbild(Renderer, super1);
-    Stock[1]->loadbild(Renderer, super1);
+    //Stock[0]->loadbild(Renderer, super1);
+    //Stock[1]->loadbild(Renderer, super2);
     Stock[0]->render(Renderer);
     Stock[1]->render(Renderer);
     SDL_RenderPresent(Renderer);
