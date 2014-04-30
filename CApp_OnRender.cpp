@@ -23,3 +23,12 @@ void Capp::OnRender_2() {
 
             SDL_RenderPresent(Renderer);
 }
+void Capp::OnRender_3()
+{
+            SDL_RenderCopy(Renderer, Background_3, NULL, NULL);
+            button[0]->render(Renderer,Taster_0);
+            button[1]->render(Renderer,Taster_1);
+
+
+            SDL_RenderPresent(Renderer);
+}

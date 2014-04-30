@@ -36,10 +36,30 @@ bool Capp::OnInit() {
     button.push_back(new Button(0,1250,750,Renderer));
     button.push_back(new Button(1,250,750,Renderer));
 
+
+    Loading_Surf = IMG_Load("Spielendcard.png");
+	if( Loading_Surf == NULL )
+	{
+		printf( "Unable to load image %s! SDL_image Error: %s\n", "Spielendcard.png", IMG_GetError() );
+	}
+	else
+	{
+		//Create texture from surface pixels
+        Background_3 = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+		if( Background_3 == NULL )
+		{
+			printf( "Unable to create texture from %s! SDL Error: %s\n", "Spielendcard.png", SDL_GetError() );
+		}
+
+		//Get rid of old loaded surface
+		SDL_FreeSurface(Loading_Surf);
+	}
+
+
 	Loading_Surf = IMG_Load("Startbildschirm.png");
 	if( Loading_Surf == NULL )
 	{
-		printf( "Unable to load image %s! SDL_image Error: %s\n", "Spielfeld.png", IMG_GetError() );
+		printf( "Unable to load image %s! SDL_image Error: %s\n", "Startbildschirm.png", IMG_GetError() );
 	}
 	else
 	{
@@ -47,7 +67,7 @@ bool Capp::OnInit() {
         Background_2 = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
 		if( Background_2 == NULL )
 		{
-			printf( "Unable to create texture from %s! SDL Error: %s\n", "Spielfeld.png", SDL_GetError() );
+			printf( "Unable to create texture from %s! SDL Error: %s\n", "Startbildschirm.png", SDL_GetError() );
 		}
 
 		//Get rid of old loaded surface

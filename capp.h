@@ -24,6 +24,7 @@ class Capp
         void OnLoop();
         void OnRender_1();
         void OnRender_2();
+        void OnRender_3();
         void OnCleanup();
         SDL_Renderer* get_Renderer();
 
@@ -43,6 +44,7 @@ class Capp
         SDL_Surface* Loading_Surf = NULL;
         SDL_Texture* Background_1 = NULL;
         SDL_Texture* Background_2 = NULL;
+        SDL_Texture* Background_3 = NULL;
         SDL_Texture* Avion = NULL;
         SDL_Rect* dest = NULL;
         SDL_Rect* src = NULL;
