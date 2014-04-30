@@ -1,0 +1,60 @@
+# depslib dependency file v1.0
+1398851657 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\button.cpp
+	"button.h"
+	<string.h>
+	<stdio.h>
+	<SDL.h>
+	<SDL_image.h>
+	"math.h"
+	"capp.h"
+
+1398851657 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\button.h
+	<SDL.h>
+	<SDL_image.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1398850069 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
+	<SDL.h>
+	"entity.h"
+	"button.h"
+	<vector>
+
+1398851657 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<string>
+
+1398851657 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
+	"capp.h"
+
+1398840212 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oncleanp.cpp
+	"Capp.h"
+	<SDL_image.h>
+
+1398691638 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
+	"Capp.h"
+
+1398851657 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
+	"Capp.h"
+	<SDL.h>
+	<SDL_image.h>
+	<stdio.h>
+
+1398840212 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
+	"Capp.h"
+
+1398851657 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
+	"Capp.h"
+
+1398851657 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
+	"entity.h"
+	<string.h>
+	<stdio.h>
+	<SDL.h>
+	<SDL_image.h>
+	"math.h"
+	"capp.h"
+
