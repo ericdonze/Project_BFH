@@ -33,8 +33,26 @@ bool Capp::OnInit() {
 
     Stock.push_back(new Entity(Heli,100,100,Renderer));
     Stock.push_back(new Entity(Heli,200,200,Renderer));
+    button.push_back(new Button(0,0));
+    button.push_back(new Button(0,0));
 
+	Loading_Surf = IMG_Load("Homescreen.bmp");
+	if( Loading_Surf == NULL )
+	{
+		printf( "Unable to load image %s! SDL_image Error: %s\n", "Spielfeld.png", IMG_GetError() );
+	}
+	else
+	{
+		//Create texture from surface pixels
+        Background_2 = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+		if( Background_2 == NULL )
+		{
+			printf( "Unable to create texture from %s! SDL Error: %s\n", "Spielfeld.png", SDL_GetError() );
+		}
 
+		//Get rid of old loaded surface
+		SDL_FreeSurface(Loading_Surf);
+	}
 
 
 
@@ -46,8 +64,8 @@ bool Capp::OnInit() {
 	else
 	{
 		//Create texture from surface pixels
-        Background = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
-		if( Background == NULL )
+        Background_1 = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+		if( Background_1 == NULL )
 		{
 			printf( "Unable to create texture from %s! SDL Error: %s\n", "Spielfeld.png", SDL_GetError() );
 		}
@@ -55,6 +73,7 @@ bool Capp::OnInit() {
 		//Get rid of old loaded surface
 		SDL_FreeSurface(Loading_Surf);
 	}
+
 
 
 
@@ -66,6 +85,8 @@ bool Capp::OnInit() {
     //Stock[1]->loadbild(Renderer, super2);
     Stock[0]->render(Renderer);
     Stock[1]->render(Renderer);
+    button[0]->render(Renderer);
+    button[1]->render(Renderer);
     SDL_RenderPresent(Renderer);
 
 
