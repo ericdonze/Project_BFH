@@ -34,7 +34,7 @@ bool Capp::OnInit() {
     Stock.push_back(new Entity(Heli,100,100,Renderer));
     Stock.push_back(new Entity(Heli,200,200,Renderer));
     button.push_back(new Button(0,500,500,Renderer));
-    //button.push_back(new Button(0,100,100,Renderer));
+    button.push_back(new Button(0,100,100,Renderer));
 
 	Loading_Surf = IMG_Load("Homescreen.bmp");
 	if( Loading_Surf == NULL )
@@ -86,7 +86,7 @@ bool Capp::OnInit() {
     Stock[0]->render(Renderer);
     Stock[1]->render(Renderer);
     button[0]->render(Renderer,0);
-    //button[1]->render(Renderer,0);
+    button[1]->render(Renderer,0);
     SDL_RenderPresent(Renderer);
 
 

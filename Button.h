@@ -29,10 +29,10 @@ class Button
 
         void set_position(int X_Achse,int Y_Achse);
         void render(SDL_Renderer* Renderer,char Taster);
-        char get_hoehe(void);
-        char get_breite(void);
-        char get_x_position(void);
-        char get_y_position(void);
+        int get_hoehe(void);
+        int get_breite(void);
+        int get_x_position(void);
+        int get_y_position(void);
 
         private:
 

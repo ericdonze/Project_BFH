@@ -100,6 +100,7 @@ int Capp::OnExecute() {
                     else if( Event.type == SDL_MOUSEBUTTONDOWN )
                     {
                         SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
+
                        /* if(mouse_x>100&&mouse_x<157&&mouse_y>100&&mouse_y<157)
                         {
                             Taster_1=1;
@@ -119,7 +120,9 @@ int Capp::OnExecute() {
                         if(mouse_x>button[0]->get_x_position()&&mouse_x<button[0]->get_x_position()+button[0]->get_breite()&&mouse_y>button[0]->get_y_position()&&mouse_y<button[0]->get_x_position()+button[0]->get_hoehe())
                         {
                             Taster_1=1;
+                            button[0]->set_position(1000,500);
                         }
+                        printf("x=%d,y=%d,w=%d,h=%d\n",button[0]->get_x_position(),button[0]->get_y_position(),button[0]->get_breite(),button[0]->get_hoehe());
                     }
 
 

@@ -29,12 +29,12 @@ Button::Button(int Taster, int xposition, int yposition,SDL_Renderer* Renderer)
     src_test.x = 0;
     src_test.y = 0;
     src_test.w = 400;
-    src_test.h = 400;
+    src_test.h = 130;
 
     dest_test.x = xposition;
     dest_test.y = yposition;
-    dest_test.w = 20;
-    dest_test.h = 20;
+    dest_test.w = 400;
+    dest_test.h = 130;
     switch (Taster)
     {
         case 0:
@@ -97,19 +97,20 @@ void Button::set_position(int X_Achse,int Y_Achse)
    dest_test.x=X_Achse;
    dest_test.y=Y_Achse;
 }
-char Button::get_hoehe(void)
+int Button::get_hoehe(void)
 {
-    return src_test.h;
+    return dest_test.w;
 }
-char Button::get_breite(void)
+int Button::get_breite(void)
 {
-    return src_test.w;
+
+    return dest_test.w;
 }
-char Button::get_x_position(void)
+int Button::get_x_position(void)
 {
     return dest_test.x;
 }
-char Button::get_y_position(void)
+int Button::get_y_position(void)
 {
     return dest_test.y;
 }
