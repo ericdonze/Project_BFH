@@ -36,9 +36,8 @@ class Entity
 
         SDL_Rect getdest_test();
         void setdest_test(SDL_Rect truc);
-
         void fly(int cap);
-        void crash();
+        bool crash(SDL_Rect a, SDL_Rect b);
         void render(SDL_Renderer* Renderer);
         void loadbild(SDL_Renderer* Renderer, const char *image);
 
