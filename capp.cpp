@@ -101,12 +101,12 @@ int Capp::OnExecute() {
                     {
                         SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
 
-                       /* if(mouse_x>100&&mouse_x<157&&mouse_y>100&&mouse_y<157)
+                        if(mouse_x>button[0]->get_x_position()&&mouse_x<button[0]->get_x_position()+button[0]->get_breite()&&mouse_y>button[0]->get_y_position()&&mouse_y<button[0]->get_x_position()+button[0]->get_hoehe())
                         {
-                            Taster_1=1;
+                            Menu=Spielablauf;
                         }
 
-                        vector_x=x_mouse-DestR.x;             Misst denn winkel des Vectors zwischen Objekt und Maus
+                        /*vector_x=x_mouse-DestR.x;             Misst denn winkel des Vectors zwischen Objekt und Maus
                         vector_y=DestR.y-y_mouse;
                         winkel=(atan2(vector_y, vector_x)*(180/3.14159));
                         if(winkel<0)
@@ -119,10 +119,13 @@ int Capp::OnExecute() {
                         SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
                         if(mouse_x>button[0]->get_x_position()&&mouse_x<button[0]->get_x_position()+button[0]->get_breite()&&mouse_y>button[0]->get_y_position()&&mouse_y<button[0]->get_x_position()+button[0]->get_hoehe())
                         {
-                            Taster_1=1;
-                            button[0]->set_position(1000,500);
+                            Taster_0=1;
                         }
-                        printf("x=%d,y=%d,w=%d,h=%d\n",button[0]->get_x_position(),button[0]->get_y_position(),button[0]->get_breite(),button[0]->get_hoehe());
+                        else
+                        {
+                            Taster_0=0;
+                        }
+                        //printf("x=%d,y=%d,w=%d,h=%d\n",button[0]->get_x_position(),button[0]->get_y_position(),button[0]->get_breite(),button[0]->get_hoehe());
                     }
 
 

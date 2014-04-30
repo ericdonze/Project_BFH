@@ -14,12 +14,12 @@ Button::Button()
     src_test.x = 0;
     src_test.y = 0;
     src_test.w = 400;
-    src_test.h = 400;
+    src_test.h = 130;
 
     dest_test.x = 100;
     dest_test.y = 100;
-    dest_test.w = 100;
-    dest_test.h = 100;
+    dest_test.w = 400;
+    dest_test.h = 130;
 }
 
 Button::Button(int Taster, int xposition, int yposition,SDL_Renderer* Renderer)
@@ -99,7 +99,7 @@ void Button::set_position(int X_Achse,int Y_Achse)
 }
 int Button::get_hoehe(void)
 {
-    return dest_test.w;
+    return dest_test.h;
 }
 int Button::get_breite(void)
 {
