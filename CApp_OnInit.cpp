@@ -14,8 +14,8 @@ bool Capp::OnInit() {
     }
 
     if((Window = SDL_CreateWindow("My SDL Game",    //creation main-window
-     SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-     WindowWidth, WindowHeight, 0)) == NULL) {
+     5, 40,
+     WindowWidth, WindowHeight, SDL_WINDOW_MAXIMIZED)) == NULL) {
         return false;
     }
 
