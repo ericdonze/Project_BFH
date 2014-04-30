@@ -31,8 +31,8 @@ bool Capp::OnInit() {
 
     Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED); //creation renderer
 
-    Stock.push_back(new Entity(Heli,100,100,Renderer));
-    Stock.push_back(new Entity(Small,200,200,Renderer));
+    Stock.push_back(new Entity(Big,100,100,Renderer));
+    Stock.push_back(new Entity(Heli,200,200,Renderer));
     button.push_back(new Button(0,1250,750,Renderer));
     button.push_back(new Button(1,250,750,Renderer));
     button.push_back(new Button(2,1250,750,Renderer));
