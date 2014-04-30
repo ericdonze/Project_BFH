@@ -54,6 +54,7 @@ class Capp
         int mouse_x;
         int mouse_y;
         unsigned char Menu=0;
+        unsigned char Taster_1=0;
         #define Hauptmenu 0
         #define Spielablauf 1
         #define Spielendcard 2

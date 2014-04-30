@@ -14,8 +14,8 @@ bool Capp::OnInit() {
     }
 
     if((Window = SDL_CreateWindow("My SDL Game",    //creation main-window
-     SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-     WindowWidth, WindowHeight, 0)) == NULL) {
+     5, 40,
+     WindowWidth, WindowHeight, SDL_WINDOW_MAXIMIZED)) == NULL) {
         return false;
     }
 
@@ -33,8 +33,8 @@ bool Capp::OnInit() {
 
     Stock.push_back(new Entity(Heli,100,100,Renderer));
     Stock.push_back(new Entity(Heli,200,200,Renderer));
-    button.push_back(new Button(0,0));
-    button.push_back(new Button(0,0));
+    button.push_back(new Button(0,500,500,Renderer));
+    //button.push_back(new Button(0,100,100,Renderer));
 
 	Loading_Surf = IMG_Load("Homescreen.bmp");
 	if( Loading_Surf == NULL )
@@ -85,8 +85,8 @@ bool Capp::OnInit() {
     //Stock[1]->loadbild(Renderer, super2);
     Stock[0]->render(Renderer);
     Stock[1]->render(Renderer);
-    button[0]->render(Renderer);
-    button[1]->render(Renderer);
+    button[0]->render(Renderer,0);
+    //button[1]->render(Renderer,0);
     SDL_RenderPresent(Renderer);
 
 

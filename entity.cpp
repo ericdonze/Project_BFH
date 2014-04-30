@@ -34,6 +34,7 @@ Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi
     new_Posy = 0;
     new_Cap = 4;
     angle = 0;
+    printf("%d", aircraft);
 
 
     src_test.x = 0;
@@ -44,40 +45,42 @@ Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi
     dest_test.x = xposition;
     dest_test.y = yposition;
 
-    if((aircraft = Heli))
+    switch(aircraft)
     {
+        case 2:
         dest_test.w = 20;
         dest_test.h = 20;
-    }
+        break;
 
-    else if((aircraft = Small))
-    {
+        case 0:
         dest_test.w = 30;
         dest_test.h = 30;
-    }
+        break;
 
-    else
-    {
+        default:
         dest_test.w = 50;
         dest_test.h = 50;
+        break;
+
     }
 
 
-
-    if((aircraft = Heli))
+    switch(aircraft)
     {
+        case 2:
         Loading_Surf_Entity = IMG_Load("hughes_20-20.png");
+        break;
+
+        case 0:
+        Loading_Surf_Entity = IMG_Load("Pitts_23-23.png");
+        break;
+
+        default:
+        Loading_Surf_Entity = IMG_Load("Pitts_23-23.png");
+        break;
+
     }
 
-    else if((aircraft = Small))
-    {
-        Loading_Surf_Entity = IMG_Load("Pitts_23-23.png");
-    }
-
-    else
-    {
-        Loading_Surf_Entity = IMG_Load("Pitts_23-23.png");
-    }
 
 
 

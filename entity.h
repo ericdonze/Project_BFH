@@ -12,12 +12,23 @@ using namespace std;
 
 
 
+
      typedef enum
      {
-          Small,
-          Big,
+          Small ,
+          Big ,
           Heli
      }EEntity;
+
+/*
+typedef enum EEntity aircraft;
+enum EEntity
+{
+    Small = 0, Big = 1, Heli = 2
+};
+*/
+
+
 
 
 

@@ -1,5 +1,5 @@
 #include "capp.h"
-
+ double testvar;
 Capp::Capp()//ctor
 {
     Running = true;
@@ -99,10 +99,13 @@ int Capp::OnExecute() {
                     }
                     else if( Event.type == SDL_MOUSEBUTTONDOWN )
                     {
-                        Cap_next2 += 1;
-                        //SDL_GetMouseState( &x_mouse, &y_mouse ); Gibt die Mouseposition heraus
+                        SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
+                       /* if(mouse_x>100&&mouse_x<157&&mouse_y>100&&mouse_y<157)
+                        {
+                            Taster_1=1;
+                        }
 
-                        /*vector_x=x_mouse-DestR.x;             Misst denn winkel des Vectors zwischen Objekt und Maus
+                        vector_x=x_mouse-DestR.x;             Misst denn winkel des Vectors zwischen Objekt und Maus
                         vector_y=DestR.y-y_mouse;
                         winkel=(atan2(vector_y, vector_x)*(180/3.14159));
                         if(winkel<0)
@@ -110,6 +113,13 @@ int Capp::OnExecute() {
                             winkel+=360;
                         }
                         printf("%f/%fwinkel=%f\n",vector_y,vector_x,winkel);*/
+                    }else if( Event.type == SDL_MOUSEMOTION )
+                    {
+                        SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
+                        if(mouse_x>button[0]->get_x_position()&&mouse_x<button[0]->get_x_position()+button[0]->get_breite()&&mouse_y>button[0]->get_y_position()&&mouse_y<button[0]->get_x_position()+button[0]->get_hoehe())
+                        {
+                            Taster_1=1;
+                        }
                     }
 
 
