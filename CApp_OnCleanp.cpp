@@ -2,9 +2,14 @@
 
 void Capp::OnCleanup(){
 
-    if(Background) {
-            SDL_DestroyTexture(Background);
-            Background = NULL;
+    if(Background_1) {
+            SDL_DestroyTexture(Background_1);
+            Background_1 = NULL;
+        }
+
+    if(Background_2) {
+            SDL_DestroyTexture(Background_2);
+            Background_2 = NULL;
         }
 
 

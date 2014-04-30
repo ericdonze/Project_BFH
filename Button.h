@@ -28,7 +28,7 @@ class Button
         void position(int X_Achse,int Y_Achse);
         void render(SDL_Renderer* Renderer);
         void loadbild(SDL_Renderer* Renderer, const char *image);
-
+        char laenge(void);
 
         private:
 

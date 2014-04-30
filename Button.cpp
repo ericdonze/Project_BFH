@@ -30,8 +30,8 @@ Button::Button(int xposition, int yposition)
 
     dest_test.x = xposition;
     dest_test.y = yposition;
-    dest_test.w = 100;
-    dest_test.h = 100;
+    dest_test.w = 20;
+    dest_test.h = 20;
 }
 
 Button::~Button()
@@ -78,6 +78,10 @@ void Button::position(int X_Achse,int Y_Achse)
    dest_test.x=X_Achse;
    dest_test.y=Y_Achse;
 }
+char Button::laenge(void)
+{
+    return dest_test.w;
+}
 
 void Button::render(SDL_Renderer* Renderer)
 {
@@ -96,3 +100,4 @@ void Button::loadbild(SDL_Renderer* Renderer, const char *image)
 
     SDL_FreeSurface(Loading_Surf);
 }
+
