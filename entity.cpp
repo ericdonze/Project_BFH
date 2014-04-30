@@ -141,7 +141,7 @@ void Entity::setdest_test(SDL_Rect truc)
     dest_test = truc;
 }
 
-void Entity::crash()
+bool Entity::crash(SDL_Rect a,SDL_Rect b)
 {
 
 
