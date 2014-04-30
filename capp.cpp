@@ -100,7 +100,7 @@ int Capp::OnExecute() {
                     else if( Event.type == SDL_MOUSEBUTTONDOWN )
                     {
                         SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
-                        if(Menu==Hauptmenu||Menu==Spielendcard)
+                        if(Menu==Hauptmenu)
                         {
                             if(mouse_x>button[0]->get_x_position()&&mouse_x<button[0]->get_x_position()+button[0]->get_breite()&&mouse_y>button[0]->get_y_position()&&mouse_y<button[0]->get_y_position()+button[0]->get_hoehe())
                             {
@@ -110,7 +110,18 @@ int Capp::OnExecute() {
                             {
                                 Running=0;
                             }
+                        }else if(Menu==Spielendcard)
+                        {
+                            if(mouse_x>button[2]->get_x_position()&&mouse_x<button[2]->get_x_position()+button[2]->get_breite()&&mouse_y>button[2]->get_y_position()&&mouse_y<button[2]->get_y_position()+button[2]->get_hoehe())
+                            {
+                                Menu=Hauptmenu;
+                            }
+                            if(mouse_x>button[3]->get_x_position()&&mouse_x<button[3]->get_x_position()+button[3]->get_breite()&&mouse_y>button[3]->get_y_position()&&mouse_y<button[3]->get_y_position()+button[3]->get_hoehe())
+                            {
+                                Menu=Spielablauf;
+                            }
                         }
+
                         /*vector_x=x_mouse-DestR.x;             Misst denn winkel des Vectors zwischen Objekt und Maus
                         vector_y=DestR.y-y_mouse;
                         winkel=(atan2(vector_y, vector_x)*(180/3.14159));
@@ -139,6 +150,22 @@ int Capp::OnExecute() {
                             else
                             {
                                 Taster_1=0;
+                            }
+                            if(mouse_x>button[2]->get_x_position()&&mouse_x<button[2]->get_x_position()+button[2]->get_breite()&&mouse_y>button[2]->get_y_position()&&mouse_y<button[2]->get_y_position()+button[2]->get_hoehe())
+                            {
+                                Taster_2=1;
+                            }
+                            else
+                            {
+                                Taster_2=0;
+                            }
+                            if(mouse_x>button[3]->get_x_position()&&mouse_x<button[3]->get_x_position()+button[3]->get_breite()&&mouse_y>button[3]->get_y_position()&&mouse_y<button[3]->get_y_position()+button[3]->get_hoehe())
+                            {
+                                Taster_3=1;
+                            }
+                            else
+                            {
+                                Taster_3=0;
                             }
                         }
                         printf("x=%d,y=%d,w=%d,h=%d\n",button[0]->get_x_position(),button[0]->get_y_position(),button[0]->get_breite(),button[0]->get_hoehe());

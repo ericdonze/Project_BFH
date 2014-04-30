@@ -35,6 +35,8 @@ bool Capp::OnInit() {
     Stock.push_back(new Entity(Small,200,200,Renderer));
     button.push_back(new Button(0,1250,750,Renderer));
     button.push_back(new Button(1,250,750,Renderer));
+    button.push_back(new Button(2,1250,750,Renderer));
+    button.push_back(new Button(3,750,750,Renderer));
 
 
     Loading_Surf = IMG_Load("Spielendcard.png");
@@ -107,6 +109,8 @@ bool Capp::OnInit() {
     Stock[1]->render(Renderer);
     button[0]->render(Renderer,0);
     button[1]->render(Renderer,0);
+    button[2]->render(Renderer,0);
+    button[3]->render(Renderer,0);
     SDL_RenderPresent(Renderer);
 
 
