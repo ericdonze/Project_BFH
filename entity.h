@@ -50,6 +50,7 @@ class Entity
         void setdest_test(SDL_Rect truc);
 
         void fly(int cap);
+        void crash();
         void render(SDL_Renderer* Renderer);
         void loadbild(SDL_Renderer* Renderer, const char *image);
 
