@@ -58,6 +58,8 @@ class Capp
         unsigned char Menu=0;
         unsigned char Taster_0=0;
         unsigned char Taster_1=0;
+        unsigned char Taster_2=0;
+        unsigned char Taster_3=0;
         #define Hauptmenu 0
         #define Spielablauf 1
         #define Spielendcard 2
