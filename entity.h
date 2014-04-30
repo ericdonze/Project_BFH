@@ -15,22 +15,10 @@ using namespace std;
 
      typedef enum
      {
-          Small ,
-          Big ,
-          Heli
+          Small = 0,
+          Big = 1 ,
+          Heli = 2
      }EEntity;
-
-/*
-typedef enum EEntity aircraft;
-enum EEntity
-{
-    Small = 0, Big = 1, Heli = 2
-};
-*/
-
-
-
-
 
 class Entity
 {
@@ -50,6 +38,7 @@ class Entity
         void setdest_test(SDL_Rect truc);
 
         void fly(int cap);
+        void crash();
         void render(SDL_Renderer* Renderer);
         void loadbild(SDL_Renderer* Renderer, const char *image);
 

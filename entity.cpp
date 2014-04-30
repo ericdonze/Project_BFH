@@ -141,6 +141,11 @@ void Entity::setdest_test(SDL_Rect truc)
     dest_test = truc;
 }
 
+void Entity::crash()
+{
+
+
+}
 void Entity::fly(int cap)
 {
 
@@ -265,6 +270,10 @@ void Entity::fly(int cap)
 
         angle = cap;
         dest_test.x += cos( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
+        if ((dest_test.x <0) || (dest_test.x>1900))
+        {
+            dest_test.x -=dest_test.x;
+        }
         dest_test.y += sin( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
 
 }
