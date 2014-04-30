@@ -33,10 +33,10 @@ bool Capp::OnInit() {
 
     Stock.push_back(new Entity(Heli,100,100,Renderer));
     Stock.push_back(new Entity(Small,200,200,Renderer));
-    button.push_back(new Button(0,500,500,Renderer));
-    button.push_back(new Button(0,100,100,Renderer));
+    button.push_back(new Button(0,1250,750,Renderer));
+    button.push_back(new Button(1,250,750,Renderer));
 
-	Loading_Surf = IMG_Load("Homescreen.bmp");
+	Loading_Surf = IMG_Load("Startbildschirm.png");
 	if( Loading_Surf == NULL )
 	{
 		printf( "Unable to load image %s! SDL_image Error: %s\n", "Spielfeld.png", IMG_GetError() );
