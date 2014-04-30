@@ -53,41 +53,41 @@ int Capp::OnExecute() {
 						{
 
 							case SDLK_a:
-							Cap_next1 += 1;
+							Cap_next1 -= 4;
 							break;
 
 							case SDLK_d:
-							Cap_next1 -= 1;
+							Cap_next1 += 4;
 							break;
 
 							case SDLK_LEFT:
-							Cap_next2 += 1;
+							Cap_next2 -= 4;
 							break;
 
 							case SDLK_RIGHT:
-							Cap_next2 -= 1;
+							Cap_next2 += 4;
 							break;
 
 							break;
 
                         }
 
-                        if(Cap_next1 < 0)                //keep Cap_next between 0 and 15
+                        if(Cap_next1 < 1)                //keep Cap_next between 0 and 15
                                 {
-                                    Cap_next1 += 16;
+                                    Cap_next1 += 359;
                                 }
-                                else if(Cap_next1 > 15)
+                                else if(Cap_next1 > 359)
                                 {
-                                    Cap_next1 -=16;
+                                    Cap_next1 -=360;
                                 }
 
-                                if(Cap_next2 < 0)                //keep Cap_next between 0 and 15
+                                if(Cap_next2 < 1)                //keep Cap_next between 0 and 15
                                 {
-                                    Cap_next2 += 16;
+                                    Cap_next2 += 359;
                                 }
-                                else if(Cap_next2 > 15)
+                                else if(Cap_next2 > 359)
                                 {
-                                    Cap_next2 -=16;
+                                    Cap_next2 -=360;
                                 }
 
                     }
@@ -114,7 +114,7 @@ int Capp::OnExecute() {
 
         OnLoop();       //all calcul
         OnRender();     //all draw
-        SDL_Delay(50);  //wait
+        SDL_Delay(30);  //wait
 
 }
 
@@ -129,6 +129,13 @@ int Capp::OnExecute() {
 
     return 0;
 }
+
+SDL_Renderer* Capp::get_Renderer()
+{
+    return Renderer;
+}
+
+
 
 int main(int argc, char* argv[]) {
 

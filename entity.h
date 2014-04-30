@@ -3,6 +3,7 @@
 
 
 #include <SDL.h>
+#include <SDL_image.h>
 
 
 #include <iostream>
@@ -10,11 +11,21 @@
 using namespace std;
 
 
+
+     typedef enum
+     {
+          Small,
+          Big,
+          Heli
+     }EEntity;
+
+
+
 class Entity
 {
     public:
         Entity();
-        Entity(int xposition, int yposition);
+        Entity(EEntity aircraft,int xposition, int yposition, SDL_Renderer* moi);
         virtual ~Entity();
     public:
 
@@ -35,12 +46,14 @@ class Entity
     private:
 
         SDL_Texture* Bild = NULL;
+        SDL_Surface* Loading_Surf_Entity = NULL;
         SDL_Rect dest_test;
         SDL_Rect src_test;
 
         int new_Posx;
         int new_Posy;
         int new_Cap;
+        double angle;
 };
 
 #endif // ENTITY_H
