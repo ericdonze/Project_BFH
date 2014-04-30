@@ -272,10 +272,13 @@ void Entity::fly(int cap)
         dest_test.x += cos( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
         if ((dest_test.x <0) || (dest_test.x>1900))
         {
-            dest_test.x -=dest_test.x;
+            dest_test.x -= cos( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
         }
         dest_test.y += sin( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
-
+        if ((dest_test.y <0) || (dest_test.y>1035))
+        {
+            dest_test.y -= sin( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
+        }
 }
 
 void Entity::render(SDL_Renderer* Renderer)
