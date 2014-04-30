@@ -55,38 +55,48 @@
 	<string.h>
 	<stdio.h>
 
-1398245955 source:c:\users\public\documents\airportsimulator\capp.cpp
+1398841151 source:c:\users\public\documents\airportsimulator\capp.cpp
 	"capp.h"
 
-1398245130 c:\users\public\documents\airportsimulator\capp.h
+1398839938 c:\users\public\documents\airportsimulator\capp.h
 	<SDL.h>
 	"entity.h"
+	"button.h"
 	<vector>
 
-1398244615 c:\users\public\documents\airportsimulator\entity.h
+1398839938 c:\users\public\documents\airportsimulator\entity.h
 	<SDL.h>
+	<SDL_image.h>
 	<iostream>
 	<string>
 
-1398244615 source:c:\users\public\documents\airportsimulator\capp_oncleanp.cpp
+1398839938 source:c:\users\public\documents\airportsimulator\capp_oncleanp.cpp
 	"Capp.h"
+	<SDL_image.h>
 
 1398244615 source:c:\users\public\documents\airportsimulator\capp_onevent.cpp
 	"Capp.h"
 
-1398245015 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
+1398841070 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
+	"Capp.h"
+	<SDL.h>
+	<SDL_image.h>
+	<stdio.h>
+
+1398510027 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
 	"Capp.h"
 
-1398244615 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
+1398840752 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
 	"Capp.h"
 
-1398244615 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
-	"Capp.h"
-
-1398244615 source:c:\users\public\documents\airportsimulator\entity.cpp
+1398839938 source:c:\users\public\documents\airportsimulator\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
+	<SDL.h>
+	<SDL_image.h>
+	"math.h"
+	"capp.h"
 
 1398784649 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
 	"capp.h"
@@ -129,4 +139,14 @@
 	<SDL_image.h>
 	"math.h"
 	"capp.h"
+
+1398839718 source:c:\users\public\documents\airportsimulator\button.cpp
+	"button.h"
+	<string.h>
+	<stdio.h>
+
+1398525161 c:\users\public\documents\airportsimulator\button.h
+	<SDL.h>
+	<iostream>
+	<string>
 

@@ -51,6 +51,12 @@ int Capp::OnExecute() {
                 {
 						switch( Event.key.keysym.sym )// which key
 						{
+						    case SDLK_p:
+                                Menu=Spielablauf;
+						    break;
+                            case SDLK_ESCAPE:
+                                Running=0;
+						    break;
 
 							case SDLK_a:
 							Cap_next1 -= 4;
@@ -110,10 +116,20 @@ int Capp::OnExecute() {
 
         }
 
+        switch (Menu)
+        {
+        case Hauptmenu:
+            OnRender_2();
+            break;
+        case Spielablauf:
+            OnLoop();       //all calcul
+            OnRender_1();     //all draw
+            break;
+        case Spielendcard:
+            break;
+        }
 
 
-        OnLoop();       //all calcul
-        OnRender();     //all draw
         SDL_Delay(30);  //wait
 
 }
