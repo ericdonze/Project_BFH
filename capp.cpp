@@ -1,5 +1,5 @@
 #include "capp.h"
- double testvar;
+
 Capp::Capp()//ctor
 {
     Running = true;
@@ -21,6 +21,10 @@ Capp::Capp()//ctor
     dest->w = 100;
     dest->h = 100;
 
+    textColor.r=255;textColor.g=255;textColor.b=255;
+    message = NULL;
+    font = NULL;
+    text=NULL;
 }
 
 Capp::~Capp()

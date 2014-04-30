@@ -95,7 +95,10 @@ bool Capp::OnInit() {
 		//Get rid of old loaded surface
 		SDL_FreeSurface(Loading_Surf);
 	}
-
+ /*   if( TTF_Init() == -1 )
+    {
+        return false;
+    }*/
 
 
 
