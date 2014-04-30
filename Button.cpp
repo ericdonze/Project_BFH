@@ -1,6 +1,10 @@
 #include "button.h"
 #include <string.h>
 #include <stdio.h>
+#include <SDL.h>
+#include <SDL_image.h>
+#include "math.h"
+#include "capp.h"
 
 Button::Button()
 {
@@ -18,10 +22,9 @@ Button::Button()
     dest_test.h = 100;
 }
 
-Button::Button(int xposition, int yposition)
+Button::Button(int Taster, int xposition, int yposition,SDL_Renderer* Renderer)
 {
     //ctor
-
 
     src_test.x = 0;
     src_test.y = 0;
@@ -32,6 +35,22 @@ Button::Button(int xposition, int yposition)
     dest_test.y = yposition;
     dest_test.w = 20;
     dest_test.h = 20;
+    switch (Taster)
+    {
+        case 0:
+
+            Loading_Surf = IMG_Load("button_ungedrueckt.png");//IMG_Load("button_gedrückt.png")
+            Taste_ungedrueckt = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+            SDL_QueryTexture(Taste_ungedrueckt, NULL, NULL, &dest_test.w, &dest_test.h);
+            SDL_FreeSurface(Loading_Surf);
+
+
+            Loading_Surf = IMG_Load("button_gedrueckt.png");
+            Taste_gedrueckt = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+            SDL_QueryTexture(Taste_gedrueckt, NULL, NULL, &dest_test.w, &dest_test.h);
+            SDL_FreeSurface(Loading_Surf);
+        break;
+    }
 }
 
 Button::~Button()
@@ -43,13 +62,13 @@ Button::~Button()
 
 SDL_Texture* Button::getBild()
 {
-    return Bild;
+    return Taste_ungedrueckt;
 }
 
 void Button::setBild(SDL_Texture* truc)
 {
 
-    Bild = truc;
+    Taste_ungedrueckt = truc;
 }
 
 SDL_Rect Button::getsrc_test()
@@ -73,31 +92,39 @@ void Button::setdest_test(SDL_Rect truc)
     dest_test = truc;
 }
 
-void Button::position(int X_Achse,int Y_Achse)
+void Button::set_position(int X_Achse,int Y_Achse)
 {
    dest_test.x=X_Achse;
    dest_test.y=Y_Achse;
 }
-char Button::laenge(void)
+char Button::get_hoehe(void)
 {
-    return dest_test.w;
+    return src_test.h;
+}
+char Button::get_breite(void)
+{
+    return src_test.w;
+}
+char Button::get_x_position(void)
+{
+    return dest_test.x;
+}
+char Button::get_y_position(void)
+{
+    return dest_test.y;
 }
 
-void Button::render(SDL_Renderer* Renderer)
+void Button::render(SDL_Renderer* Renderer,char Taster)
 {
-    SDL_RenderCopy(Renderer, Bild, &src_test, &dest_test);  //
+    if(Taster==0)
+    {
+        SDL_RenderCopy(Renderer, Taste_ungedrueckt, &src_test, &dest_test);  //
+    }
+    else
+    {
+        SDL_RenderCopy(Renderer, Taste_gedrueckt, &src_test, &dest_test);
+    }
+
 }
 
-void Button::loadbild(SDL_Renderer* Renderer, const char *image)
-{
-    SDL_Surface* Loading_Surf = NULL;
-
-    Loading_Surf = SDL_LoadBMP(image);
-
-    Bild = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
-
-    SDL_QueryTexture(Bild, NULL, NULL, &dest_test.w, &dest_test.h);
-
-    SDL_FreeSurface(Loading_Surf);
-}
 
