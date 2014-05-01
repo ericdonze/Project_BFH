@@ -1,5 +1,5 @@
 #include "capp.h"
- double testvar;
+
 Capp::Capp()//ctor
 {
     Running = true;
@@ -21,6 +21,10 @@ Capp::Capp()//ctor
     dest->w = 100;
     dest->h = 100;
 
+    textColor.r=255;textColor.g=255;textColor.b=255;
+    message = NULL;
+    font = NULL;
+    text=NULL;
 }
 
 Capp::~Capp()
@@ -52,7 +56,7 @@ int Capp::OnExecute() {
 						switch( Event.key.keysym.sym )// which key
 						{
 						    case SDLK_p:
-                                Menu=Spielablauf;
+                                Menu=Spielendcard;
 						    break;
                             case SDLK_ESCAPE:
                                 Running=0;
@@ -100,10 +104,26 @@ int Capp::OnExecute() {
                     else if( Event.type == SDL_MOUSEBUTTONDOWN )
                     {
                         SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
-
-                        if(mouse_x>button[0]->get_x_position()&&mouse_x<button[0]->get_x_position()+button[0]->get_breite()&&mouse_y>button[0]->get_y_position()&&mouse_y<button[0]->get_x_position()+button[0]->get_hoehe())
+                        if(Menu==Hauptmenu)
                         {
-                            Menu=Spielablauf;
+                            if(mouse_x>button[0]->get_x_position()&&mouse_x<button[0]->get_x_position()+button[0]->get_breite()&&mouse_y>button[0]->get_y_position()&&mouse_y<button[0]->get_y_position()+button[0]->get_hoehe())
+                            {
+                                Menu=Spielablauf;
+                            }
+                            if(mouse_x>button[1]->get_x_position()&&mouse_x<button[1]->get_x_position()+button[1]->get_breite()&&mouse_y>button[1]->get_y_position()&&mouse_y<button[1]->get_y_position()+button[1]->get_hoehe())
+                            {
+                                Running=0;
+                            }
+                        }else if(Menu==Spielendcard)
+                        {
+                            if(mouse_x>button[2]->get_x_position()&&mouse_x<button[2]->get_x_position()+button[2]->get_breite()&&mouse_y>button[2]->get_y_position()&&mouse_y<button[2]->get_y_position()+button[2]->get_hoehe())
+                            {
+                                Menu=Hauptmenu;
+                            }
+                            if(mouse_x>button[3]->get_x_position()&&mouse_x<button[3]->get_x_position()+button[3]->get_breite()&&mouse_y>button[3]->get_y_position()&&mouse_y<button[3]->get_y_position()+button[3]->get_hoehe())
+                            {
+                                Menu=Spielablauf;
+                            }
                         }
 
                         /*vector_x=x_mouse-DestR.x;             Misst denn winkel des Vectors zwischen Objekt und Maus
@@ -117,15 +137,42 @@ int Capp::OnExecute() {
                     }else if( Event.type == SDL_MOUSEMOTION )
                     {
                         SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
-                        if(mouse_x>button[0]->get_x_position()&&mouse_x<button[0]->get_x_position()+button[0]->get_breite()&&mouse_y>button[0]->get_y_position()&&mouse_y<button[0]->get_x_position()+button[0]->get_hoehe())
+                        if(Menu==Hauptmenu||Menu==Spielendcard)
                         {
-                            Taster_0=1;
+                            if(mouse_x>button[0]->get_x_position()&&mouse_x<button[0]->get_x_position()+button[0]->get_breite()&&mouse_y>button[0]->get_y_position()&&mouse_y<button[0]->get_y_position()+button[0]->get_hoehe())
+                            {
+                                Taster_0=1;
+                            }
+                            else
+                            {
+                                Taster_0=0;
+                            }
+                            if(mouse_x>button[1]->get_x_position()&&mouse_x<button[1]->get_x_position()+button[1]->get_breite()&&mouse_y>button[1]->get_y_position()&&mouse_y<button[1]->get_y_position()+button[1]->get_hoehe())
+                            {
+                                Taster_1=1;
+                            }
+                            else
+                            {
+                                Taster_1=0;
+                            }
+                            if(mouse_x>button[2]->get_x_position()&&mouse_x<button[2]->get_x_position()+button[2]->get_breite()&&mouse_y>button[2]->get_y_position()&&mouse_y<button[2]->get_y_position()+button[2]->get_hoehe())
+                            {
+                                Taster_2=1;
+                            }
+                            else
+                            {
+                                Taster_2=0;
+                            }
+                            if(mouse_x>button[3]->get_x_position()&&mouse_x<button[3]->get_x_position()+button[3]->get_breite()&&mouse_y>button[3]->get_y_position()&&mouse_y<button[3]->get_y_position()+button[3]->get_hoehe())
+                            {
+                                Taster_3=1;
+                            }
+                            else
+                            {
+                                Taster_3=0;
+                            }
                         }
-                        else
-                        {
-                            Taster_0=0;
-                        }
-                        //printf("x=%d,y=%d,w=%d,h=%d\n",button[0]->get_x_position(),button[0]->get_y_position(),button[0]->get_breite(),button[0]->get_hoehe());
+                        printf("x=%d,y=%d,w=%d,h=%d\n",button[0]->get_x_position(),button[0]->get_y_position(),button[0]->get_breite(),button[0]->get_hoehe());
                     }
 
 
@@ -142,6 +189,7 @@ int Capp::OnExecute() {
             OnRender_1();     //all draw
             break;
         case Spielendcard:
+            OnRender_3();
             break;
         }
 

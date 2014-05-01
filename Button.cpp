@@ -39,13 +39,49 @@ Button::Button(int Taster, int xposition, int yposition,SDL_Renderer* Renderer)
     {
         case 0:
 
-            Loading_Surf = IMG_Load("button_ungedrueckt.png");//IMG_Load("button_gedrückt.png")
+            Loading_Surf = IMG_Load("button_ungedrueckt_1.png");//IMG_Load("button_gedrückt.png")
             Taste_ungedrueckt = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
             SDL_QueryTexture(Taste_ungedrueckt, NULL, NULL, &dest_test.w, &dest_test.h);
             SDL_FreeSurface(Loading_Surf);
 
 
-            Loading_Surf = IMG_Load("button_gedrueckt.png");
+            Loading_Surf = IMG_Load("button_gedrueckt_1.png");
+            Taste_gedrueckt = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+            SDL_QueryTexture(Taste_gedrueckt, NULL, NULL, &dest_test.w, &dest_test.h);
+            SDL_FreeSurface(Loading_Surf);
+        break;
+        case 1:
+            Loading_Surf = IMG_Load("button_ungedrueckt_2.png");//IMG_Load("button_gedrückt.png")
+            Taste_ungedrueckt = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+            SDL_QueryTexture(Taste_ungedrueckt, NULL, NULL, &dest_test.w, &dest_test.h);
+            SDL_FreeSurface(Loading_Surf);
+
+
+            Loading_Surf = IMG_Load("button_gedrueckt_2.png");
+            Taste_gedrueckt = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+            SDL_QueryTexture(Taste_gedrueckt, NULL, NULL, &dest_test.w, &dest_test.h);
+            SDL_FreeSurface(Loading_Surf);
+        break;
+        case 2:
+            Loading_Surf = IMG_Load("button_ungedrueckt_3.png");//IMG_Load("button_gedrückt.png")
+            Taste_ungedrueckt = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+            SDL_QueryTexture(Taste_ungedrueckt, NULL, NULL, &dest_test.w, &dest_test.h);
+            SDL_FreeSurface(Loading_Surf);
+
+
+            Loading_Surf = IMG_Load("button_gedrueckt_3.png");
+            Taste_gedrueckt = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+            SDL_QueryTexture(Taste_gedrueckt, NULL, NULL, &dest_test.w, &dest_test.h);
+            SDL_FreeSurface(Loading_Surf);
+        break;
+        case 3:
+            Loading_Surf = IMG_Load("button_ungedrueckt_4.png");//IMG_Load("button_gedrückt.png")
+            Taste_ungedrueckt = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+            SDL_QueryTexture(Taste_ungedrueckt, NULL, NULL, &dest_test.w, &dest_test.h);
+            SDL_FreeSurface(Loading_Surf);
+
+
+            Loading_Surf = IMG_Load("button_gedrueckt_4.png");
             Taste_gedrueckt = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
             SDL_QueryTexture(Taste_gedrueckt, NULL, NULL, &dest_test.w, &dest_test.h);
             SDL_FreeSurface(Loading_Surf);

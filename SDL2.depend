@@ -55,16 +55,18 @@
 	<string.h>
 	<stdio.h>
 
-1398854567 source:c:\users\public\documents\airportsimulator\capp.cpp
+1398866504 source:c:\users\public\documents\airportsimulator\capp.cpp
 	"capp.h"
 
-1398854396 c:\users\public\documents\airportsimulator\capp.h
+1398889421 c:\users\public\documents\airportsimulator\capp.h
 	<SDL.h>
+	<SDL_ttf.h>
+	<string.h>
 	"entity.h"
 	"button.h"
 	<vector>
 
-1398851539 c:\users\public\documents\airportsimulator\entity.h
+1398866927 c:\users\public\documents\airportsimulator\entity.h
 	<SDL.h>
 	<SDL_image.h>
 	<iostream>
@@ -77,19 +79,20 @@
 1398244615 source:c:\users\public\documents\airportsimulator\capp_onevent.cpp
 	"Capp.h"
 
-1398851539 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
+1398888803 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
 	"Capp.h"
 	<SDL.h>
+	<SDL_ttf.h>
 	<SDL_image.h>
 	<stdio.h>
 
 1398510027 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
 	"Capp.h"
 
-1398854369 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
+1398888803 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
 	"Capp.h"
 
-1398851539 source:c:\users\public\documents\airportsimulator\entity.cpp
+1398866927 source:c:\users\public\documents\airportsimulator\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
@@ -141,7 +144,7 @@
 	"math.h"
 	"capp.h"
 
-1398854599 source:c:\users\public\documents\airportsimulator\button.cpp
+1398861073 source:c:\users\public\documents\airportsimulator\button.cpp
 	"button.h"
 	<string.h>
 	<stdio.h>
@@ -157,7 +160,7 @@
 	<iostream>
 	<string>
 
-1398850227 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\button.cpp
+1398861995 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\button.cpp
 	"button.h"
 	<string.h>
 	<stdio.h>
@@ -166,26 +169,26 @@
 	"math.h"
 	"capp.h"
 
-1398850227 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\button.h
+1398861008 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\button.h
 	<SDL.h>
 	<SDL_image.h>
 	<stdio.h>
 	<iostream>
 	<string>
 
-1398850227 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.h
+1398861995 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.h
 	<SDL.h>
 	"entity.h"
 	"button.h"
 	<vector>
 
-1398850627 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.h
+1398865410 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.h
 	<SDL.h>
 	<SDL_image.h>
 	<iostream>
 	<string>
 
-1398850227 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.cpp
+1398861995 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.cpp
 	"capp.h"
 
 1398840557 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oncleanp.cpp
@@ -195,7 +198,7 @@
 1398244728 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onevent.cpp
 	"Capp.h"
 
-1398850227 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oninit.cpp
+1398861995 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oninit.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_image.h>
@@ -204,10 +207,10 @@
 1398840557 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onloop.cpp
 	"Capp.h"
 
-1398850227 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onrender.cpp
+1398861995 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onrender.cpp
 	"Capp.h"
 
-1398851309 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.cpp
+1398863608 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>

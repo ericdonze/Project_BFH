@@ -1,5 +1,6 @@
 #include "Capp.h"
 #include <SDL.h>
+#include <SDL_ttf.h>
 #include <SDL_image.h>
 #include <stdio.h>
 
@@ -31,15 +32,37 @@ bool Capp::OnInit() {
 
     Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED); //creation renderer
 
-    Stock.push_back(new Entity(Heli,100,100,Renderer));
-    Stock.push_back(new Entity(Small,200,200,Renderer));
-    button.push_back(new Button(0,500,500,Renderer));
-    button.push_back(new Button(0,100,100,Renderer));
+    Stock.push_back(new Entity(Big,100,100,Renderer));
+    Stock.push_back(new Entity(Heli,200,200,Renderer));
+    button.push_back(new Button(0,1250,750,Renderer));
+    button.push_back(new Button(1,250,750,Renderer));
+    button.push_back(new Button(2,1250,750,Renderer));
+    button.push_back(new Button(3,750,750,Renderer));
 
-	Loading_Surf = IMG_Load("Homescreen.bmp");
+
+    Loading_Surf = IMG_Load("Spielendcard.png");
 	if( Loading_Surf == NULL )
 	{
-		printf( "Unable to load image %s! SDL_image Error: %s\n", "Spielfeld.png", IMG_GetError() );
+		printf( "Unable to load image %s! SDL_image Error: %s\n", "Spielendcard.png", IMG_GetError() );
+	}
+	else
+	{
+		//Create texture from surface pixels
+        Background_3 = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+		if( Background_3 == NULL )
+		{
+			printf( "Unable to create texture from %s! SDL Error: %s\n", "Spielendcard.png", SDL_GetError() );
+		}
+
+		//Get rid of old loaded surface
+		SDL_FreeSurface(Loading_Surf);
+	}
+
+
+	Loading_Surf = IMG_Load("Startbildschirm.png");
+	if( Loading_Surf == NULL )
+	{
+		printf( "Unable to load image %s! SDL_image Error: %s\n", "Startbildschirm.png", IMG_GetError() );
 	}
 	else
 	{
@@ -47,7 +70,7 @@ bool Capp::OnInit() {
         Background_2 = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
 		if( Background_2 == NULL )
 		{
-			printf( "Unable to create texture from %s! SDL Error: %s\n", "Spielfeld.png", SDL_GetError() );
+			printf( "Unable to create texture from %s! SDL Error: %s\n", "Startbildschirm.png", SDL_GetError() );
 		}
 
 		//Get rid of old loaded surface
@@ -72,7 +95,24 @@ bool Capp::OnInit() {
 
 		//Get rid of old loaded surface
 		SDL_FreeSurface(Loading_Surf);
-	}
+    }
+    if( TTF_Init() == -1 )
+    {
+        return false;
+    }
+
+    font = TTF_OpenFont( "Tahoma.ttf", 30 );
+    if( font == NULL )
+    {
+        printf( "Unable to create texture from %s! SDL Error: %s\n", "Tahoma.ttf", SDL_GetError() );
+    }
+    data="Infos über das Flugzeug";
+    std::cout<<data<<std::endl;
+    message = TTF_RenderText_Solid( font, data.c_str(), textColor );
+    text = SDL_CreateTextureFromSurface(Renderer,message);
+    SDL_QueryTexture(text, NULL, NULL, &w, &h);
+    textRect.x=1500;textRect.y=100;textRect.w=w;textRect.h=h;
+
 
 
 
@@ -87,6 +127,9 @@ bool Capp::OnInit() {
     Stock[1]->render(Renderer);
     button[0]->render(Renderer,0);
     button[1]->render(Renderer,0);
+    button[2]->render(Renderer,0);
+    button[3]->render(Renderer,0);
+    SDL_RenderCopy(Renderer, text, NULL, &textRect);
     SDL_RenderPresent(Renderer);
 
 

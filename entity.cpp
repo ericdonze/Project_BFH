@@ -48,8 +48,8 @@ Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi
     switch(aircraft)
     {
         case 2:
-        dest_test.w = 20;
-        dest_test.h = 20;
+        dest_test.w = 25;
+        dest_test.h = 25;
         break;
 
         case 0:
@@ -58,8 +58,8 @@ Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi
         break;
 
         default:
-        dest_test.w = 50;
-        dest_test.h = 50;
+        dest_test.w = 40;
+        dest_test.h = 40;
         break;
 
     }
@@ -68,7 +68,7 @@ Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi
     switch(aircraft)
     {
         case 2:
-        Loading_Surf_Entity = IMG_Load("hughes_20-20.png");
+        Loading_Surf_Entity = IMG_Load("hughes_25-25.png");
         break;
 
         case 0:
@@ -76,7 +76,7 @@ Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi
         break;
 
         default:
-        Loading_Surf_Entity = IMG_Load("Pitts_23-23.png");
+        Loading_Surf_Entity = IMG_Load("A380_30-30.png");
         break;
 
     }
@@ -141,7 +141,7 @@ void Entity::setdest_test(SDL_Rect truc)
     dest_test = truc;
 }
 
-void Entity::crash()
+bool Entity::crash(SDL_Rect a,SDL_Rect b)
 {
 
 
@@ -272,10 +272,13 @@ void Entity::fly(int cap)
         dest_test.x += cos( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
         if ((dest_test.x <0) || (dest_test.x>1900))
         {
-            dest_test.x -=dest_test.x;
+            dest_test.x -= cos( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
         }
         dest_test.y += sin( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
-
+        if ((dest_test.y <0) || (dest_test.y>1035))
+        {
+            dest_test.y -= sin( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
+        }
 }
 
 void Entity::render(SDL_Renderer* Renderer)
