@@ -168,7 +168,7 @@ int Capp::OnExecute() {
                                 Taster_3=0;
                             }
                         }
-                        printf("x=%d,y=%d,w=%d,h=%d\n",button[0]->get_x_position(),button[0]->get_y_position(),button[0]->get_breite(),button[0]->get_hoehe());
+                        //dprintf("x=%d,y=%d,w=%d,h=%d\n",button[0]->get_x_position(),button[0]->get_y_position(),button[0]->get_breite(),button[0]->get_hoehe());
                     }
 
 
