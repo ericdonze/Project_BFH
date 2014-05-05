@@ -2,7 +2,8 @@
 #define CAPP_H
 
 #include <SDL.h>
-
+#include <SDL_ttf.h>
+#include <string.h>
 #include "entity.h"
 #include "button.h"
 #include <vector>
@@ -45,16 +46,24 @@ class Capp
         SDL_Texture* Background_1 = NULL;
         SDL_Texture* Background_2 = NULL;
         SDL_Texture* Background_3 = NULL;
+        SDL_Texture* text=NULL;
+        SDL_Color textColor;
+        SDL_Rect textRect;
+        TTF_Font *font;
+
+        SDL_Surface *message;
         SDL_Texture* Avion = NULL;
         SDL_Rect* dest = NULL;
         SDL_Rect* src = NULL;
         std::vector<Entity*> Stock;
         std::vector<Button*> button;
+        std::string data;
         static const int WindowWidth = 2000;
         static const int WindowHeight = 900;
         unsigned int frameLimit = SDL_GetTicks() + 16;
         int mouse_x;
         int mouse_y;
+        int w=0,h=0;
         unsigned char Menu=0;
         unsigned char Taster_0=0;
         unsigned char Taster_1=0;

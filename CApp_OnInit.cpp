@@ -1,5 +1,6 @@
 #include "Capp.h"
 #include <SDL.h>
+#include <SDL_ttf.h>
 #include <SDL_image.h>
 #include <stdio.h>
 
@@ -94,7 +95,24 @@ bool Capp::OnInit() {
 
 		//Get rid of old loaded surface
 		SDL_FreeSurface(Loading_Surf);
-	}
+    }
+    if( TTF_Init() == -1 )
+    {
+        return false;
+    }
+
+    font = TTF_OpenFont( "Tahoma.ttf", 30 );
+    if( font == NULL )
+    {
+        printf( "Unable to create texture from %s! SDL Error: %s\n", "Tahoma.ttf", SDL_GetError() );
+    }
+    data="Infos über das Flugzeug";
+    std::cout<<data<<std::endl;
+    message = TTF_RenderText_Solid( font, data.c_str(), textColor );
+    text = SDL_CreateTextureFromSurface(Renderer,message);
+    SDL_QueryTexture(text, NULL, NULL, &w, &h);
+    textRect.x=1500;textRect.y=100;textRect.w=w;textRect.h=h;
+
 
 
 
@@ -111,6 +129,7 @@ bool Capp::OnInit() {
     button[1]->render(Renderer,0);
     button[2]->render(Renderer,0);
     button[3]->render(Renderer,0);
+    SDL_RenderCopy(Renderer, text, NULL, &textRect);
     SDL_RenderPresent(Renderer);
 
 
