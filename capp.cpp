@@ -1,5 +1,6 @@
 #include "capp.h"
 
+
 Capp::Capp()//ctor
 {
     Running = true;
@@ -193,7 +194,7 @@ int Capp::OnExecute() {
             break;
         }
 
-
+        Test_Box(Renderer);
         SDL_Delay(30);  //wait
 
 }
@@ -213,6 +214,14 @@ int Capp::OnExecute() {
 SDL_Renderer* Capp::get_Renderer()
 {
     return Renderer;
+}
+
+void Capp::Test_Box(SDL_Renderer* box)
+{
+
+
+
+//    boxRGBA(box, 100, 100, 200, 200, 150, 150, 150, 150);
 }
 
 
