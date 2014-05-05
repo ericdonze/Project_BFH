@@ -5,7 +5,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-
+#include <vector>
 #include <iostream>
 #include <string>
 using namespace std;
@@ -37,7 +37,7 @@ class Entity
         SDL_Rect getdest_test();
         void setdest_test(SDL_Rect truc);
         void fly(int cap);
-        bool crash(SDL_Rect a, SDL_Rect b);
+        bool crash(std::vector<Entity*> Stock);
         void render(SDL_Renderer* Renderer);
         void loadbild(SDL_Renderer* Renderer, const char *image);
 

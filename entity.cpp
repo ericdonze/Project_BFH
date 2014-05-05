@@ -142,10 +142,16 @@ void Entity::setdest_test(SDL_Rect truc)
     dest_test = truc;
 }
 
-bool Entity::crash(SDL_Rect a,SDL_Rect b)
+bool Entity::crash(std::vector<Entity*> Stock)
 {
-
-
+    if ((dest_test.x + dest_test.w < Stock[1]->getdest_test().x)&&(dest_test.x < Stock[1]->getdest_test().x) || dest_test.y + dest_test.h < Stock[1]->getdest_test().y ||  Stock[1]->getdest_test().x + Stock[1]->getdest_test().w > dest_test.x)
+   {
+       return false;
+   }
+   else
+    {
+    return true;
+   }
 }
 void Entity::fly(int cap)
 {
