@@ -36,15 +36,27 @@ class Entity
 
         SDL_Rect getdest_test();
         void setdest_test(SDL_Rect truc);
+
+        int get_x_position();
+        int get_y_position();
+        int get_width();
+        int get_height();
+
+
+        bool get_On_click();
+        void set_On_click(bool click);
+
         void fly(int cap);
         bool crash(std::vector<Entity*> Stock);
         void render(SDL_Renderer* Renderer);
         void loadbild(SDL_Renderer* Renderer, const char *image);
 
 
+
     private:
 
         SDL_Texture* Bild = NULL;
+        SDL_Texture* Cercle = NULL;
         SDL_Surface* Loading_Surf_Entity = NULL;
         SDL_Rect dest_test;
         SDL_Rect src_test;
@@ -53,6 +65,7 @@ class Entity
         int new_Posy;
         int new_Cap;
         double angle;
+        bool On_click;
 };
 
 #endif // ENTITY_H

@@ -123,8 +123,8 @@ bool Capp::OnInit() {
 
     //Stock[0]->loadbild(Renderer, super1);
     //Stock[1]->loadbild(Renderer, super2);
-    Stock[0]->render(Renderer);
-    Stock[1]->render(Renderer);
+    //Stock[0]->render(Renderer);
+    //Stock[1]->render(Renderer);
     button[0]->render(Renderer,0);
     button[1]->render(Renderer,0);
     button[2]->render(Renderer,0);
