@@ -101,7 +101,7 @@
 	"math.h"
 	"capp.h"
 
-1399205430 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
+1399308411 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
 	"capp.h"
 
 1399308237 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
@@ -112,9 +112,10 @@
 	"button.h"
 	<vector>
 
-1398972528 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
+1399308410 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
 	<SDL.h>
 	<SDL_image.h>
+	<vector>
 	<iostream>
 	<string>
 
@@ -122,7 +123,7 @@
 	"Capp.h"
 	<SDL_image.h>
 
-1398691638 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
+1399308410 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
 	"Capp.h"
 
 1398972526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
@@ -132,13 +133,13 @@
 	<SDL_image.h>
 	<stdio.h>
 
-1398975268 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
+1399308411 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
 	"Capp.h"
 
 1398972526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
 	"Capp.h"
 
-1399308237 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
+1399308411 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
