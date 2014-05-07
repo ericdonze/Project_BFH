@@ -77,8 +77,9 @@
 	"Capp.h"
 	<SDL_image.h>
 
-1399450726 source:c:\users\public\documents\airportsimulator\capp_onevent.cpp
+1399451745 source:c:\users\public\documents\airportsimulator\capp_onevent.cpp
 	"Capp.h"
+	"math.h"
 
 1399443440 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
 	"Capp.h"
@@ -93,7 +94,7 @@
 1399449098 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
 	"Capp.h"
 
-1399450617 source:c:\users\public\documents\airportsimulator\entity.cpp
+1399451229 source:c:\users\public\documents\airportsimulator\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
@@ -248,7 +249,7 @@
 	<math.h>
 	"SDL.h"
 
-1399448480 source:c:\users\public\documents\airportsimulator\capp_onrestart.cpp
+1399452022 source:c:\users\public\documents\airportsimulator\capp_onrestart.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>

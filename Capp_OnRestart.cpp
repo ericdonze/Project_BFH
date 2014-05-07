@@ -18,3 +18,4 @@ void Capp::OnRestart()
     Stock.push_back(new Entity(Heli,200,200,Renderer));
 
 }
+
