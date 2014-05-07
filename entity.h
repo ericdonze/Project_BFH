@@ -41,7 +41,7 @@ class Entity
         int get_y_position();
         int get_width();
         int get_height();
-        char inside_button(int mouse_x, int mouse_y);
+        char inside_entity(int mouse_x, int mouse_y);
 
 
         bool get_On_click();

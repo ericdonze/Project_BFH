@@ -58,57 +58,60 @@ void Capp::OnEvent(SDL_Event* Event)
             if((Event->button.button == SDL_BUTTON_LEFT))// left mouse click
             {
 
-
-
-
-            SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
-            if(Menu==Hauptmenu)
-            {
-                if(button[0]->inside_button(mouse_x,mouse_y)==true)
+                SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
+                if(Menu==Hauptmenu)
                 {
-                    Menu=Spielablauf;
-                }
-                if(button[1]->inside_button(mouse_x,mouse_y)==true)
-                {
-                    Running=0;
-                }
-            }
-            else if(Menu==Spielablauf)
-            {
-                for(i=0;i<2;i++)
-                {
-                    if(Stock[i]->inside_button(mouse_x,mouse_y)==true)
+                    if(button[0]->inside_button(mouse_x,mouse_y)==true)
                     {
-                        Stock[i]->set_On_click(1);
+                        Menu=Spielablauf;
                     }
-
-                    else
+                    if(button[1]->inside_button(mouse_x,mouse_y)==true)
                     {
-                        Stock[i]->set_On_click(0);
+                        Running=0;
                     }
-                    printf("%d",i);
                 }
-            }
+                else if(Menu==Spielablauf)
+                {
+                    for(i=0;i<2;i++)
+                    {
+                        if(Stock[i]->inside_entity(mouse_x,mouse_y)==true)
+                        {
+                            Stock[i]->set_On_click(1);
+                        }
 
-            else if(Menu==Spielendcard)
-            {
-                if(button[1]->inside_button(mouse_x,mouse_y)==true)
-                {
-                    Running=0;
+                        else
+                        {
+                            Stock[i]->set_On_click(0);
+                        }
+                        printf("%d",i);
+                    }
                 }
-                if(button[2]->inside_button(mouse_x,mouse_y)==true)
+
+                else if(Menu==Spielendcard)
                 {
-                    Menu=Hauptmenu;
+                    if(button[1]->inside_button(mouse_x,mouse_y)==true)
+                    {
+                        Running=0;
+                    }
+                    if(button[2]->inside_button(mouse_x,mouse_y)==true)
+                    {
+                        Menu=Hauptmenu;
+                    }
+                    if(button[3]->inside_button(mouse_x,mouse_y)==true)
+                    {
+                        Menu=Spielablauf;
+                    }
                 }
-                if(button[3]->inside_button(mouse_x,mouse_y)==true)
-                {
-                    Menu=Spielablauf;
-                }
-            }
 
         }
         else if((Event->button.button == SDL_BUTTON_RIGHT))
         {
+            data="Infos über das Flugzeug";
+            std::cout<<data<<std::endl;
+            message = TTF_RenderText_Solid( font, data.c_str(), textColor );
+            text = SDL_CreateTextureFromSurface(Renderer,message);
+            SDL_QueryTexture(text, NULL, NULL, &w, &h);
+            textRect.x=1500;textRect.y=200;textRect.w=w;textRect.h=h;
             //right click
         }
 
@@ -126,7 +129,7 @@ void Capp::OnEvent(SDL_Event* Event)
             SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
             if(Menu==Hauptmenu||Menu==Spielendcard)
             {
-                if(mouse_x>button[0]->get_x_position()&&mouse_x<button[0]->get_x_position()+button[0]->get_breite()&&mouse_y>button[0]->get_y_position()&&mouse_y<button[0]->get_y_position()+button[0]->get_hoehe())
+                if(button[0]->inside_button(mouse_x,mouse_y)==true)
                 {
                     Taster_0=1;
                 }
@@ -134,7 +137,7 @@ void Capp::OnEvent(SDL_Event* Event)
                 {
                     Taster_0=0;
                 }
-                if(mouse_x>button[1]->get_x_position()&&mouse_x<button[1]->get_x_position()+button[1]->get_breite()&&mouse_y>button[1]->get_y_position()&&mouse_y<button[1]->get_y_position()+button[1]->get_hoehe())
+                if(button[1]->inside_button(mouse_x,mouse_y)==true)
                 {
                     Taster_1=1;
                 }
@@ -142,7 +145,7 @@ void Capp::OnEvent(SDL_Event* Event)
                 {
                     Taster_1=0;
                 }
-                if(mouse_x>button[2]->get_x_position()&&mouse_x<button[2]->get_x_position()+button[2]->get_breite()&&mouse_y>button[2]->get_y_position()&&mouse_y<button[2]->get_y_position()+button[2]->get_hoehe())
+                if(button[2]->inside_button(mouse_x,mouse_y)==true)
                 {
                     Taster_2=1;
                 }
@@ -150,7 +153,7 @@ void Capp::OnEvent(SDL_Event* Event)
                 {
                     Taster_2=0;
                 }
-                if(mouse_x>button[3]->get_x_position()&&mouse_x<button[3]->get_x_position()+button[3]->get_breite()&&mouse_y>button[3]->get_y_position()&&mouse_y<button[3]->get_y_position()+button[3]->get_hoehe())
+                if(button[3]->inside_button(mouse_x,mouse_y)==true)
                 {
                     Taster_3=1;
                 }
