@@ -20,10 +20,10 @@ void Capp::OnEvent(SDL_Event* Event)
                     Running=0;
                     break;
                 case SDLK_a:
-                    Cap_next1 -= 4;
+                    winkel -= 4;
                     break;
                 case SDLK_d:
-                    Cap_next1 += 4;
+                    winkel += 4;
                     break;
                 case SDLK_LEFT:
                     Cap_next2 -= 4;
@@ -32,22 +32,13 @@ void Capp::OnEvent(SDL_Event* Event)
                     Cap_next2 += 4;
                     break;
             }
-            if(Cap_next1 < 1)                //keep Cap_next between 0 and 15
+            if(winkel < 1)                //keep Cap_next between 0 and 15
             {
-                Cap_next1 += 359;
+                winkel += 359;
             }
-            else if(Cap_next1 > 359)
+            else if(winkel > 359)
             {
-                Cap_next1 -=360;
-            }
-
-            if(Cap_next2 < 1)                //keep Cap_next between 0 and 15
-            {
-                Cap_next2 += 359;
-            }
-            else if(Cap_next2 > 359)
-            {
-                Cap_next2 -=360;
+                winkel -=360;
             }
 
         }
@@ -75,24 +66,26 @@ void Capp::OnEvent(SDL_Event* Event)
                 {
                     for(i=0;i<2;i++)
                     {
-                        if(Stock[i]->inside_entity(mouse_x,mouse_y)==true)
-                        {
-                            Stock[i]->set_On_click(1);
-                        }
-
-                        else
-                        {
-                            Stock[i]->set_On_click(0);
-                        }
-                        printf("%d",i);
                         if(Stock[i]->get_On_click()==true)
                         {
-                            vector_x=mouse_x-Stock[i]->get_x_position();            // Misst denn winkel des Vectors zwischen Objekt und Maus
-                            vector_y=Stock[i]->get_x_position()-mouse_y;
+                            vector_x=mouse_x-(Stock[i]->get_x_position()+Stock[i]->get_width()/2);            // Misst denn winkel des Vectors zwischen Objekt und Maus
+                            vector_y=mouse_y-(Stock[i]->get_y_position()+Stock[i]->get_height()/2);
                             winkel=(atan2(vector_y, vector_x)*(180/3.14159));
                             if(winkel<0)
                             {
                                 winkel+=360;
+                            }
+                            printf("winkel=%d\n",winkel);
+                        }
+                        if(Stock[i]->inside_entity(mouse_x,mouse_y)==true)
+                        {
+                            if(Stock[i]->get_On_click()==true)
+                            {
+                                Stock[i]->set_On_click(0);
+                            }
+                            else
+                            {
+                                Stock[i]->set_On_click(1);
                             }
                         }
                     }

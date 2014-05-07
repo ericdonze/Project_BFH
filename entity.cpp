@@ -194,7 +194,40 @@ char Entity::inside_entity(int mouse_x, int mouse_y)
         return false;
     }
 }
+bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
+{
+    int virt_x0=Stock[0]->getdest_test().x;
+    int virt_y0=Stock[0]->getdest_test().y;
+    int virt_x1=Stock[1]->getdest_test().x;
+    int virt_y1=Stock[1]->getdest_test().y;
 
+
+    for(int i=0;i<20;i++)
+    {
+        virt_x0 += cos( cap1 * PI / 180.0 )* 5 *sqrt((pow(cos(cap1),2))+(pow(sin(cap1),2)));
+        virt_y0 += sin( cap1 * PI / 180.0 )* 5 *sqrt((pow(cos(cap1),2))+(pow(sin(cap1),2)));
+        virt_x1 += cos( cap2 * PI / 180.0 )* 5 *sqrt((pow(cos(cap2),2))+(pow(sin(cap2),2)));
+        virt_y1 += sin( cap2 * PI / 180.0 )* 5 *sqrt((pow(cos(cap2),2))+(pow(sin(cap2),2)));
+
+        if (((virt_x0 + dest_test.w < virt_x1)
+            || (virt_x0 > virt_x1 + Stock[1]->getdest_test().w)
+            || ((virt_y0 + dest_test.h < virt_y1)
+            || (virt_y0 > virt_y1 + Stock[1]->getdest_test().h))))
+        {
+            return false;
+        }
+
+
+       else
+        {
+
+        return true;
+
+       }
+    }
+
+
+}
 bool Entity::crash(std::vector<Entity*> Stock)
 {
     if (((dest_test.x + dest_test.w < Stock[1]->getdest_test().x)
