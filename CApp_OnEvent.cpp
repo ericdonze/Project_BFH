@@ -19,16 +19,16 @@ void Capp::OnEvent(SDL_Event* Event)
                     Running=0;
                     break;
                 case SDLK_a:
-                    Cap_next1 -= 4;
+                    Cap_next1 -= 10;
                     break;
                 case SDLK_d:
-                    Cap_next1 += 4;
+                    Cap_next1 += 10;
                     break;
                 case SDLK_LEFT:
-                    Cap_next2 -= 4;
+                    Cap_next2 -= 10;
                     break;
                 case SDLK_RIGHT:
-                    Cap_next2 += 4;
+                    Cap_next2 += 10;
                     break;
             }
             if(Cap_next1 < 1)                //keep Cap_next between 0 and 15

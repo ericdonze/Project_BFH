@@ -326,6 +326,15 @@ void Entity::fly(int cap)
 
 
     }
+                        /*vector_x=x_mouse-DestR.x;             Misst denn winkel des Vectors zwischen Objekt und Maus
+                        vector_y=DestR.y-y_mouse;
+                        winkel=(atan2(vector_y, vector_x)*(180/3.14159));
+                        if(winkel<0)
+                        {
+                            winkel+=360;
+                        }
+
+
 */
 
         angle = cap;
