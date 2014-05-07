@@ -2,6 +2,8 @@
 #include <SDL_image.h>
 
 void Capp::OnCleanup(){
+    Stock.clear();
+    button.clear();
 
     if(Background_1) {
             SDL_DestroyTexture(Background_1);
@@ -12,7 +14,10 @@ void Capp::OnCleanup(){
             SDL_DestroyTexture(Background_2);
             Background_2 = NULL;
         }
-
+    if(Background_3) {
+            SDL_DestroyTexture(Background_2);
+            Background_2 = NULL;
+        }
 
    if(Sprite) {
             SDL_FreeSurface(Sprite);

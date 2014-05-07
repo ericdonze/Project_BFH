@@ -28,13 +28,18 @@ class Capp
         void OnRender_2();
         void OnRender_3();
         void OnCleanup();
+        void OnRestart();
         void Test_Box(SDL_Renderer* box);
         SDL_Renderer* get_Renderer();
 
     private:
 
         bool Running;
+<<<<<<< HEAD
 
+=======
+        char i;
+>>>>>>> cc5025e6d4ae49f9f12a4cbe4177b4b7d9e84702
         int x_Pos;
         int y_Pos;
         int Cap_next1;
@@ -50,14 +55,18 @@ class Capp
         SDL_Texture* Background_2 = NULL;
         SDL_Texture* Background_3 = NULL;
         SDL_Texture* text=NULL;
+        SDL_Texture* text_1=NULL;
         SDL_Color textColor;
         SDL_Rect textRect;
+        SDL_Rect textRect_1;
         TTF_Font *font;
 
         SDL_Surface *message;
+        SDL_Surface *message_1;
         SDL_Texture* Avion = NULL;
         SDL_Rect* dest = NULL;
         SDL_Rect* src = NULL;
+
         std::vector<Entity*> Stock;
         std::vector<Button*> button;
         std::string data;

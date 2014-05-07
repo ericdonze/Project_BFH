@@ -9,7 +9,7 @@ void Capp::OnRender_1() {
             Stock[0]->render(Renderer);
             Stock[1]->render(Renderer);
             SDL_RenderCopy(Renderer, text, NULL, &textRect);
-
+            SDL_RenderCopy(Renderer, text_1, NULL, &textRect);
 
             SDL_RenderPresent(Renderer);
 
