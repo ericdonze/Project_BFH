@@ -38,6 +38,7 @@
 		<Unit filename="CApp_OnInit.cpp" />
 		<Unit filename="CApp_OnLoop.cpp" />
 		<Unit filename="CApp_OnRender.cpp" />
+		<Unit filename="Capp_OnRestart.cpp" />
 		<Unit filename="capp.cpp" />
 		<Unit filename="capp.h" />
 		<Unit filename="entity.cpp" />

@@ -103,10 +103,10 @@
 	"math.h"
 	"capp.h"
 
-1399308411 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
+1399451108 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
 	"capp.h"
 
-1399308237 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
+1399452122 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string.h>
@@ -114,34 +114,35 @@
 	"button.h"
 	<vector>
 
-1399395199 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
+1399451108 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
 	<iostream>
 	<string>
 
-1398840212 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oncleanp.cpp
+1399451108 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oncleanp.cpp
 	"Capp.h"
 	<SDL_image.h>
 
-1399395542 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
+1399452122 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
 	"Capp.h"
+	"math.h"
 
-1398972526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
+1399396003 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
 	<stdio.h>
 
-1399392821 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
+1399451108 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
 	"Capp.h"
 
-1398972526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
+1399451108 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
 	"Capp.h"
 
-1399395542 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
+1399452122 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
@@ -229,7 +230,7 @@
 	"math.h"
 	"capp.h"
 
-1398972526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\button.cpp
+1399451108 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\button.cpp
 	"button.h"
 	<string.h>
 	<stdio.h>
@@ -238,7 +239,7 @@
 	"math.h"
 	"capp.h"
 
-1398851657 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\button.h
+1399451108 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\button.h
 	<SDL.h>
 	<SDL_image.h>
 	<stdio.h>
@@ -250,6 +251,13 @@
 	"SDL.h"
 
 1399452022 source:c:\users\public\documents\airportsimulator\capp_onrestart.cpp
+	"Capp.h"
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<stdio.h>
+
+1399452122 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrestart.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
