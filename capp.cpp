@@ -24,8 +24,10 @@ Capp::Capp()//ctor
 
     textColor.r=255;textColor.g=255;textColor.b=255;
     message = NULL;
+    message_1 = NULL;
     font = NULL;
     text=NULL;
+    text_1=NULL;
 }
 
 Capp::~Capp()

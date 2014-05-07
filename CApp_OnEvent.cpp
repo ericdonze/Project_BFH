@@ -99,6 +99,7 @@ void Capp::OnEvent(SDL_Event* Event)
                     }
                     if(button[3]->inside_button(mouse_x,mouse_y)==true)
                     {
+                        OnRestart();
                         Menu=Spielablauf;
                     }
                 }
@@ -106,12 +107,12 @@ void Capp::OnEvent(SDL_Event* Event)
         }
         else if((Event->button.button == SDL_BUTTON_RIGHT))
         {
-            data="Infos über das Flugzeug";
+            data="ok";
             std::cout<<data<<std::endl;
-            message = TTF_RenderText_Solid( font, data.c_str(), textColor );
-            text = SDL_CreateTextureFromSurface(Renderer,message);
-            SDL_QueryTexture(text, NULL, NULL, &w, &h);
-            textRect.x=1500;textRect.y=200;textRect.w=w;textRect.h=h;
+            message_1 = TTF_RenderText_Solid( font, data.c_str(), textColor );
+            text_1 = SDL_CreateTextureFromSurface(Renderer,message);
+            SDL_QueryTexture(text_1, NULL, NULL, &w, &h);
+            textRect_1.x=1500;textRect_1.y=200;textRect_1.w=w;textRect_1.h=h;
             //right click
         }
 

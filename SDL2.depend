@@ -55,10 +55,10 @@
 	<string.h>
 	<stdio.h>
 
-1399443440 source:c:\users\public\documents\airportsimulator\capp.cpp
+1399448779 source:c:\users\public\documents\airportsimulator\capp.cpp
 	"capp.h"
 
-1399445213 c:\users\public\documents\airportsimulator\capp.h
+1399448995 c:\users\public\documents\airportsimulator\capp.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string.h>
@@ -73,11 +73,11 @@
 	<iostream>
 	<string>
 
-1398839938 source:c:\users\public\documents\airportsimulator\capp_oncleanp.cpp
+1399447794 source:c:\users\public\documents\airportsimulator\capp_oncleanp.cpp
 	"Capp.h"
 	<SDL_image.h>
 
-1399446434 source:c:\users\public\documents\airportsimulator\capp_onevent.cpp
+1399448995 source:c:\users\public\documents\airportsimulator\capp_onevent.cpp
 	"Capp.h"
 
 1399443440 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
@@ -90,7 +90,7 @@
 1399443440 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
 	"Capp.h"
 
-1398888803 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
+1399449098 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
 	"Capp.h"
 
 1399446445 source:c:\users\public\documents\airportsimulator\entity.cpp
@@ -244,4 +244,11 @@
 1346863112 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\sdl2_gfxprimitives.h
 	<math.h>
 	"SDL.h"
+
+1399448480 source:c:\users\public\documents\airportsimulator\capp_onrestart.cpp
+	"Capp.h"
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<stdio.h>
 
