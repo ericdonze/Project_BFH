@@ -35,11 +35,11 @@ class Capp
     private:
 
         bool Running;
-<<<<<<< HEAD
 
-=======
+
+
         char i;
->>>>>>> cc5025e6d4ae49f9f12a4cbe4177b4b7d9e84702
+
         int x_Pos;
         int y_Pos;
         int Cap_next1;
