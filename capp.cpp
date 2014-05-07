@@ -97,10 +97,11 @@ void Capp::Test_Box(SDL_Renderer* box)
 
 
 
+
 int main(int argc, char* argv[]) {
 
-    Capp theApp;
 
+    Capp theApp;
 
     return theApp.OnExecute();
 }

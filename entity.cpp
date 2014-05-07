@@ -197,13 +197,20 @@ char Entity::inside_entity(int mouse_x, int mouse_y)
 
 bool Entity::crash(std::vector<Entity*> Stock)
 {
-    if ((dest_test.x + dest_test.w < Stock[1]->getdest_test().x)&&(dest_test.x < Stock[1]->getdest_test().x) || dest_test.y + dest_test.h < Stock[1]->getdest_test().y ||  Stock[1]->getdest_test().x + Stock[1]->getdest_test().w > dest_test.x)
-   {
-       return false;
-   }
+    if (((dest_test.x + dest_test.w < Stock[1]->getdest_test().x)
+        || (dest_test.x > Stock[1]->getdest_test().x + Stock[1]->getdest_test().w)
+        || ((dest_test.y + dest_test.h < Stock[1]->getdest_test().y)
+        || (dest_test.y > Stock[1]->getdest_test().y + Stock[1]->getdest_test().h))))
+    {
+        return false;
+    }
+
+
    else
     {
+
     return true;
+
    }
 }
 void Entity::fly(int cap)
