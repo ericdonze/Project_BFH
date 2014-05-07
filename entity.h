@@ -46,7 +46,7 @@ class Entity
 
         bool get_On_click();
         void set_On_click(bool click);
-
+        bool precrash(std::vector<Entity*> Stock, int cap1, int cap2);
         void fly(int cap);
         bool crash(std::vector<Entity*> Stock);
         void render(SDL_Renderer* Renderer);
