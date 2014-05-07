@@ -1,4 +1,5 @@
 #include "Capp.h"
+#include "math.h"
 
 void Capp::OnEvent(SDL_Event* Event)
 {
@@ -19,16 +20,16 @@ void Capp::OnEvent(SDL_Event* Event)
                     Running=0;
                     break;
                 case SDLK_a:
-                    Cap_next1 -= 10;
+                    Cap_next1 -= 4;
                     break;
                 case SDLK_d:
-                    Cap_next1 += 10;
+                    Cap_next1 += 4;
                     break;
                 case SDLK_LEFT:
-                    Cap_next2 -= 10;
+                    Cap_next2 -= 4;
                     break;
                 case SDLK_RIGHT:
-                    Cap_next2 += 10;
+                    Cap_next2 += 4;
                     break;
             }
             if(Cap_next1 < 1)                //keep Cap_next between 0 and 15
@@ -84,7 +85,18 @@ void Capp::OnEvent(SDL_Event* Event)
                             Stock[i]->set_On_click(0);
                         }
                         printf("%d",i);
+                        if(Stock[i]->get_On_click()==true)
+                        {
+                            vector_x=mouse_x-Stock[i]->get_x_position();            // Misst denn winkel des Vectors zwischen Objekt und Maus
+                            vector_y=Stock[i]->get_x_position()-mouse_y;
+                            winkel=(atan2(vector_y, vector_x)*(180/3.14159));
+                            if(winkel<0)
+                            {
+                                winkel+=360;
+                            }
+                        }
                     }
+
                 }
 
                 else if(Menu==Spielendcard)
