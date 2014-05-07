@@ -19,16 +19,16 @@ void Capp::OnEvent(SDL_Event* Event)
                     Running=0;
                     break;
                 case SDLK_a:
-                    Cap_next1 -= 10;
+                    Cap_next1 -= 4;
                     break;
                 case SDLK_d:
-                    Cap_next1 += 10;
+                    Cap_next1 += 4;
                     break;
                 case SDLK_LEFT:
-                    Cap_next2 -= 10;
+                    Cap_next2 -= 4;
                     break;
                 case SDLK_RIGHT:
-                    Cap_next2 += 10;
+                    Cap_next2 += 4;
                     break;
             }
             if(Cap_next1 < 1)                //keep Cap_next between 0 and 15
@@ -85,6 +85,13 @@ void Capp::OnEvent(SDL_Event* Event)
                         }
                         printf("%d",i);
                     }
+                        vector_x=x_mouse-DestR.x;             Misst denn winkel des Vectors zwischen Objekt und Maus
+                        vector_y=DestR.y-y_mouse;
+                        winkel=(atan2(vector_y, vector_x)*(180/3.14159));
+                        if(winkel<0)
+                        {
+                            winkel+=360;
+                        }
                 }
 
                 else if(Menu==Spielendcard)
