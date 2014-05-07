@@ -33,6 +33,7 @@ class Button
         int get_breite(void);
         int get_x_position(void);
         int get_y_position(void);
+        char inside_button(int mouse_x, int mouse_y);
 
         private:
 

@@ -33,6 +33,7 @@ class Capp
     private:
 
         bool Running;
+        char i;
         int x_Pos;
         int y_Pos;
         int Cap_next1;

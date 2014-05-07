@@ -64,36 +64,43 @@ void Capp::OnEvent(SDL_Event* Event)
             SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
             if(Menu==Hauptmenu)
             {
-                if(mouse_x>button[0]->get_x_position()&&mouse_x<button[0]->get_x_position()+button[0]->get_breite()&&mouse_y>button[0]->get_y_position()&&mouse_y<button[0]->get_y_position()+button[0]->get_hoehe())
+                if(button[0]->inside_button(mouse_x,mouse_y)==true)
                 {
                     Menu=Spielablauf;
                 }
-                if(mouse_x>button[1]->get_x_position()&&mouse_x<button[1]->get_x_position()+button[1]->get_breite()&&mouse_y>button[1]->get_y_position()&&mouse_y<button[1]->get_y_position()+button[1]->get_hoehe())
+                if(button[1]->inside_button(mouse_x,mouse_y)==true)
                 {
                     Running=0;
                 }
             }
             else if(Menu==Spielablauf)
             {
-                if(mouse_x>Stock[0]->get_x_position()&&mouse_x<Stock[0]->get_x_position()+Stock[0]->get_width()&&mouse_y>Stock[0]->get_y_position()&&mouse_y<Stock[0]->get_y_position()+Stock[0]->get_height())
+                for(i=0;i<2;i++)
                 {
-                    Stock[0]->set_On_click(1);
-                }
+                    if(Stock[i]->inside_button(mouse_x,mouse_y)==true)
+                    {
+                        Stock[i]->set_On_click(1);
+                    }
 
-                else
-                {
-                    Stock[0]->set_On_click(0);
+                    else
+                    {
+                        Stock[i]->set_On_click(0);
+                    }
+                    printf("%d",i);
                 }
-
             }
 
             else if(Menu==Spielendcard)
             {
-                if(mouse_x>button[2]->get_x_position()&&mouse_x<button[2]->get_x_position()+button[2]->get_breite()&&mouse_y>button[2]->get_y_position()&&mouse_y<button[2]->get_y_position()+button[2]->get_hoehe())
+                if(button[1]->inside_button(mouse_x,mouse_y)==true)
+                {
+                    Running=0;
+                }
+                if(button[2]->inside_button(mouse_x,mouse_y)==true)
                 {
                     Menu=Hauptmenu;
                 }
-                if(mouse_x>button[3]->get_x_position()&&mouse_x<button[3]->get_x_position()+button[3]->get_breite()&&mouse_y>button[3]->get_y_position()&&mouse_y<button[3]->get_y_position()+button[3]->get_hoehe())
+                if(button[3]->inside_button(mouse_x,mouse_y)==true)
                 {
                     Menu=Spielablauf;
                 }
