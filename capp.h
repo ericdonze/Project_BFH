@@ -20,6 +20,7 @@ class Capp
 
     public:
 
+
         bool OnInit();
         void OnEvent(SDL_Event* Event);
         void OnLoop();
@@ -33,6 +34,7 @@ class Capp
     private:
 
         bool Running;
+
         int x_Pos;
         int y_Pos;
         int Cap_next1;
@@ -62,10 +64,10 @@ class Capp
         static const int WindowWidth = 2000;
         static const int WindowHeight = 900;
         unsigned int frameLimit = SDL_GetTicks() + 16;
+        int Menu=0;
         int mouse_x;
         int mouse_y;
         int w=0,h=0;
-        unsigned char Menu=0;
         unsigned char Taster_0=0;
         unsigned char Taster_1=0;
         unsigned char Taster_2=0;
