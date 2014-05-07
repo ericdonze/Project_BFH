@@ -101,40 +101,45 @@
 	"math.h"
 	"capp.h"
 
-1398784649 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
+1399308411 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
 	"capp.h"
 
-1398784056 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
+1399308237 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
 	<SDL.h>
+	<SDL_ttf.h>
+	<string.h>
 	"entity.h"
+	"button.h"
 	<vector>
 
-1398785292 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
+1399395199 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
 	<SDL.h>
 	<SDL_image.h>
+	<vector>
 	<iostream>
 	<string>
 
-1398773906 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oncleanp.cpp
+1398840212 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oncleanp.cpp
 	"Capp.h"
 	<SDL_image.h>
 
-1398691638 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
+1399395542 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
 	"Capp.h"
 
-1398839137 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
+1398972526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
 	"Capp.h"
 	<SDL.h>
+	<SDL_ttf.h>
 	<SDL_image.h>
 	<stdio.h>
 
-1398780907 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
+1399392821 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
 	"Capp.h"
 
-1398780907 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
+1398972526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
 	"Capp.h"
 
-1398785304 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
+1399395542 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
@@ -181,13 +186,14 @@
 	"button.h"
 	<vector>
 
-1398865410 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.h
+1399294329 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.h
 	<SDL.h>
 	<SDL_image.h>
+	<vector>
 	<iostream>
 	<string>
 
-1398861995 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.cpp
+1399296386 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.cpp
 	"capp.h"
 
 1398840557 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oncleanp.cpp
@@ -197,19 +203,19 @@
 1398244728 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onevent.cpp
 	"Capp.h"
 
-1398861995 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oninit.cpp
+1398866032 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oninit.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_image.h>
 	<stdio.h>
 
-1398840557 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onloop.cpp
+1399296237 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onloop.cpp
 	"Capp.h"
 
 1398861995 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onrender.cpp
 	"Capp.h"
 
-1398863608 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.cpp
+1399296770 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
@@ -217,4 +223,24 @@
 	<SDL_image.h>
 	"math.h"
 	"capp.h"
+
+1398972526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\button.cpp
+	"button.h"
+	<string.h>
+	<stdio.h>
+	<SDL.h>
+	<SDL_image.h>
+	"math.h"
+	"capp.h"
+
+1398851657 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\button.h
+	<SDL.h>
+	<SDL_image.h>
+	<stdio.h>
+	<iostream>
+	<string>
+
+1346863112 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\sdl2_gfxprimitives.h
+	<math.h>
+	"SDL.h"
 

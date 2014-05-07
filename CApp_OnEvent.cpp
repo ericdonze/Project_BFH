@@ -52,6 +52,15 @@ void Capp::OnEvent(SDL_Event* Event)
         }
         else if( Event->type == SDL_MOUSEBUTTONDOWN )
         {
+
+
+
+            if((Event->button.button == SDL_BUTTON_LEFT))// left mouse click
+            {
+
+
+
+
             SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
             if(Menu==Hauptmenu)
             {
@@ -64,6 +73,20 @@ void Capp::OnEvent(SDL_Event* Event)
                     Running=0;
                 }
             }
+            else if(Menu==Spielablauf)
+            {
+                if(mouse_x>Stock[0]->get_x_position()&&mouse_x<Stock[0]->get_x_position()+Stock[0]->get_width()&&mouse_y>Stock[0]->get_y_position()&&mouse_y<Stock[0]->get_y_position()+Stock[0]->get_height())
+                {
+                    Stock[0]->set_On_click(1);
+                }
+
+                else
+                {
+                    Stock[0]->set_On_click(0);
+                }
+
+            }
+
             else if(Menu==Spielendcard)
             {
                 if(mouse_x>button[2]->get_x_position()&&mouse_x<button[2]->get_x_position()+button[2]->get_breite()&&mouse_y>button[2]->get_y_position()&&mouse_y<button[2]->get_y_position()+button[2]->get_hoehe())
@@ -75,6 +98,12 @@ void Capp::OnEvent(SDL_Event* Event)
                     Menu=Spielablauf;
                 }
             }
+
+        }
+        else if((Event->button.button == SDL_BUTTON_RIGHT))
+        {
+            //right click
+        }
 
                         /*vector_x=x_mouse-DestR.x;             Misst denn winkel des Vectors zwischen Objekt und Maus
                         vector_y=DestR.y-y_mouse;

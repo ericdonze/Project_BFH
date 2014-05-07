@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <SDL.h>
 #include <SDL_image.h>
+
 #include "math.h"
 #include "capp.h"
 
@@ -15,6 +16,7 @@ Entity::Entity()
     new_Posy = 0;
     new_Cap = 4;
     angle = 0;
+    On_click = 0;
 
     src_test.x = 0;
     src_test.y = 0;
@@ -34,7 +36,8 @@ Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi
     new_Posy = 0;
     new_Cap = 4;
     angle = 0;
-    printf("%d", aircraft);
+    On_click = 0;
+
 
 
     src_test.x = 0;
@@ -102,6 +105,30 @@ Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi
 		SDL_FreeSurface(Loading_Surf_Entity);
 	}
 
+
+
+
+
+	Loading_Surf_Entity = IMG_Load("cercle_rouge.png");
+
+	if( Loading_Surf_Entity == NULL )
+	{
+		printf( "Unable to load image %s! SDL_image Error: %s\n", "Cercle.png", IMG_GetError() );
+	}
+	else
+	{
+		SDL_QueryTexture(Cercle, NULL, NULL, &dest_test.w, &dest_test.h);
+                                                                                                //Create texture from surface
+        Cercle = SDL_CreateTextureFromSurface(moi, Loading_Surf_Entity);
+		if( Cercle == NULL )
+		{
+			printf( "Unable to create texture from %s! SDL Error: %s\n", "Cercle.png", SDL_GetError() );
+		}
+
+
+		SDL_FreeSurface(Loading_Surf_Entity);
+	}
+
 }
 
 Entity::~Entity()
@@ -140,11 +167,33 @@ void Entity::setdest_test(SDL_Rect truc)
 {
     dest_test = truc;
 }
-
-bool Entity::crash(SDL_Rect a,SDL_Rect b)
+int Entity::get_x_position()
 {
+    return dest_test.x;
+}
+int Entity::get_y_position()
+{
+    return dest_test.y;
+}
+int Entity::get_width()
+{
+    return dest_test.w;
+}
+int Entity::get_height()
+{
+    return dest_test.h;
+}
 
-
+bool Entity::crash(std::vector<Entity*> Stock)
+{
+    if ((dest_test.x + dest_test.w < Stock[1]->getdest_test().x)&&(dest_test.x < Stock[1]->getdest_test().x) || dest_test.y + dest_test.h < Stock[1]->getdest_test().y ||  Stock[1]->getdest_test().x + Stock[1]->getdest_test().w > dest_test.x)
+   {
+       return false;
+   }
+   else
+    {
+    return true;
+   }
 }
 void Entity::fly(int cap)
 {
@@ -152,7 +201,7 @@ void Entity::fly(int cap)
 
 
 
-    printf("cap:%d\n",cap);
+
 /*
     if (cap != new_Cap)         //difference of cap
     {
@@ -286,6 +335,10 @@ void Entity::render(SDL_Renderer* Renderer)
 
     SDL_RenderCopyEx(Renderer, Bild, &src_test, &dest_test, angle, NULL, SDL_FLIP_NONE);
 
+    if(On_click == 1)
+    {
+        SDL_RenderCopyEx(Renderer, Cercle, &src_test, &dest_test, angle, NULL, SDL_FLIP_NONE);
+    }
 }
 
 void Entity::loadbild(SDL_Renderer* Renderer, const char *image)
@@ -311,4 +364,12 @@ void Entity::loadbild(SDL_Renderer* Renderer, const char *image)
 	}
 }
 
+bool Entity::get_On_click()
+{
+    return On_click;
+}
 
+void Entity::set_On_click(bool click)
+{
+    On_click = click;
+}
