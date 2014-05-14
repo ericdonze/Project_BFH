@@ -10,8 +10,6 @@ void Capp::OnRestart()
     {
         delete Stock[i];
     }
-    Cap_next1=4;
-    Cap_next2=4;
     Stock.clear();
 
     Stock.push_back(new Entity(Big,100,100,Renderer));
