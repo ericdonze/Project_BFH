@@ -40,12 +40,20 @@ Button::Button(int Taster, int xposition, int yposition,SDL_Renderer* Renderer)
         case 0:
 
             Loading_Surf = IMG_Load("button_ungedrueckt_1.png");//IMG_Load("button_gedrückt.png")
+            if(Loading_Surf == NULL)
+            {
+                printf("blem");
+            }
             Taste_ungedrueckt = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
             SDL_QueryTexture(Taste_ungedrueckt, NULL, NULL, &dest_test.w, &dest_test.h);
             SDL_FreeSurface(Loading_Surf);
 
 
             Loading_Surf = IMG_Load("button_gedrueckt_1.png");
+            if(Loading_Surf == NULL)
+            {
+                printf("blem");
+            }
             Taste_gedrueckt = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
             SDL_QueryTexture(Taste_gedrueckt, NULL, NULL, &dest_test.w, &dest_test.h);
             SDL_FreeSurface(Loading_Surf);

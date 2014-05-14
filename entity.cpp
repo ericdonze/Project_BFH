@@ -228,23 +228,31 @@ bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
 
 
 }
-bool Entity::crash(std::vector<Entity*> Stock)
+bool Entity::crash(std::vector<Entity*> Stock, int n)
 {
-    if (((dest_test.x + dest_test.w < Stock[1]->getdest_test().x)
-        || (dest_test.x > Stock[1]->getdest_test().x + Stock[1]->getdest_test().w)
-        || ((dest_test.y + dest_test.h < Stock[1]->getdest_test().y)
-        || (dest_test.y > Stock[1]->getdest_test().y + Stock[1]->getdest_test().h))))
+    for(int i=0;i<Stock.size();i++)
     {
-        return false;
+
+        if(i != n)
+        {
+            if (((dest_test.x + dest_test.w < Stock[i]->getdest_test().x)
+                || (dest_test.x > Stock[i]->getdest_test().x + Stock[i]->getdest_test().w)
+                || ((dest_test.y + dest_test.h < Stock[i]->getdest_test().y)
+                || (dest_test.y > Stock[i]->getdest_test().y + Stock[i]->getdest_test().h))))
+            {
+                return false;
+            }
+
+
+           else
+            {
+
+            return true;
+
+           }
+        }
+
     }
-
-
-   else
-    {
-
-    return true;
-
-   }
 }
 void Entity::fly(int cap)
 {

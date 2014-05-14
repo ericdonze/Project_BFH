@@ -25,7 +25,7 @@ void Capp::OnLoop() {
     Stock[1]->fly(Cap_next2);
 
 
-    if(Stock[0]->crash(Stock)==1)
+    if(Stock[0]->crash(Stock,1)==1)
     {
         Menu=Spielendcard;
     }
