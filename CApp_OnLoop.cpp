@@ -19,14 +19,15 @@ void Capp::OnLoop() {
             {
                 Stock[i]->fly(Stock[i]->get_cap_next(),0);
             }
-    }
-   if(Stock[0]->land(Stock)==1)
+
+   if(Stock[i]->land(Stock)==1)
    {
        printf("landing succeeded");
    }
 
-    if(Stock[0]->crash(Stock)==1)
+    if(Stock[i]->crash(Stock,i)==1)
     {
         Menu=Spielendcard;
+    }
     }
 }
