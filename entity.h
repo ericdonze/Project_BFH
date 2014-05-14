@@ -41,6 +41,7 @@ class Entity
         int get_y_position();
         int get_width();
         int get_height();
+        double get_cap_next();
         char inside_entity(int mouse_x, int mouse_y);
 
 
@@ -64,7 +65,7 @@ class Entity
 
         int new_Posx;
         int new_Posy;
-        int new_Cap;
+        int new_cap;
         double angle;
         bool On_click;
 };

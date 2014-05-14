@@ -14,7 +14,7 @@ Entity::Entity()
     //ctor
     new_Posx = 0;
     new_Posy = 0;
-    new_Cap = 4;
+    new_cap = 4;
     angle = 0;
     On_click = 0;
 
@@ -34,7 +34,7 @@ Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi
     //ctor
     new_Posx = 0;
     new_Posy = 0;
-    new_Cap = 4;
+    new_cap = 4;
     angle = 0;
     On_click = 0;
 
@@ -183,9 +183,13 @@ int Entity::get_height()
 {
     return dest_test.h;
 }
+double Entity::get_cap_next()
+{
+    return angle;
+}
 char Entity::inside_entity(int mouse_x, int mouse_y)
 {
-    if(mouse_x>dest_test.x&&mouse_x<dest_test.x+dest_test.w&&mouse_y>dest_test.y&&mouse_y<dest_test.y+dest_test.h)
+    if(mouse_x>dest_test.x-20&&mouse_x<dest_test.x+dest_test.w+20&&mouse_y>dest_test.y-20&&mouse_y<dest_test.y+dest_test.h+20)
     {
         return true;
     }
@@ -256,145 +260,17 @@ bool Entity::crash(std::vector<Entity*> Stock, int n)
 }
 void Entity::fly(int cap)
 {
-
-
-
-
-
-/*
-    if (cap != new_Cap)         //difference of cap
-    {
-
-
-        new_Cap = cap;
-
-    switch(new_Cap)             //between 0 and 15
-         {
-
-             case 0:
-                new_Posx = 0;
-                new_Posy = 2;
-                angle = 90;
-             break;
-
-             case 1:
-                new_Posx = 1;
-                new_Posy = 2;
-                angle = 67.5;
-             break;
-
-             case 2:
-                new_Posx = 2;
-                new_Posy = 2;
-                angle = 45;
-             break;
-
-             case 3:
-                new_Posx = 2;
-                new_Posy = 1;
-                angle = 22.5;
-             break;
-
-             case 4:
-                new_Posx = 2;
-                new_Posy = 0;
-                angle = 0;
-             break;
-
-             case 5:
-                new_Posx = 2;
-                new_Posy = -1;
-                angle = 337.5;
-             break;
-
-             case 6:
-                new_Posx = 2;
-                new_Posy = -2;
-                angle = 315;
-             break;
-
-             case 7:
-                new_Posx = 1;
-                new_Posy = -2;
-                angle = 292.5;
-             break;
-
-             case 8:
-                new_Posx = 0;
-                new_Posy = -2;
-                angle = 270;
-             break;
-
-             case 9:
-                new_Posx = -1;
-                new_Posy = -2;
-                angle = 247.5;
-             break;
-
-             case 10:
-                new_Posx = -2;
-                new_Posy = -2;
-                angle = 225;
-             break;
-
-             case 11:
-                new_Posx = -2;
-                new_Posy = -1;
-                angle = 202.5;
-             break;
-
-             case 12:
-                new_Posx = -2;
-                new_Posy = 0;
-                angle = 180;
-             break;
-
-             case 13:
-                new_Posx = -2;
-                new_Posy = 1;
-                angle = 157.5;
-             break;
-
-             case 14:
-                new_Posx = -2;
-                new_Posy = 2;
-                angle = 135;
-             break;
-
-             case 15:
-                new_Posx = -1;
-                new_Posy = 2;
-                angle = 112.5;
-             break;
-
-
-             break;
-         }
-
-
-
-    }
-                        vector_x=x_mouse-DestR.x;             Misst denn winkel des Vectors zwischen Objekt und Maus
-                        vector_y=DestR.y-y_mouse;
-                        winkel=(atan2(vector_y, vector_x)*(180/3.14159));
-                        if(winkel<0)
-                        {
-                            winkel+=360;
-                        }
-
-
-*/
-
-        angle = cap;
-        dest_test.x += cos( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
+        new_cap=cap;
+        angle = new_cap;
+        dest_test.x += cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
         if ((dest_test.x <0) || (dest_test.x>1900))
         {
-            dest_test.x -= cos( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
+            dest_test.x -= cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
         }
-        dest_test.y += sin( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
+        dest_test.y += sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
         if ((dest_test.y <0) || (dest_test.y>1035))
         {
-            dest_test.y -= sin( cap * PI / 180.0 )* 5 *sqrt((pow(cos(cap),2))+(pow(sin(cap),2)));
+            dest_test.y -= sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
         }
 }
 
