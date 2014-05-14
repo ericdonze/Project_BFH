@@ -6,10 +6,11 @@ void Capp::OnRender_1() {
 
 
             SDL_RenderCopy(Renderer, Background_1, NULL, NULL);
-            Stock[0]->render(Renderer);
-            Stock[1]->render(Renderer);
+            for(i=0;i<Stock.size();i++)
+            {
+                Stock[i]->render(Renderer);
+            }
             SDL_RenderCopy(Renderer, text, NULL, &textRect);
-            SDL_RenderCopy(Renderer, text_1, NULL, &textRect);
 
             SDL_RenderPresent(Renderer);
 

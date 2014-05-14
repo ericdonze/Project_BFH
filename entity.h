@@ -19,12 +19,20 @@ using namespace std;
           Big = 1 ,
           Heli = 2
      }EEntity;
+    typedef enum
+     {
+          Landing = 0,
+          Left = 1 ,
+          Right = 2,
+          Up =3,
+          Down =4
+     }IEntity;
 
 class Entity
 {
     public:
         Entity();
-        Entity(EEntity aircraft,int xposition, int yposition, SDL_Renderer* moi);
+        Entity(EEntity aircraft,IEntity Infos,int xposition, int yposition, SDL_Renderer* moi);
         virtual ~Entity();
     public:
 
@@ -42,6 +50,7 @@ class Entity
         int get_width();
         int get_height();
         double get_cap_next();
+        void set_infos(std::string* p);
         char inside_entity(int mouse_x, int mouse_y);
 
 
@@ -63,7 +72,7 @@ class Entity
         SDL_Surface* Loading_Surf_Entity = NULL;
         SDL_Rect dest_test;
         SDL_Rect src_test;
-
+        std::string Info_Flugzeug;
         int new_Posx;
         int new_Posy;
         int new_cap;

@@ -32,8 +32,10 @@ bool Capp::OnInit() {
 
     Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED); //creation renderer
 
-    Stock.push_back(new Entity(Small,100,100,Renderer));
-    Stock.push_back(new Entity(Heli,200,200,Renderer));
+    Stock.push_back(new Entity(Small,Landing,100,100,Renderer));
+    Stock.push_back(new Entity(Heli,Right,200,200,Renderer));
+    Stock.push_back(new Entity(Big,Left,300,300,Renderer));
+
     button.push_back(new Button(0,1250,750,Renderer));
     button.push_back(new Button(1,250,750,Renderer));
     button.push_back(new Button(2,1250,750,Renderer));
@@ -101,17 +103,13 @@ bool Capp::OnInit() {
         return false;
     }
 
-    font = TTF_OpenFont( "Tahoma.ttf", 30 );
+    font = TTF_OpenFont( "Tahoma.ttf", 20 );
     if( font == NULL )
     {
         printf( "Unable to create texture from %s! SDL Error: %s\n", "Tahoma.ttf", SDL_GetError() );
     }
-    data="Infos über das Flugzeug";
-    std::cout<<data<<std::endl;
-    message = TTF_RenderText_Solid( font, data.c_str(), textColor );
-    text = SDL_CreateTextureFromSurface(Renderer,message);
-    SDL_QueryTexture(text, NULL, NULL, &w, &h);
-    textRect.x=1500;textRect.y=100;textRect.w=w;textRect.h=h;
+
+
 
 
 

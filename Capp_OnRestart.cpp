@@ -6,14 +6,15 @@
 
 void Capp::OnRestart()
 {
-    for(i=0;i<2;i++)
+    for(i=0;i<Stock.size();i++)
     {
         delete Stock[i];
     }
     Stock.clear();
 
-    Stock.push_back(new Entity(Big,100,100,Renderer));
-    Stock.push_back(new Entity(Heli,200,200,Renderer));
+
+    Stock.push_back(new Entity(Big,Left,100,100,Renderer));
+    Stock.push_back(new Entity(Heli,Up,200,200,Renderer));
 
 }
 
