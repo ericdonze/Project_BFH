@@ -232,50 +232,91 @@ bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
 
 
 }
-bool Entity::crash(std::vector<Entity*> Stock, int n)
+bool Entity::land(std::vector<Entity*> Stock)
 {
-    for(int i=0;i<Stock.size();i++)
+    if(((dest_test.x + dest_test.w < 600)
+        || (dest_test.x > 620)
+        || (dest_test.y + dest_test.h < 252)
+        || (dest_test.y > 232))
+        &&  new_Cap>300
+        &&  new_Cap<330)
     {
 
-        if(i != n)
-        {
-            if (((dest_test.x + dest_test.w < Stock[i]->getdest_test().x)
-                || (dest_test.x > Stock[i]->getdest_test().x + Stock[i]->getdest_test().w)
-                || ((dest_test.y + dest_test.h < Stock[i]->getdest_test().y)
-                || (dest_test.y > Stock[i]->getdest_test().y + Stock[i]->getdest_test().h))))
-            {
-                return false;
-            }
-
-
-           else
-            {
-
-            return true;
-
-           }
-        }
-        else
-        {
-            return false;
-        }
+        return false;
+    }
+    else
+    {
+        return true;
 
     }
 }
-void Entity::fly(int cap)
+bool Entity::crash(std::vector<Entity*> Stock)
 {
+    if (((dest_test.x + dest_test.w < Stock[1]->getdest_test().x)
+        || (dest_test.x > Stock[1]->getdest_test().x + Stock[1]->getdest_test().w)
+        || ((dest_test.y + dest_test.h < Stock[1]->getdest_test().y)
+        || (dest_test.y > Stock[1]->getdest_test().y + Stock[1]->getdest_test().h))))
+    {
+        return false;
+    }
+
+
+   else
+    {
+
+    return true;
+
+   }
+}
+void Entity::fly(int cap,char go)
+{
+    if(go==1)
+    {
+        delta_cap=new_cap-cap;
+        if(delta_cap<0)
+        {
+            delta_cap+=360;
+        }
+        if(delta_cap>180)
+        {
+            new_cap+=3;
+        }
+        else
+        {
+            new_cap-=3;
+        }
+        if(((delta_cap<4)&&(delta_cap>0))||(delta_cap>356))
+        {
+            new_cap=cap;
+        }
+
+        if(new_cap>360)
+        {
+            new_cap-=360;
+        }
+        if(new_cap<0)
+        {
+            new_cap+=360;
+        }
+
+        printf("new_cap=%d delta_cap=%d\n",new_cap,delta_cap);
+    }
+    else
+    {
         new_cap=cap;
-        angle = new_cap;
-        dest_test.x += cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
-        if ((dest_test.x <0) || (dest_test.x>1900))
-        {
-            dest_test.x -= cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
-        }
-        dest_test.y += sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
-        if ((dest_test.y <0) || (dest_test.y>1035))
-        {
-            dest_test.y -= sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
-        }
+    }
+    angle = new_cap;
+    dest_test.x += cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
+    if ((dest_test.x <0) || (dest_test.x>1900))
+    {
+        dest_test.x -= cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
+    }
+    dest_test.y += sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
+    if ((dest_test.y <0) || (dest_test.y>1035))
+    {
+        dest_test.y -= sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
+    }
+
 }
 
 void Entity::render(SDL_Renderer* Renderer)

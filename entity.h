@@ -48,8 +48,9 @@ class Entity
         bool get_On_click();
         void set_On_click(bool click);
         bool precrash(std::vector<Entity*> Stock, int cap1, int cap2);
-        void fly(int cap);
-        bool crash(std::vector<Entity*> Stock, int n);
+        void fly(int cap,char go);
+        bool crash(std::vector<Entity*> Stock);
+        bool land(std::vector<Entity*> Stock);
         void render(SDL_Renderer* Renderer);
         void loadbild(SDL_Renderer* Renderer, const char *image);
 
@@ -66,6 +67,7 @@ class Entity
         int new_Posx;
         int new_Posy;
         int new_cap;
+        int delta_cap;
         double angle;
         bool On_click;
 };
