@@ -238,8 +238,8 @@ bool Entity::land(std::vector<Entity*> Stock)
         || (dest_test.x > 620)
         || (dest_test.y + dest_test.h < 252)
         || (dest_test.y > 232))
-        &&  new_cap>300
-        &&  new_cap<330)
+        &&  (new_cap>300
+        ||  new_cap<330))
     {
 
         return false;
@@ -250,37 +250,23 @@ bool Entity::land(std::vector<Entity*> Stock)
 
     }
 }
-bool Entity::crash(std::vector<Entity*> Stock, int n)
+bool Entity::crash(std::vector<Entity*> Stock)
 {
-    for(int i=0;i<20;i++)
+    if (((dest_test.x + dest_test.w < Stock[1]->getdest_test().x)
+        || (dest_test.x > Stock[1]->getdest_test().x + Stock[1]->getdest_test().w)
+        || ((dest_test.y + dest_test.h < Stock[1]->getdest_test().y)
+        || (dest_test.y > Stock[1]->getdest_test().y + Stock[1]->getdest_test().h))))
+    {
+        return false;
+    }
+
+
+   else
     {
 
+    return true;
 
-            if ((((dest_test.x + dest_test.w < Stock[1]->getdest_test().x)
-                || (dest_test.x > Stock[1]->getdest_test().x + Stock[1]->getdest_test().w)
-                || ((dest_test.y + dest_test.h < Stock[1]->getdest_test().y)
-                || (dest_test.y > Stock[1]->getdest_test().y + Stock[1]->getdest_test().h)))))
-            {
-                return false;
-            }
-
-
-           else
-            {
-                if(i =! n)
-                {
-                    return true;
-                }
-
-                else
-                {
-                    return false;
-                }
-
-           }
-
-
-    }
+   }
 }
 void Entity::fly(int cap,char go)
 {
