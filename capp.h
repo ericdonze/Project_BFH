@@ -78,7 +78,7 @@ class Capp
         int mouse_y;
         int vector_x;
         int vector_y;
-        int winkel;
+        int winkel=4;
         int w=0,h=0;
         unsigned char Taster_0=0;
         unsigned char Taster_1=0;
