@@ -2,7 +2,7 @@
 
 void Capp::OnLoop() {
 
-    for(i=0;i<Stock.size();i++)
+    for(int i=0;i<Stock.size();i++)
     {
             if(Stock[i]->get_On_click()==true)
             {
@@ -19,10 +19,11 @@ void Capp::OnLoop() {
             {
                 Stock[i]->fly(Stock[i]->get_cap_next());
             }
-    }
 
-    if(Stock[0]->crash(Stock,1)==1)
+
+    if(Stock[i]->crash(Stock, i)==1)
     {
         Menu=Spielendcard;
+    }
     }
 }

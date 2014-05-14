@@ -255,6 +255,10 @@ bool Entity::crash(std::vector<Entity*> Stock, int n)
 
            }
         }
+        else
+        {
+            return false;
+        }
 
     }
 }
