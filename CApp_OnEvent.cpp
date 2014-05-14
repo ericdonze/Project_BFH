@@ -64,7 +64,7 @@ void Capp::OnEvent(SDL_Event* Event)
                 }
                 else if(Menu==Spielablauf)
                 {
-                    for(i=0;i<2;i++)
+                    for(i=0;i<Stock.size();i++)
                     {
                         if(Stock[i]->get_On_click()==true&&Stock[i]->inside_entity(mouse_x,mouse_y)==false)
                         {
@@ -86,6 +86,7 @@ void Capp::OnEvent(SDL_Event* Event)
                             else
                             {
                                 Stock[i]->set_On_click(1);
+                                winkel=Stock[i]->get_cap_next();
                             }
                         }
                     }
