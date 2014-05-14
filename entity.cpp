@@ -238,8 +238,8 @@ bool Entity::land(std::vector<Entity*> Stock)
         || (dest_test.x > 620)
         || (dest_test.y + dest_test.h < 252)
         || (dest_test.y > 232))
-        &&  new_Cap>300
-        &&  new_Cap<330)
+        &&  (new_cap>300
+        ||  new_cap<330))
     {
 
         return false;
