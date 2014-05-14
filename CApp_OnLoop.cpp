@@ -2,7 +2,7 @@
 
 void Capp::OnLoop() {
 
-    for(i=0;i<2;i++)
+    for(i=0;i<Stock.size();i++)
     {
             if(Stock[i]->get_On_click()==true)
             {

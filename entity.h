@@ -65,7 +65,7 @@ class Entity
 
         int new_Posx;
         int new_Posy;
-        int new_Cap;
+        int new_cap;
         double angle;
         bool On_click;
 };
