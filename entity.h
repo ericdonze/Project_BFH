@@ -50,6 +50,7 @@ class Entity
         bool precrash(std::vector<Entity*> Stock, int cap1, int cap2);
         void fly(int cap);
         bool crash(std::vector<Entity*> Stock);
+        bool land(std::vector<Entity*> Stock);
         void render(SDL_Renderer* Renderer);
         void loadbild(SDL_Renderer* Renderer, const char *image);
 

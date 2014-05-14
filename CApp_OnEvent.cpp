@@ -51,6 +51,7 @@ void Capp::OnEvent(SDL_Event* Event)
             {
 
                 SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
+                printf("x=%d, y=%d", mouse_x, mouse_y);
                 if(Menu==Hauptmenu)
                 {
                     if(button[0]->inside_button(mouse_x,mouse_y)==true)
@@ -132,7 +133,7 @@ void Capp::OnEvent(SDL_Event* Event)
         }
         else if( Event->type == SDL_MOUSEMOTION )
         {
-            SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
+            SDL_GetMouseState( &mouse_x, &mouse_y );//Gibt die Mouseposition heraus
             if(Menu==Hauptmenu||Menu==Spielendcard)
             {
                 if(button[0]->inside_button(mouse_x,mouse_y)==true)

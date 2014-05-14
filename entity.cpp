@@ -232,6 +232,24 @@ bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
 
 
 }
+bool Entity::land(std::vector<Entity*> Stock)
+{
+    if(((dest_test.x + dest_test.w < 600)
+        || (dest_test.x > 620)
+        || (dest_test.y + dest_test.h < 252)
+        || (dest_test.y > 232))
+        &&  new_Cap>300
+        &&  new_Cap<330)
+    {
+
+        return false;
+    }
+    else
+    {
+        return true;
+
+    }
+}
 bool Entity::crash(std::vector<Entity*> Stock)
 {
     if (((dest_test.x + dest_test.w < Stock[1]->getdest_test().x)

@@ -20,6 +20,10 @@ void Capp::OnLoop() {
                 Stock[i]->fly(Stock[i]->get_cap_next());
             }
     }
+   if(Stock[0]->land(Stock)==1)
+   {
+       printf("landing succeeded");
+   }
 
     if(Stock[0]->crash(Stock)==1)
     {
