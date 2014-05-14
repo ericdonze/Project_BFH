@@ -183,6 +183,10 @@ int Entity::get_height()
 {
     return dest_test.h;
 }
+double Entity::get_cap_next()
+{
+    return angle;
+}
 char Entity::inside_entity(int mouse_x, int mouse_y)
 {
     if(mouse_x>dest_test.x&&mouse_x<dest_test.x+dest_test.w&&mouse_y>dest_test.y&&mouse_y<dest_test.y+dest_test.h)

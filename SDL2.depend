@@ -66,7 +66,7 @@
 	"button.h"
 	<vector>
 
-1399456270 c:\users\public\documents\airportsimulator\entity.h
+1400049565 c:\users\public\documents\airportsimulator\entity.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
@@ -88,13 +88,13 @@
 	<SDL_image.h>
 	<stdio.h>
 
-1399456316 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
+1400049764 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
 	"Capp.h"
 
 1399449098 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
 	"Capp.h"
 
-1399456270 source:c:\users\public\documents\airportsimulator\entity.cpp
+1400049565 source:c:\users\public\documents\airportsimulator\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
