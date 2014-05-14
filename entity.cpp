@@ -267,6 +267,21 @@ void Entity::fly(int cap,char go)
         {
             new_cap-=3;
         }
+        if(((delta_cap<4)&&(delta_cap>0))||(delta_cap>356))
+        {
+            new_cap=cap;
+        }
+
+        if(new_cap>360)
+        {
+            new_cap-=360;
+        }
+        if(new_cap<0)
+        {
+            new_cap+=360;
+        }
+
+        printf("new_cap=%d delta_cap=%d\n",new_cap,delta_cap);
     }
     else
     {
