@@ -8,16 +8,16 @@ void Capp::OnLoop() {
             {
                 if(winkel!=Stock[i]->get_cap_next())
                 {
-                    Stock[i]->fly(winkel);
+                    Stock[i]->fly(winkel,1);
                 }
                 else
                 {
-                    Stock[i]->fly(Stock[i]->get_cap_next());
+                    Stock[i]->fly(Stock[i]->get_cap_next(),0);
                 }
             }
             else
             {
-                Stock[i]->fly(Stock[i]->get_cap_next());
+                Stock[i]->fly(Stock[i]->get_cap_next(),0);
             }
     }
 

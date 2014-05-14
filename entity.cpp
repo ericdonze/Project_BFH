@@ -250,20 +250,40 @@ bool Entity::crash(std::vector<Entity*> Stock)
 
    }
 }
-void Entity::fly(int cap)
+void Entity::fly(int cap,char go)
 {
+    if(go==1)
+    {
+        delta_cap=new_cap-cap;
+        if(delta_cap<0)
+        {
+            delta_cap+=360;
+        }
+        if(delta_cap>180)
+        {
+            new_cap+=3;
+        }
+        else
+        {
+            new_cap-=3;
+        }
+    }
+    else
+    {
         new_cap=cap;
-        angle = new_cap;
-        dest_test.x += cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
-        if ((dest_test.x <0) || (dest_test.x>1900))
-        {
-            dest_test.x -= cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
-        }
-        dest_test.y += sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
-        if ((dest_test.y <0) || (dest_test.y>1035))
-        {
-            dest_test.y -= sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
-        }
+    }
+    angle = new_cap;
+    dest_test.x += cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
+    if ((dest_test.x <0) || (dest_test.x>1900))
+    {
+        dest_test.x -= cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
+    }
+    dest_test.y += sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
+    if ((dest_test.y <0) || (dest_test.y>1035))
+    {
+        dest_test.y -= sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
+    }
+
 }
 
 void Entity::render(SDL_Renderer* Renderer)
