@@ -29,7 +29,7 @@ Entity::Entity()
     dest_test.h = 20;
 }
 
-Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi)
+Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, SDL_Renderer* moi)
 {
     //ctor
     new_Posx = 0;
@@ -47,7 +47,27 @@ Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi
 
     dest_test.x = xposition;
     dest_test.y = yposition;
+    switch(Infos)
+    {
+        case 0:
+            Info_Flugzeug="Flugzeug Landen";
+        break;
 
+        case 1:
+            Info_Flugzeug="Flugzeug Links weg";
+        break;
+
+        case 2:
+            Info_Flugzeug="Flugzeug Rechts weg";
+        break;
+        case 3:
+            Info_Flugzeug="Flugzeug Oben weg";
+        break;
+        case 4:
+           Info_Flugzeug="Flugzeug Unten weg";
+        break;
+
+    }
     switch(aircraft)
     {
         case 2:
@@ -72,14 +92,17 @@ Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi
     {
         case 2:
         Loading_Surf_Entity = IMG_Load("hughes_25-25.png");
+
         break;
 
         case 0:
         Loading_Surf_Entity = IMG_Load("Pitts_23-23.png");
+
         break;
 
         default:
         Loading_Surf_Entity = IMG_Load("A380_30-30.png");
+
         break;
 
     }
@@ -182,6 +205,11 @@ int Entity::get_width()
 int Entity::get_height()
 {
     return dest_test.h;
+}
+void Entity::set_infos(std::string* p)
+{
+    *p=Info_Flugzeug;
+
 }
 double Entity::get_cap_next()
 {
