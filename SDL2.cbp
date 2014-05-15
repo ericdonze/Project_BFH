@@ -34,6 +34,7 @@
 		<Unit filename="Button.cpp" />
 		<Unit filename="Button.h" />
 		<Unit filename="CApp_OnCleanp.cpp" />
+		<Unit filename="CApp_OnCreate.cpp" />
 		<Unit filename="CApp_OnEvent.cpp" />
 		<Unit filename="CApp_OnInit.cpp" />
 		<Unit filename="CApp_OnLoop.cpp" />

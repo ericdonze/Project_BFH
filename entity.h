@@ -32,7 +32,7 @@ class Entity
 {
     public:
         Entity();
-        Entity(EEntity aircraft,IEntity Infos,int xposition, int yposition, SDL_Renderer* moi);
+        Entity(EEntity aircraft,IEntity Infos,int xposition, int yposition, int cap, SDL_Renderer* moi);
         virtual ~Entity();
     public:
 

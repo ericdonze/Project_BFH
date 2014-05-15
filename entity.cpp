@@ -29,13 +29,13 @@ Entity::Entity()
     dest_test.h = 20;
 }
 
-Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, SDL_Renderer* moi)
+Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int cap, SDL_Renderer* moi)
 {
     //ctor
     new_Posx = 0;
     new_Posy = 0;
-    new_cap = 4;
-    angle = 0;
+    new_cap = cap;
+    angle = cap;
     On_click = 0;
 
 
@@ -280,13 +280,18 @@ bool Entity::land(std::vector<Entity*> Stock)
 }
 bool Entity::crash(std::vector<Entity*> Stock, int n)
 {
-    int i;
-    for(i=0;i<Stock.size();i++)
+    int r;
+
+    for(r=0; r<Stock.size(); r++)
     {
-        if (((dest_test.x + dest_test.w < Stock[1]->getdest_test().x)
-            || (dest_test.x > Stock[1]->getdest_test().x + Stock[1]->getdest_test().w)
-            || ((dest_test.y + dest_test.h < Stock[1]->getdest_test().y)
-            || (dest_test.y > Stock[1]->getdest_test().y + Stock[1]->getdest_test().h))))
+        printf("n: %d / r: %d\n", n,r);
+        printf("Stock: %d\n", Stock.size());
+
+
+        if (((dest_test.x + dest_test.w < Stock[r]->getdest_test().x)
+            || (dest_test.x > Stock[r]->getdest_test().x + Stock[r]->getdest_test().w)
+            || ((dest_test.y + dest_test.h < Stock[r]->getdest_test().y)
+            || (dest_test.y > Stock[r]->getdest_test().y + Stock[r]->getdest_test().h))))
         {
             return false;
         }
@@ -294,7 +299,7 @@ bool Entity::crash(std::vector<Entity*> Stock, int n)
 
        else
         {
-            if(i=!n)
+            if(r!=n)
             {
                 return true;
             }
