@@ -280,35 +280,48 @@ bool Entity::land(std::vector<Entity*> Stock)
 }
 bool Entity::crash(std::vector<Entity*> Stock, int n)
 {
-    int r;
+    int touch = 0;
 
-    for(r=0; r<Stock.size(); r++)
+    for(int i=0; i < Stock.size(); i++)
     {
-        printf("n: %d / r: %d\n", n,r);
+        printf("n: %d / r: %d\n", n,i);
         printf("Stock: %d\n", Stock.size());
 
 
-        if (((dest_test.x + dest_test.w < Stock[r]->getdest_test().x)
-            || (dest_test.x > Stock[r]->getdest_test().x + Stock[r]->getdest_test().w)
-            || ((dest_test.y + dest_test.h < Stock[r]->getdest_test().y)
-            || (dest_test.y > Stock[r]->getdest_test().y + Stock[r]->getdest_test().h))))
+        if (((dest_test.x + dest_test.w < Stock[i]->getdest_test().x)
+            || (dest_test.x > Stock[i]->getdest_test().x + Stock[i]->getdest_test().w)
+            || ((dest_test.y + dest_test.h < Stock[i]->getdest_test().y)
+            || (dest_test.y > Stock[i]->getdest_test().y + Stock[i]->getdest_test().h))))
         {
-            return false;
+
         }
 
 
        else
         {
-            if(r!=n)
+            if(i!=n)
             {
-                return true;
+                touch++;
             }
-            else
+            else if(i==n)
             {
-                return false;
+
             }
+
+        }
+
+        if(touch > 0)
+        {
+            return true;
+        }
+        else
+        {
+
         }
     }
+
+    return false;
+
 }
 void Entity::fly(int cap,char go)
 {
