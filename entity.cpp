@@ -34,6 +34,7 @@ Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int
     //ctor
     new_Posx = 0;
     new_Posy = 0;
+    cap_goto=cap;
     new_cap = cap;
     angle = cap;
     On_click = 0;
@@ -312,8 +313,14 @@ bool Entity::crash(std::vector<Entity*> Stock, int n)
 }
 void Entity::fly(int cap,char go)
 {
+    if(cap_goto!=cap&&go==0)
+    {
+        go=1;
+        cap=cap_goto;
+    }
     if(go==1)
     {
+        cap_goto=cap;
         delta_cap=new_cap-cap;
         if(delta_cap<0)
         {

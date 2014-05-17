@@ -10,12 +10,8 @@ void Capp::OnRender_1() {
             {
                 Stock[i]->render(Renderer);
             }
-            std::cout<<data<<std::endl;
-            message = TTF_RenderText_Solid( font, data.c_str(), textColor );
-            text = SDL_CreateTextureFromSurface(Renderer,message);
-            SDL_QueryTexture(text, NULL, NULL, &w, &h);
-            textRect.x=1500;textRect.y=100;textRect.w=w;textRect.h=h;
-            SDL_RenderCopy(Renderer, text, NULL, &textRect);
+
+            SDL_RenderCopy(Renderer, text_1, NULL, &textRect);
 
             SDL_RenderPresent(Renderer);
 
@@ -37,6 +33,13 @@ void Capp::OnRender_3()
             button[2]->render(Renderer,Taster_2);
             button[3]->render(Renderer,Taster_3);
 
+            data_2="Highscore: KA";
+            std::cout<<data_2<<std::endl;
+            message_2 = TTF_RenderText_Solid( font_2, data_2.c_str(), textColor_2 );
+            text_2 = SDL_CreateTextureFromSurface(Renderer,message_2);
+            SDL_QueryTexture(text_2, NULL, NULL, &w, &h);
+            textRect_2.x=WindowWidth/2-w/2;textRect_2.y=WindowHeight/2-h/2;textRect_2.w=w;textRect_2.h=h;
+            SDL_RenderCopy(Renderer, text_2, NULL, &textRect_2);
 
             SDL_RenderPresent(Renderer);
 }

@@ -23,9 +23,13 @@ Capp::Capp()//ctor
     dest->h = 100;
 
     textColor.r=255;textColor.g=255;textColor.b=255;
-    message = NULL;
-    font = NULL;
-    text=NULL;
+    textColor_2.r=255;textColor_2.g=0;textColor_2.b=0;
+    message_1 = NULL;
+    message_2 = NULL;
+    font_1 = NULL;
+    font_2 = NULL;
+    text_1=NULL;
+    text_2=NULL;
 }
 
 Capp::~Capp()

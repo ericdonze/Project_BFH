@@ -55,10 +55,10 @@
 	<string.h>
 	<stdio.h>
 
-1400056861 source:c:\users\public\documents\airportsimulator\capp.cpp
+1400329603 source:c:\users\public\documents\airportsimulator\capp.cpp
 	"capp.h"
 
-1400063982 c:\users\public\documents\airportsimulator\capp.h
+1400329603 c:\users\public\documents\airportsimulator\capp.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string.h>
@@ -66,7 +66,7 @@
 	"button.h"
 	<vector>
 
-1400059974 c:\users\public\documents\airportsimulator\entity.h
+1400327013 c:\users\public\documents\airportsimulator\entity.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
@@ -77,24 +77,24 @@
 	"Capp.h"
 	<SDL_image.h>
 
-1400056941 source:c:\users\public\documents\airportsimulator\capp_onevent.cpp
+1400326657 source:c:\users\public\documents\airportsimulator\capp_onevent.cpp
 	"Capp.h"
 	"math.h"
 
-1400063675 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
+1400329408 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
 	<stdio.h>
 
-1400063982 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
+1400329283 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
 	"Capp.h"
 
-1400063675 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
+1400329807 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
 	"Capp.h"
 
-1400060072 source:c:\users\public\documents\airportsimulator\entity.cpp
+1400327248 source:c:\users\public\documents\airportsimulator\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
@@ -251,7 +251,7 @@
 	<math.h>
 	"SDL.h"
 
-1400060637 source:c:\users\public\documents\airportsimulator\capp_onrestart.cpp
+1400330177 source:c:\users\public\documents\airportsimulator\capp_onrestart.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
@@ -273,6 +273,15 @@
 	<stdio.h>
 
 1400185860 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oncreate.cpp
+	"Capp.h"
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<stdio.h>
+	"time.h"
+	<stdlib.h>
+
+1400325355 source:c:\users\public\documents\airportsimulator\capp_oncreate.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
