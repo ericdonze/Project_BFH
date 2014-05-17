@@ -16,6 +16,9 @@ void Capp::OnEvent(SDL_Event* Event)
                 case SDLK_p:
                     Menu=Spielendcard;
                     break;
+                case SDLK_c:
+                    OnCreate();
+                    break;
                 case SDLK_ESCAPE:
                     Running=0;
                     break;

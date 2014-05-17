@@ -13,8 +13,8 @@ void Capp::OnRestart()
     Stock.clear();
 
 
-    Stock.push_back(new Entity(Big,Left,100,100,Renderer));
-    Stock.push_back(new Entity(Heli,Up,200,200,Renderer));
+    Stock.push_back(new Entity(Big,Left,100,100,0,Renderer));
+    Stock.push_back(new Entity(Heli,Up,200,200,0,Renderer));
 
 }
 

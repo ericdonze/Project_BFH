@@ -2,8 +2,12 @@
 
 void Capp::OnLoop() {
 
-    for(i=0;i<Stock.size();i++)
+
+    for(int i=0;i<Stock.size();i++)
     {
+
+
+
         if(Stock[i]->get_On_click()==true)
         {
             if(winkel!=Stock[i]->get_cap_next())

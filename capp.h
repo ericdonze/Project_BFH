@@ -27,6 +27,7 @@ class Capp
         void OnRender_1();
         void OnRender_2();
         void OnRender_3();
+        void OnCreate();
         void OnCleanup();
         void OnRestart();
         void Test_Box(SDL_Renderer* box);
@@ -70,7 +71,7 @@ class Capp
         static const int WindowWidth = 2000;
         static const int WindowHeight = 900;
         unsigned int frameLimit = SDL_GetTicks() + 16;
-        int Menu=0;
+        int Menu=1;
         int mouse_x;
         int mouse_y;
         int vector_x;
