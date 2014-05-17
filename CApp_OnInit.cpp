@@ -103,12 +103,17 @@ bool Capp::OnInit() {
         return false;
     }
 
-    font = TTF_OpenFont( "Tahoma.ttf", 20 );
-    if( font == NULL )
+    font_1 = TTF_OpenFont( "Tahoma.ttf", 20 );
+    if( font_1 == NULL )
     {
         printf( "Unable to create texture from %s! SDL Error: %s\n", "Tahoma.ttf", SDL_GetError() );
     }
-
+    font_2 = TTF_OpenFont( "Tahoma.ttf", 40 );
+    if( font_2 == NULL )
+    {
+        printf( "Unable to create texture from %s! SDL Error: %s\n", "Tahoma.ttf", SDL_GetError() );
+    }
+    data_2="";
 
 
 
@@ -127,7 +132,6 @@ bool Capp::OnInit() {
     button[1]->render(Renderer,0);
     button[2]->render(Renderer,0);
     button[3]->render(Renderer,0);
-    SDL_RenderCopy(Renderer, text, NULL, &textRect);
     SDL_RenderPresent(Renderer);
 
 

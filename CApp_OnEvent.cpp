@@ -68,7 +68,7 @@ void Capp::OnEvent(SDL_Event* Event)
                 {
                     for(i=0;i<Stock.size();i++)
                     {
-                        if(Stock[i]->get_On_click()==true&&Stock[i]->inside_entity(mouse_x,mouse_y)==false)
+/*                        if(Stock[i]->get_On_click()==true&&Stock[i]->inside_entity(mouse_x,mouse_y)==false)
                         {
                             vector_x=mouse_x-(Stock[i]->get_x_position()+Stock[i]->get_width()/2);            // Misst denn winkel des Vectors zwischen Objekt und Maus
                             vector_y=mouse_y-(Stock[i]->get_y_position()+Stock[i]->get_height()/2);
@@ -78,7 +78,7 @@ void Capp::OnEvent(SDL_Event* Event)
                                 winkel+=360;
                             }
                             printf("winkel=%d\n",winkel);
-                        }
+                        }*/
                         if(Stock[i]->inside_entity(mouse_x,mouse_y)==true)
                         {
                             if(Stock[i]->get_On_click()==true)
@@ -89,6 +89,13 @@ void Capp::OnEvent(SDL_Event* Event)
                             {
                                 Stock[i]->set_On_click(1);
                                 winkel=Stock[i]->get_cap_next();
+                            }
+                        }
+                        else
+                        {
+                            if(Stock[i]->get_On_click()==true)
+                            {
+                                Stock[i]->set_On_click(0);
                             }
                         }
                     }
@@ -115,6 +122,23 @@ void Capp::OnEvent(SDL_Event* Event)
             }
             else if((Event->button.button == SDL_BUTTON_RIGHT))
             {
+                if(Menu==Spielablauf)
+                {
+                    for(i=0;i<Stock.size();i++)
+                    {
+                        if(Stock[i]->get_On_click()==true&&Stock[i]->inside_entity(mouse_x,mouse_y)==false)
+                        {
+                            vector_x=mouse_x-(Stock[i]->get_x_position()+Stock[i]->get_width()/2);            // Misst denn winkel des Vectors zwischen Objekt und Maus
+                            vector_y=mouse_y-(Stock[i]->get_y_position()+Stock[i]->get_height()/2);
+                            winkel=(atan2(vector_y, vector_x)*(180/3.14159));
+                            if(winkel<0)
+                            {
+                                winkel+=360;
+                            }
+                            printf("winkel=%d\n",winkel);
+                        }
+                    }
+                }
                 //right click
             }
         }
