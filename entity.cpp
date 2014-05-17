@@ -284,8 +284,7 @@ bool Entity::crash(std::vector<Entity*> Stock, int n)
 
     for(int i=0; i < Stock.size(); i++)
     {
-        printf("n: %d / r: %d\n", n,i);
-        printf("Stock: %d\n", Stock.size());
+
 
 
         if (((dest_test.x + dest_test.w < Stock[i]->getdest_test().x)
