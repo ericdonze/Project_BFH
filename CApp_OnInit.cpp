@@ -108,7 +108,7 @@ bool Capp::OnInit() {
     {
         printf( "Unable to create texture from %s! SDL Error: %s\n", "Tahoma.ttf", SDL_GetError() );
     }
-
+    data="";
 
 
 

@@ -15,14 +15,10 @@ void Capp::OnLoop() {
                 Stock[i]->fly(Stock[i]->get_cap_next(),0);
             }
             Stock[i]->set_infos(&data);
-            std::cout<<data<<std::endl;
-            message = TTF_RenderText_Solid( font, data.c_str(), textColor );
-            text = SDL_CreateTextureFromSurface(Renderer,message);
-            SDL_QueryTexture(text, NULL, NULL, &w, &h);
-            textRect.x=1500;textRect.y=100;textRect.w=w;textRect.h=h;
         }
         else
         {
+            z++;
             Stock[i]->fly(Stock[i]->get_cap_next(),0);
         }
 
@@ -36,4 +32,9 @@ void Capp::OnLoop() {
             Menu=Spielendcard;
         }
     }
+    if(z==Stock.size())
+    {
+        data="";
+    }
+    z=0;
 }

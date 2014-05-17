@@ -10,6 +10,11 @@ void Capp::OnRender_1() {
             {
                 Stock[i]->render(Renderer);
             }
+            std::cout<<data<<std::endl;
+            message = TTF_RenderText_Solid( font, data.c_str(), textColor );
+            text = SDL_CreateTextureFromSurface(Renderer,message);
+            SDL_QueryTexture(text, NULL, NULL, &w, &h);
+            textRect.x=1500;textRect.y=100;textRect.w=w;textRect.h=h;
             SDL_RenderCopy(Renderer, text, NULL, &textRect);
 
             SDL_RenderPresent(Renderer);
