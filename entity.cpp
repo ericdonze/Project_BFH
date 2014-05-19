@@ -29,14 +29,14 @@ Entity::Entity()
     dest_test.h = 20;
 }
 
-Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi)
+Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int cap, SDL_Renderer* moi)
 {
     //ctor
-    Sorte = aircraft;
     new_Posx = 0;
     new_Posy = 0;
-    new_cap = 4;
-    angle = 0;
+    cap_goto=cap;
+    new_cap = cap;
+    angle = cap;
     On_click = 0;
 
 
@@ -48,7 +48,27 @@ Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi
 
     dest_test.x = xposition;
     dest_test.y = yposition;
+    switch(Infos)
+    {
+        case 0:
+            Info_Flugzeug="Flugzeug Landen";
+        break;
 
+        case 1:
+            Info_Flugzeug="Flugzeug Links weg";
+        break;
+
+        case 2:
+            Info_Flugzeug="Flugzeug Rechts weg";
+        break;
+        case 3:
+            Info_Flugzeug="Flugzeug Oben weg";
+        break;
+        case 4:
+           Info_Flugzeug="Flugzeug Unten weg";
+        break;
+
+    }
     switch(aircraft)
     {
         case 2:
@@ -73,14 +93,17 @@ Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi
     {
         case 2:
         Loading_Surf_Entity = IMG_Load("hughes_25-25.png");
+
         break;
 
         case 0:
         Loading_Surf_Entity = IMG_Load("Pitts_23-23.png");
+
         break;
 
         default:
         Loading_Surf_Entity = IMG_Load("A380_30-30.png");
+
         break;
 
     }
@@ -184,6 +207,11 @@ int Entity::get_height()
 {
     return dest_test.h;
 }
+void Entity::set_infos(std::string* p)
+{
+    *p=Info_Flugzeug;
+
+}
 double Entity::get_cap_next()
 {
     return angle;
@@ -235,79 +263,64 @@ bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
 }
 bool Entity::land(std::vector<Entity*> Stock)
 {
-    switch (Sorte)
-    {
-    case Small:
-    {
-       if((((dest_test.x + dest_test.w < 880)
-        || (dest_test.x > 900))
-        || ((dest_test.y + dest_test.h < 633)
-        || (dest_test.y > 663)))
-        &&  (new_cap>70
-        ||  new_cap<50))
-
-    {
-
-        return false;
-    }
-        else
-    {
-             return true;
-    }
-
-    }
-        break;
-
-    case Big:
-    {
-       if(((dest_test.x + dest_test.w < 600)
+    if(((dest_test.x + dest_test.w < 600)
         || (dest_test.x > 620)
         || (dest_test.y + dest_test.h < 252)
         || (dest_test.y > 232))
-        &&  (new_cap>70
-        ||  new_cap<50))
+        &&  (new_cap>300
+        ||  new_cap<330))
     {
 
         return false;
     }
-        else
+    else
     {
         return true;
 
     }
-
-    }
-        break;
-
-    case Heli:
-    {
-        return false;
-    }
-    break;
-    }
 }
-bool Entity::crash(std::vector<Entity*> Stock)
+bool Entity::crash(std::vector<Entity*> Stock, int n)
 {
-    if (((dest_test.x + dest_test.w < Stock[1]->getdest_test().x)
-        || (dest_test.x > Stock[1]->getdest_test().x + Stock[1]->getdest_test().w)
-        || ((dest_test.y + dest_test.h < Stock[1]->getdest_test().y)
-        || (dest_test.y > Stock[1]->getdest_test().y + Stock[1]->getdest_test().h))))
+    int r;
+
+    for(r=0; r<Stock.size(); r++)
     {
-        return false;
+        printf("n: %d / r: %d\n", n,r);
+        printf("Stock: %d\n", Stock.size());
+
+
+        if (((dest_test.x + dest_test.w < Stock[r]->getdest_test().x)
+            || (dest_test.x > Stock[r]->getdest_test().x + Stock[r]->getdest_test().w)
+            || ((dest_test.y + dest_test.h < Stock[r]->getdest_test().y)
+            || (dest_test.y > Stock[r]->getdest_test().y + Stock[r]->getdest_test().h))))
+        {
+            return false;
+        }
+
+
+       else
+        {
+            if(r!=n)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
-
-
-   else
-    {
-
-    return true;
-
-   }
 }
 void Entity::fly(int cap,char go)
 {
+    if(cap_goto!=cap&&go==0)
+    {
+        go=1;
+        cap=cap_goto;
+    }
     if(go==1)
     {
+        cap_goto=cap;
         delta_cap=new_cap-cap;
         if(delta_cap<0)
         {
@@ -315,11 +328,11 @@ void Entity::fly(int cap,char go)
         }
         if(delta_cap>180)
         {
-            new_cap+=3;
+            new_cap+=4;
         }
         else
         {
-            new_cap-=3;
+            new_cap-=4;
         }
         if(((delta_cap<4)&&(delta_cap>0))||(delta_cap>356))
         {
@@ -334,23 +347,21 @@ void Entity::fly(int cap,char go)
         {
             new_cap+=360;
         }
-
-        //printf("new_cap=%d delta_cap=%d\n",new_cap,delta_cap);
     }
     else
     {
         new_cap=cap;
     }
     angle = new_cap;
-    dest_test.x += cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
-    if ((dest_test.x <0) || (dest_test.x>1900))
+    dest_test.x += (cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
+    if ((dest_test.x <-50) || (dest_test.x>1930))
     {
-        dest_test.x -= cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
+        dest_test.x -= (cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
     }
-    dest_test.y += sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
-    if ((dest_test.y <0) || (dest_test.y>1035))
+    dest_test.y +=( sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
+    if ((dest_test.y <-50) || (dest_test.y>1075))
     {
-        dest_test.y -= sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
+        dest_test.y -= (sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
     }
 
 }
@@ -397,4 +408,15 @@ bool Entity::get_On_click()
 void Entity::set_On_click(bool click)
 {
     On_click = click;
+}
+bool Entity::inside_playfield()
+{
+    if(dest_test.x>-49&&dest_test.x<1929&&dest_test.y>-49&&dest_test.y<1074)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }

@@ -27,6 +27,7 @@ class Capp
         void OnRender_1();
         void OnRender_2();
         void OnRender_3();
+        void OnCreate();
         void OnCleanup();
         void OnRestart();
         void Test_Box(SDL_Renderer* box);
@@ -54,24 +55,28 @@ class Capp
         SDL_Texture* Background_1 = NULL;
         SDL_Texture* Background_2 = NULL;
         SDL_Texture* Background_3 = NULL;
-        SDL_Texture* text=NULL;
         SDL_Texture* text_1=NULL;
+        SDL_Texture* text_2=NULL;
         SDL_Color textColor;
+        SDL_Color textColor_2;
         SDL_Rect textRect;
-        SDL_Rect textRect_1;
-        TTF_Font *font;
+        SDL_Rect textRect_2;
+        TTF_Font *font_1;
+        TTF_Font *font_2;
 
-        SDL_Surface *message;
         SDL_Surface *message_1;
+        SDL_Surface *message_2;
         SDL_Texture* Avion = NULL;
         SDL_Rect* dest = NULL;
         SDL_Rect* src = NULL;
 
         std::vector<Entity*> Stock;
         std::vector<Button*> button;
-        std::string data;
-        static const int WindowWidth = 2000;
-        static const int WindowHeight = 900;
+        std::string data_1;
+        std::string data_2;
+        static const int WindowWidth = 1900;
+        static const int WindowHeight = 1035;
+
         unsigned int frameLimit = SDL_GetTicks() + 16;
         int Menu=0;
         int mouse_x;
@@ -79,6 +84,7 @@ class Capp
         int vector_x;
         int vector_y;
         int winkel=4;
+        char z;
         int w=0,h=0;
         unsigned char Taster_0=0;
         unsigned char Taster_1=0;
