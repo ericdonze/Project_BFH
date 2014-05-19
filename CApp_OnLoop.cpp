@@ -37,6 +37,11 @@ void Capp::OnLoop() {
         {
             Menu=Spielendcard;
         }
+        if(!Stock[i]->inside_playfield())
+        {
+            delete Stock[i];
+            Stock.erase(Stock.begin()+i);
+        }
     }
     if(z==Stock.size())
     {
@@ -48,4 +53,5 @@ void Capp::OnLoop() {
         textRect.x=1500;textRect.y=100;textRect.w=w;textRect.h=h;
     }
     z=0;
+
 }

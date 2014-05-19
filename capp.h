@@ -74,8 +74,9 @@ class Capp
         std::vector<Button*> button;
         std::string data_1;
         std::string data_2;
-        static const int WindowWidth = 2000;
-        static const int WindowHeight = 900;
+        static const int WindowWidth = 1900;
+        static const int WindowHeight = 1035;
+
         unsigned int frameLimit = SDL_GetTicks() + 16;
         int Menu=0;
         int mouse_x;

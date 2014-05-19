@@ -340,11 +340,11 @@ void Entity::fly(int cap,char go)
         }
         if(delta_cap>180)
         {
-            new_cap+=3;
+            new_cap+=4;
         }
         else
         {
-            new_cap-=3;
+            new_cap-=4;
         }
         if(((delta_cap<4)&&(delta_cap>0))||(delta_cap>356))
         {
@@ -359,23 +359,21 @@ void Entity::fly(int cap,char go)
         {
             new_cap+=360;
         }
-
-        printf("new_cap=%d delta_cap=%d\n",new_cap,delta_cap);
     }
     else
     {
         new_cap=cap;
     }
     angle = new_cap;
-    dest_test.x += cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
-    if ((dest_test.x <0) || (dest_test.x>1900))
+    dest_test.x += (cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
+    if ((dest_test.x <-50) || (dest_test.x>1930))
     {
-        dest_test.x -= cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
+        dest_test.x -= (cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
     }
-    dest_test.y += sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
-    if ((dest_test.y <0) || (dest_test.y>1035))
+    dest_test.y +=( sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
+    if ((dest_test.y <-50) || (dest_test.y>1075))
     {
-        dest_test.y -= sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap),2))+(pow(sin(new_cap),2)));
+        dest_test.y -= (sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
     }
 
 }
@@ -422,4 +420,15 @@ bool Entity::get_On_click()
 void Entity::set_On_click(bool click)
 {
     On_click = click;
+}
+bool Entity::inside_playfield()
+{
+    if(dest_test.x>-49&&dest_test.x<1929&&dest_test.y>-49&&dest_test.y<1074)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }

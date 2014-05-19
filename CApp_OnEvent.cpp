@@ -28,12 +28,6 @@ void Capp::OnEvent(SDL_Event* Event)
                 case SDLK_d:
                     winkel += 4;
                     break;
-                case SDLK_LEFT:
-                    Cap_next2 -= 4;
-                    break;
-                case SDLK_RIGHT:
-                    Cap_next2 += 4;
-                    break;
             }
             if(winkel < 1)                //keep Cap_next between 0 and 15
             {

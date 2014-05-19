@@ -14,7 +14,7 @@ bool Capp::OnInit() {
         return false;
     }
 
-    if((Window = SDL_CreateWindow("My SDL Game",    //creation main-window
+    if((Window = SDL_CreateWindow("Flight-Simulator",    //creation main-window
      5, 40,
      WindowWidth, WindowHeight, SDL_WINDOW_MAXIMIZED)) == NULL) {
         return false;
@@ -108,7 +108,7 @@ bool Capp::OnInit() {
     {
         printf( "Unable to create texture from %s! SDL Error: %s\n", "Tahoma.ttf", SDL_GetError() );
     }
-    font_2 = TTF_OpenFont( "Tahoma.ttf", 40 );
+    font_2 = TTF_OpenFont( "Tahoma.ttf", 50 );
     if( font_2 == NULL )
     {
         printf( "Unable to create texture from %s! SDL Error: %s\n", "Tahoma.ttf", SDL_GetError() );

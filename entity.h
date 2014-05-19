@@ -52,6 +52,8 @@ class Entity
         double get_cap_next();
         void set_infos(std::string* p);
         char inside_entity(int mouse_x, int mouse_y);
+        bool inside_playfield();
+
 
 
         bool get_On_click();
