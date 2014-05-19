@@ -103,10 +103,10 @@
 	"math.h"
 	"capp.h"
 
-1400060907 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
+1400342526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
 	"capp.h"
 
-1400186084 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
+1400342526 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string.h>
@@ -114,7 +114,7 @@
 	"button.h"
 	<vector>
 
-1400183500 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
+1400342526 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
@@ -125,24 +125,24 @@
 	"Capp.h"
 	<SDL_image.h>
 
-1400185521 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
+1400342526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
 	"Capp.h"
 	"math.h"
 
-1400184938 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
+1400342526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
 	<stdio.h>
 
-1400187542 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
+1400342526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
 	"Capp.h"
 
-1400060907 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
+1400342526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
 	"Capp.h"
 
-1400188231 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
+1400342527 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
@@ -265,7 +265,7 @@
 	<SDL_image.h>
 	<stdio.h>
 
-1400184747 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrestart.cpp
+1400342526 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrestart.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
