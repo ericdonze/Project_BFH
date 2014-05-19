@@ -32,6 +32,7 @@ Entity::Entity()
 Entity::Entity(EEntity aircraft, int xposition, int yposition, SDL_Renderer* moi)
 {
     //ctor
+    Sorte = aircraft;
     new_Posx = 0;
     new_Posy = 0;
     new_cap = 4;
@@ -234,20 +235,55 @@ bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
 }
 bool Entity::land(std::vector<Entity*> Stock)
 {
-    if(((dest_test.x + dest_test.w < 600)
-        || (dest_test.x > 620)
-        || (dest_test.y + dest_test.h < 252)
-        || (dest_test.y > 232))
-        &&  (new_cap>300
-        ||  new_cap<330))
+    switch (Sorte)
+    {
+    case Small:
+    {
+       if((((dest_test.x + dest_test.w < 880)
+        || (dest_test.x > 900))
+        || ((dest_test.y + dest_test.h < 633)
+        || (dest_test.y > 663)))
+        &&  (new_cap>70
+        ||  new_cap<50))
+
     {
 
         return false;
     }
-    else
+        else
+    {
+             return true;
+    }
+
+    }
+        break;
+
+    case Big:
+    {
+       if(((dest_test.x + dest_test.w < 600)
+        || (dest_test.x > 620)
+        || (dest_test.y + dest_test.h < 252)
+        || (dest_test.y > 232))
+        &&  (new_cap>70
+        ||  new_cap<50))
+    {
+
+        return false;
+    }
+        else
     {
         return true;
 
+    }
+
+    }
+        break;
+
+    case Heli:
+    {
+        return false;
+    }
+    break;
     }
 }
 bool Entity::crash(std::vector<Entity*> Stock)
@@ -299,7 +335,7 @@ void Entity::fly(int cap,char go)
             new_cap+=360;
         }
 
-        printf("new_cap=%d delta_cap=%d\n",new_cap,delta_cap);
+        //printf("new_cap=%d delta_cap=%d\n",new_cap,delta_cap);
     }
     else
     {

@@ -70,6 +70,7 @@ class Entity
         int delta_cap;
         double angle;
         bool On_click;
+        EEntity Sorte;
 };
 
 #endif // ENTITY_H

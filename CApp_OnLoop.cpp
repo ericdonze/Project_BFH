@@ -22,7 +22,7 @@ void Capp::OnLoop() {
     }
    if(Stock[0]->land(Stock)==1)
    {
-       printf("landing succeeded");
+       printf("\nlanding succeeded");
    }
 
     if(Stock[0]->crash(Stock)==1)
