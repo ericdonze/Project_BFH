@@ -89,7 +89,7 @@ class Capp
         int vector_x;
         int vector_y;
         int winkel=4;
-        unsigned int z;
+        unsigned int z,data_old=0;
         int w=0,h=0;
         unsigned char Taster_0=0;
         unsigned char Taster_1=0;

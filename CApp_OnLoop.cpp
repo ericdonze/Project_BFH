@@ -21,6 +21,7 @@ void Capp::OnLoop() {
             text_1 = SDL_CreateTextureFromSurface(Renderer,message_1);
             SDL_QueryTexture(text_1, NULL, NULL, &w, &h);
             textRect.x=Stock[i]->get_x_position()+20;textRect.y=Stock[i]->get_y_position()-20;textRect.w=w;textRect.h=h;
+            data_old=1;
         }
         else
         {
@@ -30,7 +31,10 @@ void Capp::OnLoop() {
 
         if(Stock[i]->land(Stock)==1)
         {
-            printf("landing succeeded");
+            score += Stock[i]->game_point();
+            Stock[i]->set_On_click(0);
+            delete Stock[i];
+            Stock.erase(Stock.begin()+i);
         }
 
         if(Stock[i]->crash(Stock,i)==1)
@@ -39,7 +43,6 @@ void Capp::OnLoop() {
         }
         if(!Stock[i]->inside_playfield())
         {
-
             score += Stock[i]->game_point();
             delete Stock[i];
             Stock.erase(Stock.begin()+i);
@@ -47,12 +50,16 @@ void Capp::OnLoop() {
     }
     if(z==Stock.size())
     {
+        if (data_old==1)
+        {
         data_1="";
         std::cout<<data_1<<std::endl;
         message_1 = TTF_RenderText_Solid( font_1, data_1.c_str(), textColor );
         text_1 = SDL_CreateTextureFromSurface(Renderer,message_1);
         SDL_QueryTexture(text_1, NULL, NULL, &w, &h);
         textRect.x=1500;textRect.y=100;textRect.w=w;textRect.h=h;
+        data_old=0;
+        }
     }
     z=0;
 

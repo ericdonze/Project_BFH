@@ -84,6 +84,7 @@ class Entity
         double angle;
         bool On_click;
         IEntity order;
+        EEntity model;
 
 };
 
