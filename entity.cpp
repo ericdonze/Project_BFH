@@ -48,6 +48,9 @@ Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int
 
     dest_test.x = xposition;
     dest_test.y = yposition;
+
+    order = Infos;
+
     switch(Infos)
     {
         case 0:
@@ -279,37 +282,49 @@ bool Entity::land(std::vector<Entity*> Stock)
 
     }
 }
-bool Entity::crash(std::vector<Entity*> Stock, int n)
+bool Entity::crash(std::vector<Entity*> Stock, unsigned int n)
 {
-    int r;
+    int touch = 0;
 
-    for(r=0; r<Stock.size(); r++)
+    for(unsigned int i=0; i < Stock.size(); i++)
     {
-        printf("n: %d / r: %d\n", n,r);
-        printf("Stock: %d\n", Stock.size());
 
 
-        if (((dest_test.x + dest_test.w < Stock[r]->getdest_test().x)
-            || (dest_test.x > Stock[r]->getdest_test().x + Stock[r]->getdest_test().w)
-            || ((dest_test.y + dest_test.h < Stock[r]->getdest_test().y)
-            || (dest_test.y > Stock[r]->getdest_test().y + Stock[r]->getdest_test().h))))
+
+        if (((dest_test.x + dest_test.w < Stock[i]->getdest_test().x)
+            || (dest_test.x > Stock[i]->getdest_test().x + Stock[i]->getdest_test().w)
+            || ((dest_test.y + dest_test.h < Stock[i]->getdest_test().y)
+            || (dest_test.y > Stock[i]->getdest_test().y + Stock[i]->getdest_test().h))))
         {
-            return false;
+
         }
 
 
        else
         {
-            if(r!=n)
+            if(i!=n)
             {
-                return true;
+                touch++;
             }
-            else
+            else if(i==n)
             {
-                return false;
+
             }
+
+        }
+
+        if(touch > 0)
+        {
+            return true;
+        }
+        else
+        {
+
         }
     }
+
+    return false;
+
 }
 void Entity::fly(int cap,char go)
 {
@@ -419,4 +434,62 @@ bool Entity::inside_playfield()
     {
         return false;
     }
+}
+
+int Entity::game_point()
+{
+
+    switch(order)
+    {
+
+        case 0:
+                return 100;
+            break;
+
+        case 1:
+            if(dest_test.x>-49)
+            {
+                return 10;
+            }
+            else
+            {
+                return 0;
+            }
+            break;
+
+        case 2:
+            if(dest_test.x<1929)
+            {
+                return 10;
+            }
+            else
+            {
+                return 0;
+            }
+            break;
+
+        case 3:
+            if(dest_test.y>-49)
+            {
+                return 10;
+            }
+            else
+            {
+                return 0;
+            }
+            break;
+        case 4:
+            if(dest_test.y<1074)
+            {
+                return 10;
+            }
+            else
+            {
+                return 0;
+            }
+            break;
+
+
+    }
+    return 0;
 }

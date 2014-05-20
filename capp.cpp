@@ -30,6 +30,7 @@ Capp::Capp()//ctor
     font_2 = NULL;
     text_1=NULL;
     text_2=NULL;
+    score = 0;
 }
 
 Capp::~Capp()

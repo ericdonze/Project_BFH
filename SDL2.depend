@@ -103,18 +103,19 @@
 	"math.h"
 	"capp.h"
 
-1400060907 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
+1400532511 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
 	"capp.h"
 
-1400186084 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
+1400569051 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string.h>
 	"entity.h"
 	"button.h"
 	<vector>
+	<stdio.h>
 
-1400183500 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
+1400569113 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
@@ -125,24 +126,27 @@
 	"Capp.h"
 	<SDL_image.h>
 
-1400185521 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
+1400568767 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
 	"Capp.h"
 	"math.h"
 
-1400184938 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
+1400529205 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
 	<stdio.h>
 
-1400187542 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
+1400569022 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
 	"Capp.h"
 
-1400060907 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
+1400568767 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
 	"Capp.h"
+	<iostream>
+	<string>
+	<sstream>
 
-1400188231 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
+1400569165 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
@@ -167,7 +171,7 @@
 	<iostream>
 	<string>
 
-1399450242 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\button.cpp
+1400055910 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\button.cpp
 	"button.h"
 	<string.h>
 	<stdio.h>
@@ -191,7 +195,7 @@
 	"button.h"
 	<vector>
 
-1400055214 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.h
+1400057163 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
@@ -205,24 +209,24 @@
 	"Capp.h"
 	<SDL_image.h>
 
-1400055214 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onevent.cpp
+1400058063 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onevent.cpp
 	"Capp.h"
 	"math.h"
 
-1399443269 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oninit.cpp
+1400055910 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oninit.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
 	<stdio.h>
 
-1400055214 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onloop.cpp
+1400058389 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onloop.cpp
 	"Capp.h"
 
 1399450242 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onrender.cpp
 	"Capp.h"
 
-1400055720 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.cpp
+1400059605 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
@@ -265,7 +269,7 @@
 	<SDL_image.h>
 	<stdio.h>
 
-1400184747 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrestart.cpp
+1400568621 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrestart.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
