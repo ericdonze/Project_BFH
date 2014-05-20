@@ -128,11 +128,7 @@ bool Capp::OnInit() {
     //Stock[1]->loadbild(Renderer, super2);
     //Stock[0]->render(Renderer);
     //Stock[1]->render(Renderer);
-    button[0]->render(Renderer,0);
-    button[1]->render(Renderer,0);
-    button[2]->render(Renderer,0);
-    button[3]->render(Renderer,0);
-    SDL_RenderPresent(Renderer);
+
 
 
 
