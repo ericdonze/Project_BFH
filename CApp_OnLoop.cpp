@@ -3,7 +3,7 @@
 void Capp::OnLoop() {
 
 
-    for(int i=0;i<Stock.size();i++)
+    for(unsigned int i=0;i<Stock.size();i++)
     {
         if(Stock[i]->get_On_click()==true)
         {
@@ -39,6 +39,8 @@ void Capp::OnLoop() {
         }
         if(!Stock[i]->inside_playfield())
         {
+
+            score += Stock[i]->game_point();
             delete Stock[i];
             Stock.erase(Stock.begin()+i);
         }

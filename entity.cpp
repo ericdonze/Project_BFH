@@ -48,6 +48,9 @@ Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int
 
     dest_test.x = xposition;
     dest_test.y = yposition;
+
+    order = Infos;
+
     switch(Infos)
     {
         case 0:
@@ -279,11 +282,11 @@ bool Entity::land(std::vector<Entity*> Stock)
 
     }
 }
-bool Entity::crash(std::vector<Entity*> Stock, int n)
+bool Entity::crash(std::vector<Entity*> Stock, unsigned int n)
 {
     int touch = 0;
 
-    for(int i=0; i < Stock.size(); i++)
+    for(unsigned int i=0; i < Stock.size(); i++)
     {
 
 
@@ -431,4 +434,62 @@ bool Entity::inside_playfield()
     {
         return false;
     }
+}
+
+int Entity::game_point()
+{
+
+    switch(order)
+    {
+
+        case 0:
+                return 100;
+            break;
+
+        case 1:
+            if(dest_test.x>-49)
+            {
+                return 10;
+            }
+            else
+            {
+                return 0;
+            }
+            break;
+
+        case 2:
+            if(dest_test.x<1929)
+            {
+                return 10;
+            }
+            else
+            {
+                return 0;
+            }
+            break;
+
+        case 3:
+            if(dest_test.y>-49)
+            {
+                return 10;
+            }
+            else
+            {
+                return 0;
+            }
+            break;
+        case 4:
+            if(dest_test.y<1074)
+            {
+                return 10;
+            }
+            else
+            {
+                return 0;
+            }
+            break;
+
+
+    }
+    return 0;
 }

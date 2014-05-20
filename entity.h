@@ -53,6 +53,7 @@ class Entity
         void set_infos(std::string* p);
         char inside_entity(int mouse_x, int mouse_y);
         bool inside_playfield();
+        int game_point();
 
 
 
@@ -60,7 +61,7 @@ class Entity
         void set_On_click(bool click);
         bool precrash(std::vector<Entity*> Stock, int cap1, int cap2);
         void fly(int cap,char go);
-        bool crash(std::vector<Entity*> Stock,int n);
+        bool crash(std::vector<Entity*> Stock,unsigned int n);
         bool land(std::vector<Entity*> Stock);
         void render(SDL_Renderer* Renderer);
         void loadbild(SDL_Renderer* Renderer, const char *image);
@@ -82,6 +83,8 @@ class Entity
         int cap_goto;
         double angle;
         bool On_click;
+        IEntity order;
+
 };
 
 #endif // ENTITY_H
