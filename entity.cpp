@@ -265,7 +265,7 @@ bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
 
 
 }
-bool Entity::land(std::vector<Entity*> Stock)
+bool Entity::land(std::vector<Entity*> Stock)       //function test if the aircraft is above a landing place
 {
     switch (model)
     {
@@ -300,7 +300,7 @@ bool Entity::land(std::vector<Entity*> Stock)
 
 
 }
-bool Entity::crash(std::vector<Entity*> Stock, unsigned int n)
+bool Entity::crash(std::vector<Entity*> Stock, unsigned int n)      //function control if any Entity is crashing
 {
     int touch = 0;
 
@@ -349,7 +349,7 @@ void Entity::set_window_size(int w,int h)
     screenwidth=w;
     screenheight=h;
 }
-void Entity::fly(int cap,char go)
+void Entity::fly(int cap,char go)       //function move the aircraft a tick further
 {
     if (go==2)
     {
@@ -365,7 +365,7 @@ void Entity::fly(int cap,char go)
     {
         cap_goto=cap;
         delta_cap=new_cap-cap;
-        if(delta_cap<0)
+        if(delta_cap<0)         //keep the direction between 0 and 360
         {
             delta_cap+=360;
         }
@@ -382,11 +382,11 @@ void Entity::fly(int cap,char go)
             new_cap=cap;
         }
 
-        if(new_cap>360)
+        if(new_cap>360)         //keep the direction between 0 and 360
         {
             new_cap-=360;
         }
-        if(new_cap<0)
+        if(new_cap<0)           //keep the direction between 0 and 360
         {
             new_cap+=360;
         }
@@ -403,14 +403,14 @@ void Entity::fly(int cap,char go)
 
 }
 
-void Entity::render(SDL_Renderer* Renderer)
+void Entity::render(SDL_Renderer* Renderer)         //function draw the Entity on the screen
 {
 
-    SDL_RenderCopyEx(Renderer, Bild, &rect_src, &rect_dest, angle, NULL, SDL_FLIP_NONE);
+    SDL_RenderCopyEx(Renderer, Bild, &rect_src, &rect_dest, angle, NULL, SDL_FLIP_NONE);    //function draw the aircraft image and turn it in the desired direction
 
     if(On_click == 1)
     {
-        SDL_RenderCopyEx(Renderer, Cercle, &rect_src, &rect_dest, angle, NULL, SDL_FLIP_NONE);
+        SDL_RenderCopyEx(Renderer, Cercle, &rect_src, &rect_dest, angle, NULL, SDL_FLIP_NONE);  //function draw the circle image on the aircraft if it is selected
     }
 }
 
