@@ -1,16 +1,18 @@
 #include "entity.h"
+#include "Capp.h"
 #include <string.h>
 #include <stdio.h>
 #include <SDL.h>
 #include <SDL_image.h>
 
-#include "math.h"       //library with mathematics tools
+#include "math.h"
 #include "capp.h"
 
 #define PI 3.14159265
 
-Entity::Entity()    //default constructor
+Entity::Entity()
 {
+    //ctor
     new_Posx = 0;
     new_Posy = 0;
     new_cap = 4;
@@ -22,14 +24,15 @@ Entity::Entity()    //default constructor
     rect_src.w = 200;
     rect_src.h = 200;
 
-    rect_dest.x = 100;      //start x position
-    rect_dest.y = 100;      //start y position
-    rect_dest.w = 20;       //image width
-    rect_dest.h = 20;       //image height
+    rect_dest.x = 100;
+    rect_dest.y = 100;
+    rect_dest.w = 20;
+    rect_dest.h = 20;
 }
 
-Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int cap, SDL_Renderer* render) //overloaded constructor
+Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int cap, SDL_Renderer* moi)
 {
+    //ctor
     new_Posx = 0;
     new_Posy = 0;
     cap_goto=cap;
@@ -44,12 +47,12 @@ Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int
     rect_src.w = 200;
     rect_src.h = 200;
 
-    rect_dest.x = xposition;    //start x position
-    rect_dest.y = yposition;    //start y position
+    rect_dest.x = xposition;
+    rect_dest.y = yposition;
 
-    order = Infos;              //set the order
-    model = aircraft;           //set the type of aircraft
-    switch(Infos)               //set the right order in the string Info_Flugzeug
+    order = Infos;
+    model = aircraft;
+    switch(Infos)
     {
         case 0:
             Info_Flugzeug="Flugzeug Landen";
@@ -70,23 +73,18 @@ Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int
         break;
 
     }
-    switch(aircraft)            //adapt the image size for each aircraft
+    switch(aircraft)
     {
-        case 0:
-        rect_dest.w = 30;
-        rect_dest.h = 30;
-        break;
-
-        case 1:
-        rect_dest.w = 40;
-        rect_dest.h = 40;
-        break;
-
         case 2:
         rect_dest.w = 25;
         rect_dest.h = 25;
         break;
 
+        case 0:
+        rect_dest.w = 30;
+        rect_dest.h = 30;
+        break;
+
         default:
         rect_dest.w = 40;
         rect_dest.h = 40;
@@ -95,20 +93,15 @@ Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int
     }
 
 
-    switch(aircraft)        //load the right image of the aircraft
+    switch(aircraft)
     {
-        case 0:
-        Loading_Surf_Entity = IMG_Load("Pitts_23-23.png");
-
-        break;
-
-        case 1:
-        Loading_Surf_Entity = IMG_Load("A380_30-30.png");
-
-        break;
-
         case 2:
         Loading_Surf_Entity = IMG_Load("hughes_25-25.png");
+
+        break;
+
+        case 0:
+        Loading_Surf_Entity = IMG_Load("Pitts_23-23.png");
 
         break;
 
@@ -122,128 +115,128 @@ Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int
 
 
 
-    if( Loading_Surf_Entity == NULL )   //test if image is loaded on the surface
+    if( Loading_Surf_Entity == NULL )
 	{
-		printf( "Unable to load image %s! SDL_image Error: %s\n", "Entity.png", IMG_GetError() );   //error message when the image is not loaded
+		printf( "Unable to load image %s! SDL_image Error: %s\n", "Entity.png", IMG_GetError() );
 	}
 	else
 	{
 		SDL_QueryTexture(Bild, NULL, NULL, &rect_dest.w, &rect_dest.h);
-
-        Bild = SDL_CreateTextureFromSurface(render, Loading_Surf_Entity);           //Create texture from surface / transfer the image
-		if( Bild == NULL )  // test if the texture is loaded on the texture
+                                                                                                //Create texture from surface
+        Bild = SDL_CreateTextureFromSurface(moi, Loading_Surf_Entity);
+		if( Bild == NULL )
 		{
-			printf( "Unable to create texture from %s! SDL Error: %s\n", "Entity.png", SDL_GetError() );    //error message when the image is not loaded on the texture
+			printf( "Unable to create texture from %s! SDL Error: %s\n", "Entity.png", SDL_GetError() );
 		}
 
 
-		SDL_FreeSurface(Loading_Surf_Entity);   //clean the temporary load surface
+		SDL_FreeSurface(Loading_Surf_Entity);
 	}
 
 
 
 
 
-	Loading_Surf_Entity = IMG_Load("cercle_rouge.png"); //load the circle image on the surface
+	Loading_Surf_Entity = IMG_Load("cercle_rouge.png");
 
-	if( Loading_Surf_Entity == NULL )                   //test if the circle is on the surface
+	if( Loading_Surf_Entity == NULL )
 	{
-		printf( "Unable to load image %s! SDL_image Error: %s\n", "Cercle.png", IMG_GetError() );   //error message when the circle is not loaded on surface
+		printf( "Unable to load image %s! SDL_image Error: %s\n", "Cercle.png", IMG_GetError() );
 	}
 	else
 	{
 		SDL_QueryTexture(Cercle, NULL, NULL, &rect_dest.w, &rect_dest.h);
                                                                                                 //Create texture from surface
-        Cercle = SDL_CreateTextureFromSurface(render, Loading_Surf_Entity);
-		if( Cercle == NULL )        ////test if the circle is on the texture
+        Cercle = SDL_CreateTextureFromSurface(moi, Loading_Surf_Entity);
+		if( Cercle == NULL )
 		{
-			printf( "Unable to create texture from %s! SDL Error: %s\n", "Cercle.png", SDL_GetError() );    //error message when the circle is not loaded on texture
+			printf( "Unable to create texture from %s! SDL Error: %s\n", "Cercle.png", SDL_GetError() );
 		}
 
 
-		SDL_FreeSurface(Loading_Surf_Entity);   //clean the temporary load surface
+		SDL_FreeSurface(Loading_Surf_Entity);
 	}
 
 }
 
-Entity::~Entity()   //destructor
+Entity::~Entity()
 {
-
+    //dtor
 }
 
-SDL_Texture* Entity::getBild()                  //function to get the associate image from the Entity
+SDL_Texture* Entity::getBild()
 {
     return Bild;
 }
 
-void Entity::setBild(SDL_Texture* text_bild)    //function to set the associate image from the Entity
+void Entity::setBild(SDL_Texture* text_bild)
 {
 
     Bild = text_bild;
 }
 
-SDL_Rect Entity::getrect_src()                  //function to get the source SDL_Rect from the Entity
+SDL_Rect Entity::getsrc_test()
 {
     return rect_src;
 }
 
-void Entity::setrect_src(SDL_Rect rect_set_src) //function to set the source SDL_Rect from the Entity
+void Entity::setsrc_test(SDL_Rect rect_set_src)
 {
 
     rect_src = rect_set_src;
 }
 
-SDL_Rect Entity::getrect_dest()                 //function to get the destination SDL_Rect from the Entity
+SDL_Rect Entity::getdest_test()
 {
     return rect_dest;
 }
 
-void Entity::setrect_dest(SDL_Rect rect_set_dest)//function to set the destination SDL_Rect from the Entity
+void Entity::setdest_test(SDL_Rect rect_set_dest)
 {
     rect_dest = rect_set_dest;
 }
-int Entity::get_x_position()                    //function returns the x position of the aircraft
+int Entity::get_x_position()
 {
     return rect_dest.x;
 }
-int Entity::get_y_position()                    //function returns the y position of the aircraft
+int Entity::get_y_position()
 {
     return rect_dest.y;
 }
-int Entity::get_width()                         //function returns the width of the aircraft
+int Entity::get_width()
 {
     return rect_dest.w;
 }
-int Entity::get_height()                        //function returns the height of the aircraft
+int Entity::get_height()
 {
     return rect_dest.h;
 }
-void Entity::set_infos(std::string* p)          //function set a new order in the string from the Entity
+void Entity::set_infos(std::string* p)
 {
     *p=Info_Flugzeug;
 
 }
-double Entity::get_cap_next()                   //function returns the next direction of the aircraft
+double Entity::get_cap_next()
 {
     return angle;
 }
-bool Entity::inside_entity(int mouse_x, int mouse_y)//function test if the mouse is above an Entity
+char Entity::inside_entity(int mouse_x, int mouse_y)
 {
     if(mouse_x>rect_dest.x-20&&mouse_x<rect_dest.x+rect_dest.w+20&&mouse_y>rect_dest.y-20&&mouse_y<rect_dest.y+rect_dest.h+20)
     {
-        return true;        //return true if the mouse is inside the Entity
+        return true;
     }
     else
     {
-        return false;       //return false if the mouse is abroad the Entity
+        return false;
     }
 }
 bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
 {
-    int virt_x0=Stock[0]->getrect_dest().x;
-    int virt_y0=Stock[0]->getrect_dest().y;
-    int virt_x1=Stock[1]->getrect_dest().x;
-    int virt_y1=Stock[1]->getrect_dest().y;
+    int virt_x0=Stock[0]->getdest_test().x;
+    int virt_y0=Stock[0]->getdest_test().y;
+    int virt_x1=Stock[1]->getdest_test().x;
+    int virt_y1=Stock[1]->getdest_test().y;
 
 
     for(int i=0;i<20;i++)
@@ -254,9 +247,9 @@ bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
         virt_y1 += sin( cap2 * PI / 180.0 )* 5 *sqrt((pow(cos(cap2),2))+(pow(sin(cap2),2)));
 
         if (((virt_x0 + rect_dest.w < virt_x1)
-            || (virt_x0 > virt_x1 + Stock[1]->getrect_dest().w)
+            || (virt_x0 > virt_x1 + Stock[1]->getdest_test().w)
             || ((virt_y0 + rect_dest.h < virt_y1)
-            || (virt_y0 > virt_y1 + Stock[1]->getrect_dest().h))))
+            || (virt_y0 > virt_y1 + Stock[1]->getdest_test().h))))
         {
             return false;
         }
@@ -272,32 +265,32 @@ bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
 
 
 }
-bool Entity::land(std::vector<Entity*> Stock)   //function test if the aircraft is above a landing place
+bool Entity::land(std::vector<Entity*> Stock)
 {
     switch (model)
     {
     case 0:
-        if(890>rect_dest.x-20&&890<rect_dest.x+rect_dest.w&&644>rect_dest.y-20&&644<rect_dest.y+rect_dest.h&&new_cap>44&&new_cap<64&&order==0)
+        if(screenwidth/2.1573>rect_dest.x-20&&screenwidth/2.1573<rect_dest.x+rect_dest.w&&screenheight/1.6351>rect_dest.y-20&&screenheight/1.6351<rect_dest.y+rect_dest.h&&new_cap>44&&new_cap<64&&order==0)
         {
             return true;
         }
-        if(1006>rect_dest.x-20&&1006<rect_dest.x+rect_dest.w&&815>rect_dest.y-20&&815<rect_dest.y+rect_dest.h&&new_cap>224&&new_cap<244&&order==0)
+        if(screenwidth/1.9086>rect_dest.x-20&&screenwidth/1.9086<rect_dest.x+rect_dest.w&&screenheight/1.292>rect_dest.y-20&&screenheight/1.292<rect_dest.y+rect_dest.h&&new_cap>224&&new_cap<244&&order==0)
         {
             return true;
         }
         break;
     case 1:
-        if(610>rect_dest.x-20&&610<rect_dest.x+rect_dest.w&&242>rect_dest.y-20&&242<rect_dest.y+rect_dest.h&&new_cap>44&&new_cap<64&&order==0)
+        if(screenwidth/3.1475>rect_dest.x-20&&screenwidth/3.1475<rect_dest.x+rect_dest.w&&screenheight/4.3512>rect_dest.y-20&&screenheight/4.3512<rect_dest.y+rect_dest.h&&new_cap>44&&new_cap<64&&order==0)
         {
            return true;
         }
-        if(843>rect_dest.x-20&&843<rect_dest.x+rect_dest.w&&574>rect_dest.y-20&&574<rect_dest.y+rect_dest.h&&new_cap>224&&new_cap<244&&order==0)
+        if(screenwidth/2.2776>rect_dest.x-20&&screenwidth/2.2776<rect_dest.x+rect_dest.w&&screenheight/1.8345>rect_dest.y-20&&screenheight/1.8345<rect_dest.y+rect_dest.h&&new_cap>224&&new_cap<244&&order==0)
         {
            return true;
         }
         break;
     case 2:
-        if(1007>rect_dest.x-20&&1007<rect_dest.x+rect_dest.w&&644>rect_dest.y-20&&644<rect_dest.y+rect_dest.h+20&&order==0)
+        if(screenwidth/1.9067>rect_dest.x-20&&screenwidth/1.9067<rect_dest.x+rect_dest.w&&screenheight/1.6351>rect_dest.y-20&&screenheight/1.6351<rect_dest.y+rect_dest.h+20&&order==0)
         {
            return true;
         }
@@ -307,7 +300,7 @@ bool Entity::land(std::vector<Entity*> Stock)   //function test if the aircraft 
 
 
 }
-bool Entity::crash(std::vector<Entity*> Stock, unsigned int n)  //function control if any Entity is crashing
+bool Entity::crash(std::vector<Entity*> Stock, unsigned int n)
 {
     int touch = 0;
 
@@ -316,10 +309,10 @@ bool Entity::crash(std::vector<Entity*> Stock, unsigned int n)  //function contr
 
 
 
-        if (((rect_dest.x + rect_dest.w < Stock[i]->getrect_dest().x)
-            || (rect_dest.x > Stock[i]->getrect_dest().x + Stock[i]->getrect_dest().w)
-            || ((rect_dest.y + rect_dest.h < Stock[i]->getrect_dest().y)
-            || (rect_dest.y > Stock[i]->getrect_dest().y + Stock[i]->getrect_dest().h))))
+        if (((rect_dest.x + rect_dest.w < Stock[i]->getdest_test().x)
+            || (rect_dest.x > Stock[i]->getdest_test().x + Stock[i]->getdest_test().w)
+            || ((rect_dest.y + rect_dest.h < Stock[i]->getdest_test().y)
+            || (rect_dest.y > Stock[i]->getdest_test().y + Stock[i]->getdest_test().h))))
         {
 
         }
@@ -351,7 +344,12 @@ bool Entity::crash(std::vector<Entity*> Stock, unsigned int n)  //function contr
     return false;
 
 }
-void Entity::fly(int cap,char go)   //function move the aircraft a tick further
+void Entity::set_window_size(int w,int h)
+{
+    screenwidth=w;
+    screenheight=h;
+}
+void Entity::fly(int cap,char go)
 {
     if (go==2)
     {

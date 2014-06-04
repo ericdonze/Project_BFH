@@ -13,9 +13,9 @@ void Capp::OnRestart()
     Stock.clear();
 
 
-    Stock.push_back(new Entity(Big,Landing,100,100,0,Renderer));
-    Stock.push_back(new Entity(Heli,Landing,1500,100,180,Renderer));
-    Stock.push_back(new Entity(Small,Landing,1500,400,180,Renderer));
+    Stock.push_back(new Entity(Big,Landing,0,WindowHeight/7.5,0,Renderer));
+    Stock.push_back(new Entity(Heli,Landing,WindowWidth,WindowHeight/7.5,180,Renderer));
+    Stock.push_back(new Entity(Small,Landing,WindowWidth,WindowHeight/1.5,180,Renderer));
 
 
 

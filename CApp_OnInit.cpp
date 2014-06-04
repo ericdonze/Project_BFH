@@ -1,4 +1,5 @@
 #include "Capp.h"
+#include "entity.h"
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
@@ -21,7 +22,6 @@ bool Capp::OnInit() {
     else
     {
     SDL_GetWindowSize(Window,&WindowWidth,&WindowHeight);
-    printf("breite %d und höhe %d \n",WindowWidth,WindowHeight);
     }
 
 

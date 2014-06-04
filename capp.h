@@ -37,8 +37,13 @@ class Capp
         void OnCreate();
         void OnCleanup();                       //clean all SDL tool before ending
         void OnRestart();
+        int get_window_width();
+        int get_window_heigth();
+        void get_window_size(int *w,int *h);
         void Test_Box(SDL_Renderer* box);
         SDL_Renderer* get_Renderer();
+        int WindowWidth = 1900;
+        int WindowHeight = 1035;
 
     private:
 
@@ -83,8 +88,7 @@ class Capp
         std::string data_2;
         std::string data_3;
         std::string data_final;
-        int WindowWidth = 1900;
-        int WindowHeight = 1035;
+
 
         unsigned int frameLimit = SDL_GetTicks() + 16;
         int Menu=0;

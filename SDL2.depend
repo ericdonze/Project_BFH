@@ -55,10 +55,10 @@
 	<string.h>
 	<stdio.h>
 
-1400612672 source:c:\users\public\documents\airportsimulator\capp.cpp
+1401870452 source:c:\users\public\documents\airportsimulator\capp.cpp
 	"capp.h"
 
-1401866719 c:\users\public\documents\airportsimulator\capp.h
+1401870367 c:\users\public\documents\airportsimulator\capp.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string.h>
@@ -67,7 +67,7 @@
 	<vector>
 	<stdio.h>
 
-1401866146 c:\users\public\documents\airportsimulator\entity.h
+1401871004 c:\users\public\documents\airportsimulator\entity.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
@@ -82,14 +82,15 @@
 	"Capp.h"
 	"math.h"
 
-1401866853 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
+1401871183 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
 	"Capp.h"
+	"entity.h"
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
 	<stdio.h>
 
-1400614504 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
+1401871929 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
 	"Capp.h"
 
 1400606054 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
@@ -98,8 +99,9 @@
 	<string>
 	<sstream>
 
-1401866146 source:c:\users\public\documents\airportsimulator\entity.cpp
+1401871929 source:c:\users\public\documents\airportsimulator\entity.cpp
 	"entity.h"
+	"Capp.h"
 	<string.h>
 	<stdio.h>
 	<SDL.h>
@@ -259,7 +261,7 @@
 	<math.h>
 	"SDL.h"
 
-1400612310 source:c:\users\public\documents\airportsimulator\capp_onrestart.cpp
+1401867215 source:c:\users\public\documents\airportsimulator\capp_onrestart.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
@@ -289,7 +291,7 @@
 	"time.h"
 	<stdlib.h>
 
-1400607118 source:c:\users\public\documents\airportsimulator\capp_oncreate.cpp
+1401867752 source:c:\users\public\documents\airportsimulator\capp_oncreate.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
