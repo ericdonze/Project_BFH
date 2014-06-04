@@ -1,4 +1,5 @@
 #include "Capp.h"
+#include "entity.h"
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
@@ -13,12 +14,16 @@ bool Capp::OnInit() {
      if(!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1")) { //
         return false;
     }
-
     if((Window = SDL_CreateWindow("Flight-Simulator",    //creation main-window
      5, 40,
      WindowWidth, WindowHeight, SDL_WINDOW_MAXIMIZED)) == NULL) {
         return false;
     }
+    else
+    {
+    SDL_GetWindowSize(Window,&WindowWidth,&WindowHeight);
+    }
+
 
     int imgFlags = IMG_INIT_PNG;
     if( !( IMG_Init( imgFlags ) & imgFlags ) )
@@ -32,14 +37,14 @@ bool Capp::OnInit() {
 
     Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED); //creation renderer
 
-    Stock.push_back(new Entity(Small,Landing,100,100,0,Renderer));
-    Stock.push_back(new Entity(Heli,Right,400,400,10,Renderer));
-    Stock.push_back(new Entity(Big,Left,700,700,30,Renderer));
+    Stock.push_back(new Entity(Small,Landing,0,WindowHeight/7.5,0,Renderer));
+    Stock.push_back(new Entity(Heli,Right,0,WindowHeight/2.5,10,Renderer));
+    Stock.push_back(new Entity(Big,Left,0,WindowHeight/1.5,30,Renderer));
 
-    button.push_back(new Button(0,1250,750,Renderer));
-    button.push_back(new Button(1,250,750,Renderer));
-    button.push_back(new Button(2,1250,750,Renderer));
-    button.push_back(new Button(3,750,750,Renderer));
+    button.push_back(new Button(0,WindowWidth/1.5,WindowHeight/1.5,Renderer));
+    button.push_back(new Button(1,WindowWidth/7.5,WindowHeight/1.5,Renderer));
+    button.push_back(new Button(2,WindowWidth/1.5,WindowHeight/1.5,Renderer));
+    button.push_back(new Button(3,WindowWidth/2.5,WindowHeight/1.5,Renderer));
 
 
     Loading_Surf = IMG_Load("Spielendcard.png");
@@ -115,19 +120,6 @@ bool Capp::OnInit() {
     }
     data_2="";
 
-
-
-
-
-
-    //const char *super1 = "hughes_20-20.png";
-    //const char *super2 = "Pitts_23-23.png";
-
-
-    //Stock[0]->loadbild(Renderer, super1);
-    //Stock[1]->loadbild(Renderer, super2);
-    //Stock[0]->render(Renderer);
-    //Stock[1]->render(Renderer);
 
 
 
