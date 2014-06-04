@@ -37,8 +37,6 @@ class Capp
         void OnCreate();
         void OnCleanup();                       //clean all SDL tool before ending
         void OnRestart();
-        int get_window_width();
-        int get_window_heigth();
         void get_window_size(int *w,int *h);
         void Test_Box(SDL_Renderer* box);
         SDL_Renderer* get_Renderer();

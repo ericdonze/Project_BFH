@@ -37,19 +37,7 @@ Capp::~Capp()
 {
     //dtor
 }
-int Capp::get_window_width()
-{
-    return WindowWidth;
-}
-int Capp::get_window_heigth()
-{
-    return WindowHeight;
-}
-void Capp::get_window_size(int *w,int *h)
-{
-    *w=WindowWidth;
-    *h=WindowHeight;
-}
+
 
 int Capp::OnExecute() {
 
