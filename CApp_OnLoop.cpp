@@ -7,6 +7,7 @@ void Capp::OnLoop() {
     {
         if(Stock[i]->get_On_click()==true)
         {
+            Stock[i]->set_window_size(WindowWidth,WindowHeight);
             if(winkel!=Stock[i]->get_cap_next())
             {
                 Stock[i]->fly(winkel,1);
@@ -39,6 +40,7 @@ void Capp::OnLoop() {
 
         if(Stock[i]->crash(Stock,i)==1)
         {
+            Mix_PlayChannel( -1, gcrash, 0 );
             Menu=Spielendcard;
         }
         if(!Stock[i]->inside_playfield())

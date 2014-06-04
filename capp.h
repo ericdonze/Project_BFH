@@ -3,6 +3,7 @@
 
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 #include <string.h>
 #include "entity.h"
 #include "button.h"
@@ -70,6 +71,8 @@ class Capp
         SDL_Rect textRect_2;
         TTF_Font *font_1;
         TTF_Font *font_2;
+        Mix_Chunk *gcrash;
+        Mix_Chunk *gintro;
 
         SDL_Surface *message_1;
         SDL_Surface *message_2;

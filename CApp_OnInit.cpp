@@ -127,6 +127,20 @@ bool Capp::OnInit() {
         printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
         return false;
     }
+     gcrash = Mix_LoadWAV( "crash.wav" );
+    if( gcrash == NULL )
+    {
+        printf( "Failed to load gcrash sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
+        return false;
+    }
+    gintro = Mix_LoadWAV( "20th Century Fox.wav" );
+    if( gintro == NULL )
+    {
+        printf( "Failed to load gintro sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
+        return false;
+    }
+    Mix_PlayChannel( -1, gintro, 0 );
+
 
 
 
