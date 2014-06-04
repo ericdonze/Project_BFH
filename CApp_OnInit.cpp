@@ -18,6 +18,12 @@ bool Capp::OnInit() {
      WindowWidth, WindowHeight, SDL_WINDOW_MAXIMIZED)) == NULL) {
         return false;
     }
+    else
+    {
+        int Screen_wide,Screen_high;
+    SDL_GetWindowSize(Window,&Screen_wide,&Screen_high);
+    printf("breite %d und höhe %d \n",Screen_wide,Screen_high);
+    }
 
 
     int imgFlags = IMG_INIT_PNG;
@@ -55,12 +61,6 @@ bool Capp::OnInit() {
 		{
 			printf( "Unable to create texture from %s! SDL Error: %s\n", "Spielendcard.png", SDL_GetError() );
 		}
-		    else
-        {
-            int Screen_wide,Screen_high;
-            SDL_QueryTexture(Background_3,NULL,NULL,&Screen_wide,&Screen_high);
-            printf("breite %d und höhe %d \n",Screen_wide,Screen_high);
-        }
 
 		//Get rid of old loaded surface
 		SDL_FreeSurface(Loading_Surf);
