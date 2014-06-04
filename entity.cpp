@@ -175,23 +175,23 @@ void Entity::setBild(SDL_Texture* text_bild)
     Bild = text_bild;
 }
 
-SDL_Rect Entity::getsrc_test()
+SDL_Rect Entity::getrect_src()
 {
     return rect_src;
 }
 
-void Entity::setsrc_test(SDL_Rect rect_set_src)
+void Entity::setrect_src(SDL_Rect rect_set_src)
 {
 
     rect_src = rect_set_src;
 }
 
-SDL_Rect Entity::getdest_test()
+SDL_Rect Entity::getrect_dest()
 {
     return rect_dest;
 }
 
-void Entity::setdest_test(SDL_Rect rect_set_dest)
+void Entity::setrect_dest(SDL_Rect rect_set_dest)
 {
     rect_dest = rect_set_dest;
 }
@@ -220,7 +220,7 @@ double Entity::get_cap_next()
 {
     return angle;
 }
-char Entity::inside_entity(int mouse_x, int mouse_y)
+bool Entity::inside_entity(int mouse_x, int mouse_y)
 {
     if(mouse_x>rect_dest.x-20&&mouse_x<rect_dest.x+rect_dest.w+20&&mouse_y>rect_dest.y-20&&mouse_y<rect_dest.y+rect_dest.h+20)
     {
@@ -233,10 +233,10 @@ char Entity::inside_entity(int mouse_x, int mouse_y)
 }
 bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
 {
-    int virt_x0=Stock[0]->getdest_test().x;
-    int virt_y0=Stock[0]->getdest_test().y;
-    int virt_x1=Stock[1]->getdest_test().x;
-    int virt_y1=Stock[1]->getdest_test().y;
+    int virt_x0=Stock[0]->getrect_dest().x;
+    int virt_y0=Stock[0]->getrect_dest().y;
+    int virt_x1=Stock[1]->getrect_dest().x;
+    int virt_y1=Stock[1]->getrect_dest().y;
 
 
     for(int i=0;i<20;i++)
@@ -247,9 +247,9 @@ bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
         virt_y1 += sin( cap2 * PI / 180.0 )* 5 *sqrt((pow(cos(cap2),2))+(pow(sin(cap2),2)));
 
         if (((virt_x0 + rect_dest.w < virt_x1)
-            || (virt_x0 > virt_x1 + Stock[1]->getdest_test().w)
+            || (virt_x0 > virt_x1 + Stock[1]->getrect_dest().w)
             || ((virt_y0 + rect_dest.h < virt_y1)
-            || (virt_y0 > virt_y1 + Stock[1]->getdest_test().h))))
+            || (virt_y0 > virt_y1 + Stock[1]->getrect_dest().h))))
         {
             return false;
         }
@@ -309,10 +309,10 @@ bool Entity::crash(std::vector<Entity*> Stock, unsigned int n)
 
 
 
-        if (((rect_dest.x + rect_dest.w < Stock[i]->getdest_test().x)
-            || (rect_dest.x > Stock[i]->getdest_test().x + Stock[i]->getdest_test().w)
-            || ((rect_dest.y + rect_dest.h < Stock[i]->getdest_test().y)
-            || (rect_dest.y > Stock[i]->getdest_test().y + Stock[i]->getdest_test().h))))
+        if (((rect_dest.x + rect_dest.w < Stock[i]->getrect_dest().x)
+            || (rect_dest.x > Stock[i]->getrect_dest().x + Stock[i]->getrect_dest().w)
+            || ((rect_dest.y + rect_dest.h < Stock[i]->getrect_dest().y)
+            || (rect_dest.y > Stock[i]->getrect_dest().y + Stock[i]->getrect_dest().h))))
         {
 
         }
