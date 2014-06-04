@@ -34,21 +34,18 @@ class Capp
         void OnRender_1();
         void OnRender_2();
         void OnRender_3();
-        void OnCreate();
+        void OnCreate();                        //aircraft generator
         void OnCleanup();                       //clean all SDL tool before ending
-        void OnRestart();
+        void OnRestart();                       //prepare the program to play again
         void get_window_size(int *w,int *h);
         void Test_Box(SDL_Renderer* box);
         SDL_Renderer* get_Renderer();
-        int WindowWidth = 1900;
-        int WindowHeight = 1035;
+        int WindowWidth;
+        int WindowHeight;
 
     private:
 
         bool Running;
-
-
-
         unsigned int i;
 
         int x_Pos;
@@ -90,8 +87,8 @@ class Capp
 
         unsigned int frameLimit = SDL_GetTicks() + 16;
         int Menu=0;
-        int mouse_x;
-        int mouse_y;
+        int mouse_x;                    //x position from mouse
+        int mouse_y;                    //y position from mouse
         int vector_x;
         int vector_y;
         int winkel=4;
@@ -101,7 +98,7 @@ class Capp
         unsigned char Taster_1=0;
         unsigned char Taster_2=0;
         unsigned char Taster_3=0;
-        int score;
+        int score;                      //variable for the score
 
 
 };
