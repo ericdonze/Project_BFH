@@ -83,7 +83,7 @@ class Capp
         static const int WindowHeight = 1035;
 
         unsigned int frameLimit = SDL_GetTicks() + 16;
-        int Menu=0;
+        int Menu=1;
         int mouse_x;
         int mouse_y;
         int vector_x;
