@@ -37,13 +37,13 @@ class Entity
     public:
 
         SDL_Texture* getBild();
-        void setBild(SDL_Texture* truc);
+        void setBild(SDL_Texture* text_bild);
 
         SDL_Rect getsrc_test();
-        void setsrc_test(SDL_Rect truc);
+        void setsrc_test(SDL_Rect rect_set_src);
 
         SDL_Rect getdest_test();
-        void setdest_test(SDL_Rect truc);
+        void setdest_test(SDL_Rect rect_set_dest);
 
         int get_x_position();
         int get_y_position();
@@ -73,8 +73,8 @@ class Entity
         SDL_Texture* Bild = NULL;
         SDL_Texture* Cercle = NULL;
         SDL_Surface* Loading_Surf_Entity = NULL;
-        SDL_Rect dest_test;
-        SDL_Rect src_test;
+        SDL_Rect rect_dest;
+        SDL_Rect rect_src;
         std::string Info_Flugzeug;
         int new_Posx;
         int new_Posy;
