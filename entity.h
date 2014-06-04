@@ -55,7 +55,7 @@ class Entity                    //class for each aircraft
         bool inside_entity(int mouse_x, int mouse_y);   //function test if the mouse is above an Entity
         bool inside_playfield();                        //function test if the Entity is still on the playground
         int game_point();                               //function manage the game points
-
+        void set_window_size(int w,int h);
 
 
         bool get_On_click();                                            //function returns if the aircraft is selected or not
@@ -82,6 +82,7 @@ class Entity                    //class for each aircraft
         int new_cap;                            //new direction
         int delta_cap;                          //difference between two direction
         int cap_goto;                           //direction who it should go
+        int screenwidth,screenheight;
         double angle;                           //angle of the aircraft between 0 and 360 degrees
         bool On_click;                          //boolean variable to know if the aircraft is selected or not
         IEntity order;                          //type from typdef of the order
