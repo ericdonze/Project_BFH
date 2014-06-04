@@ -79,11 +79,11 @@ class Capp
         std::string data_2;
         std::string data_3;
         std::string data_final;
-        static const int WindowWidth = 1900;
-        static const int WindowHeight = 1035;
+        int WindowWidth = 1900;
+        int WindowHeight = 1035;
 
         unsigned int frameLimit = SDL_GetTicks() + 16;
-        int Menu=1;
+        int Menu=0;
         int mouse_x;
         int mouse_y;
         int vector_x;
