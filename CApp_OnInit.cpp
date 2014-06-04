@@ -20,9 +20,8 @@ bool Capp::OnInit() {
     }
     else
     {
-        int Screen_wide,Screen_high;
-    SDL_GetWindowSize(Window,&Screen_wide,&Screen_high);
-    printf("breite %d und höhe %d \n",Screen_wide,Screen_high);
+    SDL_GetWindowSize(Window,&WindowWidth,&WindowHeight);
+    printf("breite %d und höhe %d \n",WindowWidth,WindowHeight);
     }
 
 
@@ -38,14 +37,14 @@ bool Capp::OnInit() {
 
     Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED); //creation renderer
 
-    Stock.push_back(new Entity(Small,Landing,100,100,0,Renderer));
-    Stock.push_back(new Entity(Heli,Right,400,400,10,Renderer));
-    Stock.push_back(new Entity(Big,Left,700,700,30,Renderer));
+    Stock.push_back(new Entity(Small,Landing,0,WindowHeight/7.5,0,Renderer));
+    Stock.push_back(new Entity(Heli,Right,0,WindowHeight/2.5,10,Renderer));
+    Stock.push_back(new Entity(Big,Left,0,WindowHeight/1.5,30,Renderer));
 
-    button.push_back(new Button(0,1250,750,Renderer));
-    button.push_back(new Button(1,250,750,Renderer));
-    button.push_back(new Button(2,1250,750,Renderer));
-    button.push_back(new Button(3,750,750,Renderer));
+    button.push_back(new Button(0,WindowWidth/1.5,WindowHeight/1.5,Renderer));
+    button.push_back(new Button(1,WindowWidth/7.5,WindowHeight/1.5,Renderer));
+    button.push_back(new Button(2,WindowWidth/1.5,WindowHeight/1.5,Renderer));
+    button.push_back(new Button(3,WindowWidth/2.5,WindowHeight/1.5,Renderer));
 
 
     Loading_Surf = IMG_Load("Spielendcard.png");
