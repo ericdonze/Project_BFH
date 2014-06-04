@@ -7,6 +7,7 @@ void Capp::OnLoop() {
     {
         if(Stock[i]->get_On_click()==true)
         {
+            Stock[i]->set_window_size(WindowWidth,WindowHeight); //Give the screen info to the Entity
             if(winkel!=Stock[i]->get_cap_next())
             {
                 Stock[i]->fly(winkel,1);

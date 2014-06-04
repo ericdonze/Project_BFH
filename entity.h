@@ -49,6 +49,7 @@ class Entity
         int get_y_position();
         int get_width();
         int get_height();
+        void set_window_size(int w,int h);
         double get_cap_next();
         void set_infos(std::string* p);
         char inside_entity(int mouse_x, int mouse_y);
@@ -81,6 +82,7 @@ class Entity
         int new_cap;
         int delta_cap;
         int cap_goto;
+        int screenwidth,screenheight;
         double angle;
         bool On_click;
         IEntity order;

@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "Capp.h"
 #include <string.h>
 #include <stdio.h>
 #include <SDL.h>
@@ -269,27 +270,27 @@ bool Entity::land(std::vector<Entity*> Stock)
     switch (model)
     {
     case 0:
-        if(890>rect_dest.x-20&&890<rect_dest.x+rect_dest.w&&644>rect_dest.y-20&&644<rect_dest.y+rect_dest.h&&new_cap>44&&new_cap<64&&order==0)
+        if(screenwidth/2.1573>rect_dest.x-20&&screenwidth/2.1573<rect_dest.x+rect_dest.w&&screenheight/1.6351>rect_dest.y-20&&screenheight/1.6351<rect_dest.y+rect_dest.h&&new_cap>44&&new_cap<64&&order==0)
         {
             return true;
         }
-        if(1006>rect_dest.x-20&&1006<rect_dest.x+rect_dest.w&&815>rect_dest.y-20&&815<rect_dest.y+rect_dest.h&&new_cap>224&&new_cap<244&&order==0)
+        if(screenwidth/1.9086>rect_dest.x-20&&screenwidth/1.9086<rect_dest.x+rect_dest.w&&screenheight/1.292>rect_dest.y-20&&screenheight/1.292<rect_dest.y+rect_dest.h&&new_cap>224&&new_cap<244&&order==0)
         {
             return true;
         }
         break;
     case 1:
-        if(610>rect_dest.x-20&&610<rect_dest.x+rect_dest.w&&242>rect_dest.y-20&&242<rect_dest.y+rect_dest.h&&new_cap>44&&new_cap<64&&order==0)
+        if(screenwidth/3.1475>rect_dest.x-20&&screenwidth/3.1475<rect_dest.x+rect_dest.w&&screenheight/4.3512>rect_dest.y-20&&screenheight/4.3512<rect_dest.y+rect_dest.h&&new_cap>44&&new_cap<64&&order==0)
         {
            return true;
         }
-        if(843>rect_dest.x-20&&843<rect_dest.x+rect_dest.w&&574>rect_dest.y-20&&574<rect_dest.y+rect_dest.h&&new_cap>224&&new_cap<244&&order==0)
+        if(screenwidth/2.2776>rect_dest.x-20&&screenwidth/2.2776<rect_dest.x+rect_dest.w&&screenheight/1.8345>rect_dest.y-20&&screenheight/1.8345<rect_dest.y+rect_dest.h&&new_cap>224&&new_cap<244&&order==0)
         {
            return true;
         }
         break;
     case 2:
-        if(1007>rect_dest.x-20&&1007<rect_dest.x+rect_dest.w&&644>rect_dest.y-20&&644<rect_dest.y+rect_dest.h+20&&order==0)
+        if(screenwidth/1.9067>rect_dest.x-20&&screenwidth/1.9067<rect_dest.x+rect_dest.w&&screenheight/1.6351>rect_dest.y-20&&screenheight/1.6351<rect_dest.y+rect_dest.h+20&&order==0)
         {
            return true;
         }
@@ -342,6 +343,11 @@ bool Entity::crash(std::vector<Entity*> Stock, unsigned int n)
 
     return false;
 
+}
+void Entity::set_window_size(int w,int h)
+{
+    screenwidth=w;
+    screenheight=h;
 }
 void Entity::fly(int cap,char go)
 {
