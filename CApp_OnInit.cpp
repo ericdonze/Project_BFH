@@ -13,12 +13,12 @@ bool Capp::OnInit() {
      if(!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1")) { //
         return false;
     }
-
     if((Window = SDL_CreateWindow("Flight-Simulator",    //creation main-window
      5, 40,
      WindowWidth, WindowHeight, SDL_WINDOW_MAXIMIZED)) == NULL) {
         return false;
     }
+
 
     int imgFlags = IMG_INIT_PNG;
     if( !( IMG_Init( imgFlags ) & imgFlags ) )
@@ -55,6 +55,12 @@ bool Capp::OnInit() {
 		{
 			printf( "Unable to create texture from %s! SDL Error: %s\n", "Spielendcard.png", SDL_GetError() );
 		}
+		    else
+        {
+            int Screen_wide,Screen_high;
+            SDL_QueryTexture(Background_3,NULL,NULL,&Screen_wide,&Screen_high);
+            printf("breite %d und höhe %d \n",Screen_wide,Screen_high);
+        }
 
 		//Get rid of old loaded surface
 		SDL_FreeSurface(Loading_Surf);
@@ -115,19 +121,6 @@ bool Capp::OnInit() {
     }
     data_2="";
 
-
-
-
-
-
-    //const char *super1 = "hughes_20-20.png";
-    //const char *super2 = "Pitts_23-23.png";
-
-
-    //Stock[0]->loadbild(Renderer, super1);
-    //Stock[1]->loadbild(Renderer, super2);
-    //Stock[0]->render(Renderer);
-    //Stock[1]->render(Renderer);
 
 
 
