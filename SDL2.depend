@@ -67,7 +67,7 @@
 	<vector>
 	<stdio.h>
 
-1401872386 c:\users\public\documents\airportsimulator\entity.h
+1401873250 c:\users\public\documents\airportsimulator\entity.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
@@ -90,8 +90,9 @@
 	<SDL_image.h>
 	<stdio.h>
 
-1401871988 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
+1401872710 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
 	"Capp.h"
+	"entity.h"
 
 1400606054 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
 	"Capp.h"
@@ -99,7 +100,7 @@
 	<string>
 	<sstream>
 
-1401871929 source:c:\users\public\documents\airportsimulator\entity.cpp
+1401873716 source:c:\users\public\documents\airportsimulator\entity.cpp
 	"entity.h"
 	"Capp.h"
 	<string.h>

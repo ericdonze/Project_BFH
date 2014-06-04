@@ -397,15 +397,9 @@ void Entity::fly(int cap,char go)
     }
     angle = new_cap;
     rect_dest.x += (cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
-    if ((rect_dest.x <-50) || (rect_dest.x>1930))
-    {
-        rect_dest.x -= (cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
-    }
+
     rect_dest.y +=( sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
-    if ((rect_dest.y <-50) || (rect_dest.y>1075))
-    {
-        rect_dest.y -= (sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
-    }
+
 
 }
 
@@ -471,7 +465,7 @@ int Entity::game_point()
     {
 
         case 0:
-            if(rect_dest.x>-49&&rect_dest.x<1929&&rect_dest.y>-49&&rect_dest.y<1074)
+            if(rect_dest.x>-49&&rect_dest.x<screenwidth+50&&rect_dest.y>-49&&rect_dest.y<screenheight+50)
             {
                 return 100;
             }
@@ -489,7 +483,7 @@ int Entity::game_point()
             break;
 
         case 2:
-            if(rect_dest.x>1900)
+            if(rect_dest.x>screenwidth)
             {
                 return 10;
             }
@@ -510,7 +504,7 @@ int Entity::game_point()
             }
             break;
         case 4:
-            if(rect_dest.y>1035)
+            if(rect_dest.y>screenheight)
             {
                 return 10;
             }
