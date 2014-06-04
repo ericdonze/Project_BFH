@@ -109,10 +109,10 @@
 	"math.h"
 	"capp.h"
 
-1401872111 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
+1401873344 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
 	"capp.h"
 
-1401872111 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
+1401873344 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string.h>
@@ -144,8 +144,9 @@
 	<SDL_image.h>
 	<stdio.h>
 
-1401872111 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
+1401873344 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
 	"Capp.h"
+	"entity.h"
 
 1400569224 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
 	"Capp.h"
