@@ -70,11 +70,11 @@ class Entity
 
     private:
 
-        SDL_Texture* Bild = NULL;
-        SDL_Texture* Cercle = NULL;
-        SDL_Surface* Loading_Surf_Entity = NULL;
-        SDL_Rect rect_dest;
-        SDL_Rect rect_src;
+        SDL_Texture* Bild = NULL;               //texture who contain the image of the aircraft
+        SDL_Texture* Cercle = NULL;             //texture who contain the image of the circle when an aircraft is selected
+        SDL_Surface* Loading_Surf_Entity = NULL;//Surface to load the image on the texture
+        SDL_Rect rect_dest;                     //SDL_Rect from destination (x,y,width,height)
+        SDL_Rect rect_src;                      //SDL_Rect from source (x,y,width,height)
         std::string Info_Flugzeug;
         int new_Posx;
         int new_Posy;

@@ -9,6 +9,10 @@
 #include <vector>
 #include <stdio.h>
 
+#define Hauptmenu 0
+#define Spielablauf 1
+#define Spielendcard 2
+
 
 
 
@@ -24,14 +28,14 @@ class Capp
     public:
 
 
-        bool OnInit();
-        void OnEvent(SDL_Event* Event);
-        void OnLoop();
+        bool OnInit();                          //game init
+        void OnEvent(SDL_Event* Event);         //manage all the events
+        void OnLoop();                          //manage all the calculation
         void OnRender_1();
         void OnRender_2();
         void OnRender_3();
         void OnCreate();
-        void OnCleanup();
+        void OnCleanup();                       //clean all SDL tool before ending
         void OnRestart();
         void Test_Box(SDL_Renderer* box);
         SDL_Renderer* get_Renderer();
@@ -73,8 +77,8 @@ class Capp
         SDL_Rect* dest = NULL;
         SDL_Rect* src = NULL;
 
-        std::vector<Entity*> Stock;
-        std::vector<Button*> button;
+        std::vector<Entity*> Stock;             //vector who contain all Entity
+        std::vector<Button*> button;            //vector who contain all Button
         std::string data_1;
         std::string data_2;
         std::string data_3;
@@ -83,7 +87,7 @@ class Capp
         static const int WindowHeight = 1035;
 
         unsigned int frameLimit = SDL_GetTicks() + 16;
-        int Menu=1;
+        int Menu=0;
         int mouse_x;
         int mouse_y;
         int vector_x;
@@ -96,9 +100,7 @@ class Capp
         unsigned char Taster_2=0;
         unsigned char Taster_3=0;
         int score;
-        #define Hauptmenu 0
-        #define Spielablauf 1
-        #define Spielendcard 2
+
 
 };
 
