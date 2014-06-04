@@ -23,26 +23,26 @@ void Capp::OnCreate(){
     switch(alea)
     {
         case 0:
-                xpos = 50;
+                xpos = -10;
                 ypos = 300;
                 cap = 0;
             break;
 
         case 1:
                 xpos = 700;
-                ypos = 900;
+                ypos = 1045;
                 cap = 270;
             break;
 
         case 2:
-                xpos = 1400;
+                xpos = 1910;
                 ypos = 300;
                 cap = 180;
             break;
 
         case 3:
                 xpos = 700;
-                ypos = 50;
+                ypos = -10;
                 cap = 90;
             break;
 

@@ -7,6 +7,9 @@
 #include "entity.h"
 #include "button.h"
 #include <vector>
+#include <stdio.h>
+
+
 
 
 class Capp
@@ -39,7 +42,7 @@ class Capp
 
 
 
-        char i;
+        unsigned int i;
 
         int x_Pos;
         int y_Pos;
@@ -74,6 +77,8 @@ class Capp
         std::vector<Button*> button;
         std::string data_1;
         std::string data_2;
+        std::string data_3;
+        std::string data_final;
         static const int WindowWidth = 1900;
         static const int WindowHeight = 1035;
 
@@ -84,12 +89,13 @@ class Capp
         int vector_x;
         int vector_y;
         int winkel=4;
-        char z;
+        unsigned int z,data_old=0;
         int w=0,h=0;
         unsigned char Taster_0=0;
         unsigned char Taster_1=0;
         unsigned char Taster_2=0;
         unsigned char Taster_3=0;
+        int score;
         #define Hauptmenu 0
         #define Spielablauf 1
         #define Spielendcard 2

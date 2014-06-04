@@ -109,6 +109,7 @@ void Capp::OnEvent(SDL_Event* Event)
                     if(button[3]->inside_button(mouse_x,mouse_y)==true)
                     {
                         OnRestart();
+                        score = 0;
                         Menu=Spielablauf;
                     }
                 }

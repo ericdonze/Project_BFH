@@ -55,18 +55,19 @@
 	<string.h>
 	<stdio.h>
 
-1400348798 source:c:\users\public\documents\airportsimulator\capp.cpp
+1400612672 source:c:\users\public\documents\airportsimulator\capp.cpp
 	"capp.h"
 
-1400348798 c:\users\public\documents\airportsimulator\capp.h
+1400614312 c:\users\public\documents\airportsimulator\capp.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string.h>
 	"entity.h"
 	"button.h"
 	<vector>
+	<stdio.h>
 
-1400348399 c:\users\public\documents\airportsimulator\entity.h
+1400611730 c:\users\public\documents\airportsimulator\entity.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
@@ -77,24 +78,27 @@
 	"Capp.h"
 	<SDL_image.h>
 
-1400345956 source:c:\users\public\documents\airportsimulator\capp_onevent.cpp
+1400606054 source:c:\users\public\documents\airportsimulator\capp_onevent.cpp
 	"Capp.h"
 	"math.h"
 
-1400343393 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
+1400349870 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
 	<stdio.h>
 
-1400348399 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
+1400614279 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
 	"Capp.h"
 
-1400329807 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
+1400606054 source:c:\users\public\documents\airportsimulator\capp_onrender.cpp
 	"Capp.h"
+	<iostream>
+	<string>
+	<sstream>
 
-1400348399 source:c:\users\public\documents\airportsimulator\entity.cpp
+1400613732 source:c:\users\public\documents\airportsimulator\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
@@ -103,18 +107,19 @@
 	"math.h"
 	"capp.h"
 
-1400060907 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
+1400532511 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.cpp
 	"capp.h"
 
-1400186084 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
+1400569051 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string.h>
 	"entity.h"
 	"button.h"
 	<vector>
+	<stdio.h>
 
-1400183500 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
+1400569113 c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
@@ -125,24 +130,27 @@
 	"Capp.h"
 	<SDL_image.h>
 
-1400185521 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
+1400568767 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onevent.cpp
 	"Capp.h"
 	"math.h"
 
-1400184938 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
+1400529205 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_oninit.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
 	<stdio.h>
 
-1400187542 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
+1400569022 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onloop.cpp
 	"Capp.h"
 
-1400060907 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
+1400568767 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrender.cpp
 	"Capp.h"
+	<iostream>
+	<string>
+	<sstream>
 
-1400188231 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
+1400569165 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\entity.cpp
 	"entity.h"
 	<string.h>
 	<stdio.h>
@@ -251,7 +259,7 @@
 	<math.h>
 	"SDL.h"
 
-1400330177 source:c:\users\public\documents\airportsimulator\capp_onrestart.cpp
+1400612310 source:c:\users\public\documents\airportsimulator\capp_onrestart.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
@@ -265,7 +273,7 @@
 	<SDL_image.h>
 	<stdio.h>
 
-1400184747 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrestart.cpp
+1400568621 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onrestart.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
@@ -281,7 +289,7 @@
 	"time.h"
 	<stdlib.h>
 
-1400325355 source:c:\users\public\documents\airportsimulator\capp_oncreate.cpp
+1400607118 source:c:\users\public\documents\airportsimulator\capp_oncreate.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>

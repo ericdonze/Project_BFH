@@ -48,6 +48,9 @@ Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int
 
     dest_test.x = xposition;
     dest_test.y = yposition;
+
+    order = Infos;
+    model = aircraft;
     switch(Infos)
     {
         case 0:
@@ -263,56 +266,90 @@ bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
 }
 bool Entity::land(std::vector<Entity*> Stock)
 {
-    if(((dest_test.x + dest_test.w < 600)
-        || (dest_test.x > 620)
-        || (dest_test.y + dest_test.h < 252)
-        || (dest_test.y > 232))
-        &&  (new_cap>300
-        ||  new_cap<330))
+    switch (model)
     {
-
-        return false;
-    }
-    else
-    {
-        return true;
-
-    }
-}
-bool Entity::crash(std::vector<Entity*> Stock, int n)
-{
-    int r;
-
-    for(r=0; r<Stock.size(); r++)
-    {
-        printf("n: %d / r: %d\n", n,r);
-        printf("Stock: %d\n", Stock.size());
-
-
-        if (((dest_test.x + dest_test.w < Stock[r]->getdest_test().x)
-            || (dest_test.x > Stock[r]->getdest_test().x + Stock[r]->getdest_test().w)
-            || ((dest_test.y + dest_test.h < Stock[r]->getdest_test().y)
-            || (dest_test.y > Stock[r]->getdest_test().y + Stock[r]->getdest_test().h))))
+    case 0:
+        if(890>dest_test.x-20&&890<dest_test.x+dest_test.w&&644>dest_test.y-20&&644<dest_test.y+dest_test.h&&new_cap>44&&new_cap<64&&order==0)
         {
-            return false;
+            return true;
+        }
+        if(1006>dest_test.x-20&&1006<dest_test.x+dest_test.w&&815>dest_test.y-20&&815<dest_test.y+dest_test.h&&new_cap>224&&new_cap<244&&order==0)
+        {
+            return true;
+        }
+        break;
+    case 1:
+        if(610>dest_test.x-20&&610<dest_test.x+dest_test.w&&242>dest_test.y-20&&242<dest_test.y+dest_test.h&&new_cap>44&&new_cap<64&&order==0)
+        {
+           return true;
+        }
+        if(843>dest_test.x-20&&843<dest_test.x+dest_test.w&&574>dest_test.y-20&&574<dest_test.y+dest_test.h&&new_cap>224&&new_cap<244&&order==0)
+        {
+           return true;
+        }
+        break;
+    case 2:
+        if(1007>dest_test.x-20&&1007<dest_test.x+dest_test.w&&644>dest_test.y-20&&644<dest_test.y+dest_test.h+20&&order==0)
+        {
+           return true;
+        }
+        break;
+    }
+    return false;
+
+
+}
+bool Entity::crash(std::vector<Entity*> Stock, unsigned int n)
+{
+    int touch = 0;
+
+    for(unsigned int i=0; i < Stock.size(); i++)
+    {
+
+
+
+        if (((dest_test.x + dest_test.w < Stock[i]->getdest_test().x)
+            || (dest_test.x > Stock[i]->getdest_test().x + Stock[i]->getdest_test().w)
+            || ((dest_test.y + dest_test.h < Stock[i]->getdest_test().y)
+            || (dest_test.y > Stock[i]->getdest_test().y + Stock[i]->getdest_test().h))))
+        {
+
         }
 
 
        else
         {
-            if(r!=n)
+            if(i!=n)
             {
-                return true;
+                touch++;
             }
-            else
+            else if(i==n)
             {
-                return false;
+
             }
+
+        }
+
+        if(touch > 0)
+        {
+            return true;
+        }
+        else
+        {
+
         }
     }
+
+    return false;
+
 }
 void Entity::fly(int cap,char go)
 {
+    if (go==2)
+    {
+        new_cap=cap;
+        cap_goto=cap;
+    }
     if(cap_goto!=cap&&go==0)
     {
         go=1;
@@ -419,4 +456,65 @@ bool Entity::inside_playfield()
     {
         return false;
     }
+}
+
+int Entity::game_point()
+{
+
+    switch(order)
+    {
+
+        case 0:
+            if(dest_test.x>-49&&dest_test.x<1929&&dest_test.y>-49&&dest_test.y<1074)
+            {
+                return 100;
+            }
+            break;
+
+        case 1:
+            if(dest_test.x<0)
+            {
+                return 10;
+            }
+            else
+            {
+                return -10;
+            }
+            break;
+
+        case 2:
+            if(dest_test.x>1900)
+            {
+                return 10;
+            }
+            else
+            {
+                return -10;
+            }
+            break;
+
+        case 3:
+            if(dest_test.y<0)
+            {
+                return 10;
+            }
+            else
+            {
+                return -10;
+            }
+            break;
+        case 4:
+            if(dest_test.y>1035)
+            {
+                return 10;
+            }
+            else
+            {
+                return -10;
+            }
+            break;
+
+
+    }
+    return 0;
 }
