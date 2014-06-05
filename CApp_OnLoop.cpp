@@ -7,7 +7,7 @@ void Capp::OnLoop() {
     {
         if(Stock[i]->get_On_click()==true)
         {
-             //Give the screen info to the Entity
+            Stock[i]->set_window_size(WindowWidth,WindowHeight);
             if(winkel!=Stock[i]->get_cap_next())
             {
                 Stock[i]->fly(winkel,1);
@@ -40,6 +40,9 @@ void Capp::OnLoop() {
 
         if(Stock[i]->crash(Stock,i)==1)
         {
+            Mix_PlayChannel( -1, gcrash, 0 );
+            OnAnimation(Stock[i]->get_x_position(),Stock[i]->get_y_position());
+            SDL_Delay(300);
             Menu=Spielendcard;
         }
         if(!Stock[i]->inside_playfield())

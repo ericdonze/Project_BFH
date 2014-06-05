@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 #include <stdio.h>
 
 bool Capp::OnInit() {
@@ -119,6 +120,42 @@ bool Capp::OnInit() {
         printf( "Unable to create texture from %s! SDL Error: %s\n", "Tahoma.ttf", SDL_GetError() );
     }
     data_2="";
+
+    //Initialize SDL_mixer
+    if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+    {
+        printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
+        return false;
+    }
+     gcrash = Mix_LoadWAV( "crash.wav" );
+    if( gcrash == NULL )
+    {
+        printf( "Failed to load gcrash sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
+        return false;
+    }
+    gintro = Mix_LoadWAV( "20th Century Fox.wav" );
+    if( gintro == NULL )
+    {
+        printf( "Failed to load gintro sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
+        return false;
+    }
+    Mix_PlayChannel( -1, gintro, 0 );
+
+    Loading_Surf = IMG_Load("bombe.png");
+	if( Loading_Surf == NULL )
+	{
+		printf( "Unable to load image %s! SDL_image Error: %s\n", "bombe.png", IMG_GetError() );
+	}
+	else
+	{
+	    Sprite_Anim = SDL_CreateTextureFromSurface(Renderer, Loading_Surf);
+		if( Sprite_Anim == NULL )
+		{
+			printf( "Unable to create texture from %s! SDL Error: %s\n", "bombe.png", SDL_GetError() );
+		}
+	    SDL_FreeSurface(Loading_Surf);
+	}
+
 
 
 

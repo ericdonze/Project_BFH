@@ -3,6 +3,7 @@
 
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 #include <string.h>
 #include "entity.h"
 #include "button.h"
@@ -31,6 +32,7 @@ class Capp
         bool OnInit();                          //game init
         void OnEvent(SDL_Event* Event);         //manage all the events
         void OnLoop();                          //manage all the calculation
+        void OnAnimation(int x_dest,int y_dest);
         void OnRender_1();
         void OnRender_2();
         void OnRender_3();
@@ -38,7 +40,6 @@ class Capp
         void OnCleanup();                       //clean all SDL tool before ending
         void OnRestart();                       //prepare the program to play again
         void get_window_size(int *w,int *h);
-        void Test_Box(SDL_Renderer* box);
         SDL_Renderer* get_Renderer();
         int WindowWidth;
         int WindowHeight;
@@ -58,6 +59,7 @@ class Capp
         SDL_Window* Window; //You can draw on it
         SDL_Renderer* Renderer = NULL;
         SDL_Surface* Sprite = NULL;
+        SDL_Texture* Sprite_Anim = NULL;
         SDL_Surface* Loading_Surf = NULL;
         SDL_Texture* Background_1 = NULL;
         SDL_Texture* Background_2 = NULL;
@@ -70,12 +72,16 @@ class Capp
         SDL_Rect textRect_2;
         TTF_Font *font_1;
         TTF_Font *font_2;
+        Mix_Chunk *gcrash;
+        Mix_Chunk *gintro;
 
         SDL_Surface *message_1;
         SDL_Surface *message_2;
         SDL_Texture* Avion = NULL;
         SDL_Rect* dest = NULL;
         SDL_Rect* src = NULL;
+
+
 
         std::vector<Entity*> Stock;             //vector who contain all Entity
         std::vector<Button*> button;            //vector who contain all Button
@@ -99,6 +105,10 @@ class Capp
         unsigned char Taster_2=0;
         unsigned char Taster_3=0;
         int score;                      //variable for the score
+
+        int WALKING_ANIMATION_FRAMES = 12;
+        SDL_Rect SpriteRect[12];
+        SDL_Rect Test_anim;
 
 
 };
