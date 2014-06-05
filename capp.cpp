@@ -59,13 +59,16 @@ int Capp::OnExecute() {
         {
         case Hauptmenu:
             OnRender_2();
+            waitTime = SDL_GetTicks();
             break;
         case Spielablauf:
+
             OnLoop();       //all calcul
             OnRender_1();     //all draw
             break;
         case Spielendcard:
             OnRender_3();
+            waitTime = SDL_GetTicks();
             break;
         }
 

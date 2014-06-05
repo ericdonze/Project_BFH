@@ -2,6 +2,13 @@
 #include "entity.h"
 void Capp::OnLoop() {
 
+    if(SDL_GetTicks()- waitTime > tick)
+    {
+        OnCreate();
+        waitTime=SDL_GetTicks();
+        tick-=200;
+    }
+
 
     for(unsigned int i=0;i<Stock.size();i++)
     {

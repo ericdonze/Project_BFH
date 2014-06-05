@@ -105,6 +105,9 @@ class Capp
         unsigned char Taster_2=0;
         unsigned char Taster_3=0;
         int score;                      //variable for the score
+        Uint32 startTime = 0;
+        Uint32 waitTime = 0;
+        Uint32 tick = 10000;
 
         int WALKING_ANIMATION_FRAMES = 12;
         SDL_Rect SpriteRect[12];
