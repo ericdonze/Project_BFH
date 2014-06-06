@@ -55,10 +55,10 @@
 	<string.h>
 	<stdio.h>
 
-1401872636 source:c:\users\public\documents\airportsimulator\capp.cpp
+1402061371 source:c:\users\public\documents\airportsimulator\capp.cpp
 	"capp.h"
 
-1401879756 c:\users\public\documents\airportsimulator\capp.h
+1402069056 c:\users\public\documents\airportsimulator\capp.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_mixer.h>
@@ -79,11 +79,11 @@
 	"Capp.h"
 	<SDL_image.h>
 
-1401879020 source:c:\users\public\documents\airportsimulator\capp_onevent.cpp
+1402068683 source:c:\users\public\documents\airportsimulator\capp_onevent.cpp
 	"Capp.h"
 	"math.h"
 
-1401879756 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
+1402067294 source:c:\users\public\documents\airportsimulator\capp_oninit.cpp
 	"Capp.h"
 	"entity.h"
 	<SDL.h>
@@ -92,7 +92,7 @@
 	<SDL_mixer.h>
 	<stdio.h>
 
-1401879021 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
+1402068519 source:c:\users\public\documents\airportsimulator\capp_onloop.cpp
 	"Capp.h"
 	"entity.h"
 
@@ -273,7 +273,7 @@
 	<math.h>
 	"SDL.h"
 
-1401867215 source:c:\users\public\documents\airportsimulator\capp_onrestart.cpp
+1402061602 source:c:\users\public\documents\airportsimulator\capp_onrestart.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
@@ -324,4 +324,17 @@
 1401959211 source:c:\users\eric\documents\bfh\semestre 1\informatique\project software design 2\capp_onanimation.cpp
 	"Capp.h"
 	<SDL_image.h>
+
+1402059834 source:c:\users\public\documents\airportsimulator\capp_onanimation.cpp
+	"Capp.h"
+	<SDL_image.h>
+
+1402068960 source:c:\users\public\documents\airportsimulator\onpilotfunk.cpp
+	"Capp.h"
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<stdio.h>
+	"time.h"
+	<stdlib.h>
 

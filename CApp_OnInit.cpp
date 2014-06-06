@@ -133,13 +133,16 @@ bool Capp::OnInit() {
         printf( "Failed to load gcrash sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
         return false;
     }
-    gintro = Mix_LoadWAV( "20th Century Fox.wav" );
-    if( gintro == NULL )
+    gpilot_funk_1 = Mix_LoadWAV( "Pilot Funk1.wav" );
+    gpilot_funk_2 = Mix_LoadWAV( "Pilot Funk2.wav" );
+    gpilot_funk_3 = Mix_LoadWAV( "Pilot Funk3.wav" );
+    gpilot_funk_4 = Mix_LoadWAV( "Pilot Funk4.wav" );
+    gpilot_funk_5 = Mix_LoadWAV( "Pilot Funk5.wav" );
+    if( gpilot_funk_1 == NULL &&gpilot_funk_2 == NULL &&gpilot_funk_3 == NULL &&gpilot_funk_4 == NULL &&gpilot_funk_5 == NULL)
     {
-        printf( "Failed to load gintro sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
+        printf( "Failed to load pilot funk sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
         return false;
     }
-    Mix_PlayChannel( -1, gintro, 0 );
 
     Loading_Surf = IMG_Load("bombe.png");
 	if( Loading_Surf == NULL )

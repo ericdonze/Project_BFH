@@ -13,14 +13,15 @@ void Capp::OnEvent(SDL_Event* Event)
         {
             switch( Event->key.keysym.sym )// which key
             {
-                case SDLK_p:
-                    Menu=Spielendcard;
-                    break;
-                case SDLK_c:
-                    OnCreate();
-                    break;
                 case SDLK_ESCAPE:
-                    Running=0;
+                    if(Menu==Spielablauf)
+                    {
+                        Menu=Spielendcard;
+                    }
+                    else
+                    {
+                        Running=0;
+                    }
                     break;
                 case SDLK_a:
                     winkel -= 4;
@@ -52,6 +53,7 @@ void Capp::OnEvent(SDL_Event* Event)
                     if(button[0]->inside_button(mouse_x,mouse_y)==true)
                     {
                         Menu=Spielablauf;
+                        OnRestart();
                     }
                     if(button[1]->inside_button(mouse_x,mouse_y)==true)
                     {
@@ -70,6 +72,7 @@ void Capp::OnEvent(SDL_Event* Event)
                             }
                             else
                             {
+                                OnPilotFunk();
                                 Stock[i]->set_On_click(1);
                                 winkel=Stock[i]->get_cap_next();
                             }
@@ -94,11 +97,12 @@ void Capp::OnEvent(SDL_Event* Event)
                     if(button[2]->inside_button(mouse_x,mouse_y)==true)
                     {
                         Menu=Hauptmenu;
+                        OnRestart();
+
                     }
                     if(button[3]->inside_button(mouse_x,mouse_y)==true)
                     {
                         OnRestart();
-                        score = 0;
                         Menu=Spielablauf;
                     }
                 }

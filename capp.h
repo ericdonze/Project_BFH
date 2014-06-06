@@ -36,6 +36,7 @@ class Capp
         void OnRender_1();
         void OnRender_2();
         void OnRender_3();
+        void OnPilotFunk();                     //Pilot Funkspeak
         void OnCreate();                        //aircraft generator
         void OnCleanup();                       //clean all SDL tool before ending
         void OnRestart();                       //prepare the program to play again
@@ -74,7 +75,11 @@ class Capp
         TTF_Font *font_2;
         Mix_Chunk *gcrash;
         Mix_Chunk *gintro;
-
+        Mix_Chunk *gpilot_funk_1;
+        Mix_Chunk *gpilot_funk_2;
+        Mix_Chunk *gpilot_funk_3;
+        Mix_Chunk *gpilot_funk_4;
+        Mix_Chunk *gpilot_funk_5;
         SDL_Surface *message_1;
         SDL_Surface *message_2;
         SDL_Texture* Avion = NULL;
@@ -98,7 +103,7 @@ class Capp
         int vector_x;
         int vector_y;
         int winkel=4;
-        unsigned int z,data_old=0;
+        unsigned int z,data_old=0,query;
         int w=0,h=0;
         unsigned char Taster_0=0;
         unsigned char Taster_1=0;

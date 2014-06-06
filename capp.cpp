@@ -62,7 +62,6 @@ int Capp::OnExecute() {
             waitTime = SDL_GetTicks();
             break;
         case Spielablauf:
-
             OnLoop();       //all calcul
             OnRender_1();     //all draw
             break;
