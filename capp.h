@@ -3,6 +3,7 @@
 
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 #include <string.h>
 #include "entity.h"
 #include "button.h"
@@ -31,24 +32,22 @@ class Capp
         bool OnInit();                          //game init
         void OnEvent(SDL_Event* Event);         //manage all the events
         void OnLoop();                          //manage all the calculation
+        void OnAnimation(int x_dest,int y_dest);
         void OnRender_1();
         void OnRender_2();
         void OnRender_3();
-        void OnCreate();
+        void OnPilotFunk();                     //Pilot Funkspeak
+        void OnCreate();                        //aircraft generator
         void OnCleanup();                       //clean all SDL tool before ending
-        void OnRestart();
+        void OnRestart();                       //prepare the program to play again
         void get_window_size(int *w,int *h);
-        void Test_Box(SDL_Renderer* box);
         SDL_Renderer* get_Renderer();
-        int WindowWidth = 1900;
-        int WindowHeight = 1035;
+        int WindowWidth;
+        int WindowHeight;
 
     private:
 
         bool Running;
-
-
-
         unsigned int i;
 
         int x_Pos;
@@ -61,6 +60,7 @@ class Capp
         SDL_Window* Window; //You can draw on it
         SDL_Renderer* Renderer = NULL;
         SDL_Surface* Sprite = NULL;
+        SDL_Texture* Sprite_Anim = NULL;
         SDL_Surface* Loading_Surf = NULL;
         SDL_Texture* Background_1 = NULL;
         SDL_Texture* Background_2 = NULL;
@@ -73,12 +73,20 @@ class Capp
         SDL_Rect textRect_2;
         TTF_Font *font_1;
         TTF_Font *font_2;
-
+        Mix_Chunk *gcrash;
+        Mix_Chunk *gintro;
+        Mix_Chunk *gpilot_funk_1;
+        Mix_Chunk *gpilot_funk_2;
+        Mix_Chunk *gpilot_funk_3;
+        Mix_Chunk *gpilot_funk_4;
+        Mix_Chunk *gpilot_funk_5;
         SDL_Surface *message_1;
         SDL_Surface *message_2;
         SDL_Texture* Avion = NULL;
         SDL_Rect* dest = NULL;
         SDL_Rect* src = NULL;
+
+
 
         std::vector<Entity*> Stock;             //vector who contain all Entity
         std::vector<Button*> button;            //vector who contain all Button
@@ -90,18 +98,25 @@ class Capp
 
         unsigned int frameLimit = SDL_GetTicks() + 16;
         int Menu=0;
-        int mouse_x;
-        int mouse_y;
+        int mouse_x;                    //x position from mouse
+        int mouse_y;                    //y position from mouse
         int vector_x;
         int vector_y;
         int winkel=4;
-        unsigned int z,data_old=0;
+        unsigned int z,data_old=0,query;
         int w=0,h=0;
         unsigned char Taster_0=0;
         unsigned char Taster_1=0;
         unsigned char Taster_2=0;
         unsigned char Taster_3=0;
-        int score;
+        int score;                      //variable for the score
+        Uint32 startTime = 0;
+        Uint32 waitTime = 0;
+        Uint32 tick = 10000;
+
+        int WALKING_ANIMATION_FRAMES = 12;
+        SDL_Rect SpriteRect[12];
+        SDL_Rect Test_anim;
 
 
 };

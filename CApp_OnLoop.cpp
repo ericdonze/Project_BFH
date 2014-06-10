@@ -1,13 +1,22 @@
 #include "Capp.h"
 #include "entity.h"
 void Capp::OnLoop() {
+    if(SDL_GetTicks()- waitTime > tick)
+    {
+        OnCreate();
+        waitTime=SDL_GetTicks();
+        if(tick>1000)
+        {
+            tick-=tick/40;
+        }
+    }
 
 
     for(unsigned int i=0;i<Stock.size();i++)
     {
         if(Stock[i]->get_On_click()==true)
         {
-             //Give the screen info to the Entity
+            Stock[i]->set_window_size(WindowWidth,WindowHeight);
             if(winkel!=Stock[i]->get_cap_next())
             {
                 Stock[i]->fly(winkel,1);
@@ -29,24 +38,30 @@ void Capp::OnLoop() {
             z++;
             Stock[i]->fly(Stock[i]->get_cap_next(),0);
         }
+        if(query>3)
+        {
+            if(Stock[i]->land(Stock)==1)
+            {
+                score += Stock[i]->game_point();
+                Stock[i]->set_On_click(0);
+                delete Stock[i];
+                Stock.erase(Stock.begin()+i);
+            }
 
-        if(Stock[i]->land(Stock)==1)
-        {
-            score += Stock[i]->game_point();
-            Stock[i]->set_On_click(0);
-            delete Stock[i];
-            Stock.erase(Stock.begin()+i);
-        }
-
-        if(Stock[i]->crash(Stock,i)==1)
-        {
-            Menu=Spielendcard;
-        }
-        if(!Stock[i]->inside_playfield())
-        {
-            score += Stock[i]->game_point();
-            delete Stock[i];
-            Stock.erase(Stock.begin()+i);
+            if(Stock[i]->crash(Stock,i)==1)
+            {
+                Mix_PlayChannel( -1, gcrash, 0 );
+                OnAnimation(Stock[i]->get_x_position(),Stock[i]->get_y_position());
+                SDL_Delay(300);
+                Menu=Spielendcard;
+            }
+            if(!Stock[i]->inside_playfield())
+            {
+                score += Stock[i]->game_point();
+                delete Stock[i];
+                Stock.erase(Stock.begin()+i);
+            }
+            query=0;
         }
     }
     if(z==Stock.size())
@@ -62,6 +77,7 @@ void Capp::OnLoop() {
         data_old=0;
         }
     }
+    query++;
     z=0;
 
 }

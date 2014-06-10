@@ -59,6 +59,7 @@ int Capp::OnExecute() {
         {
         case Hauptmenu:
             OnRender_2();
+            waitTime = SDL_GetTicks();
             break;
         case Spielablauf:
             OnLoop();       //all calcul
@@ -66,10 +67,10 @@ int Capp::OnExecute() {
             break;
         case Spielendcard:
             OnRender_3();
+            waitTime = SDL_GetTicks();
             break;
         }
 
-        Test_Box(Renderer);
         SDL_Delay(30);  //wait
 
 }
@@ -91,13 +92,8 @@ SDL_Renderer* Capp::get_Renderer()
     return Renderer;
 }
 
-void Capp::Test_Box(SDL_Renderer* box)
-{
 
 
-
-//    boxRGBA(box, 100, 100, 200, 200, 150, 150, 150, 150);
-}
 
 
 
