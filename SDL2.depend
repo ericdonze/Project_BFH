@@ -201,7 +201,7 @@
 	<iostream>
 	<string>
 
-1401863182 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.h
+1401875007 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<string.h>
@@ -210,14 +210,14 @@
 	<vector>
 	<stdio.h>
 
-1401863182 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.h
+1401875007 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.h
 	<SDL.h>
 	<SDL_image.h>
 	<vector>
 	<iostream>
 	<string>
 
-1401863182 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.cpp
+1401875007 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.cpp
 	"capp.h"
 
 1399450242 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oncleanp.cpp
@@ -228,15 +228,17 @@
 	"Capp.h"
 	"math.h"
 
-1401863181 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oninit.cpp
+1401875007 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oninit.cpp
 	"Capp.h"
+	"entity.h"
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
 	<stdio.h>
 
-1401863181 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onloop.cpp
+1401875007 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onloop.cpp
 	"Capp.h"
+	"entity.h"
 
 1401863181 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onrender.cpp
 	"Capp.h"
@@ -244,8 +246,9 @@
 	<string>
 	<sstream>
 
-1401863182 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.cpp
+1401875007 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\entity.cpp
 	"entity.h"
+	"Capp.h"
 	<string.h>
 	<stdio.h>
 	<SDL.h>
@@ -280,7 +283,7 @@
 	<SDL_image.h>
 	<stdio.h>
 
-1401863181 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onrestart.cpp
+1401875007 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onrestart.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
@@ -312,7 +315,7 @@
 	"time.h"
 	<stdlib.h>
 
-1401863181 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oncreate.cpp
+1401875007 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oncreate.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
