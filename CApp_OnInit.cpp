@@ -120,6 +120,12 @@ bool Capp::OnInit() {
         printf( "Unable to create texture from %s! SDL Error: %s\n", "Tahoma.ttf", SDL_GetError() );
     }
     data_2="";
+    font_3 = TTF_OpenFont( "Tahoma.ttf", 50 );
+    if( font_3 == NULL )
+    {
+        printf( "Unable to create texture from %s! SDL Error: %s\n", "Tahoma.ttf", SDL_GetError() );
+    }
+    data_4="";
 
     //Initialize SDL_mixer
     if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )

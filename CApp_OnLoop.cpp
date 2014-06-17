@@ -11,8 +11,6 @@ void Capp::OnLoop() {
             tick-=tick/40;
         }
     }
-
-
     for(unsigned int i=0;i<Stock.size();i++)
     {
         if(Stock[i]->get_On_click()==true)
@@ -39,7 +37,6 @@ void Capp::OnLoop() {
             z++;
             Stock[i]->fly(Stock[i]->get_cap_next(),0);
         }
-
         if(Stock[i]->land(Stock)==1)
         {
             score += Stock[i]->game_point();
@@ -72,7 +69,6 @@ void Capp::OnLoop() {
                     if(monFlux_O)  //On teste si tout est OK
                     {
                         monFlux_O << score << endl;
-                        ss << score;
                     }
                     else
                     {
@@ -80,18 +76,15 @@ void Capp::OnLoop() {
                     }
                     monFlux_O.close();
                 }
-                else
-                {
-
-                    ss << highscore;
-                }
+                ss_2 << score;
+                ss << highscore;
             }
             else
             {
                 //if it's the second crash
             }
             cout << "stream: " << ss <<endl;
-
+            cout << "stream: " << ss_2 <<endl;
             Menu=Spielendcard;
         }
         if(!Stock[i]->inside_playfield())
@@ -105,13 +98,13 @@ void Capp::OnLoop() {
     {
         if (data_old==1)
         {
-        data_1="";
-        std::cout<<data_1<<std::endl;
-        message_1 = TTF_RenderText_Solid( font_1, data_1.c_str(), textColor );
-        text_1 = SDL_CreateTextureFromSurface(Renderer,message_1);
-        SDL_QueryTexture(text_1, NULL, NULL, &w, &h);
-        textRect.x=1500;textRect.y=100;textRect.w=w;textRect.h=h;
-        data_old=0;
+            data_1="";
+            std::cout<<data_1<<std::endl;
+            message_1 = TTF_RenderText_Solid( font_1, data_1.c_str(), textColor );
+            text_1 = SDL_CreateTextureFromSurface(Renderer,message_1);
+            SDL_QueryTexture(text_1, NULL, NULL, &w, &h);
+            textRect.x=1500;textRect.y=100;textRect.w=w;textRect.h=h;
+            data_old=0;
         }
     }
     z=0;

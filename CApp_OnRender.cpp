@@ -50,10 +50,8 @@ void Capp::OnRender_3()
             textRect_2.x=WindowWidth/2-w/2;textRect_2.y=WindowHeight/2-h/2;textRect_2.w=w;textRect_2.h=h;
             SDL_RenderCopy(Renderer, text_2, NULL, &textRect_2);
 
-            //Here ADU !!!!!!!!!!!!!!!!
             data_4="Score: ";
-
-            string data_5 = ss.str();
+            string data_5 = ss_2.str();
             data_final_2 = data_4 + data_5;
 
             message_3 = TTF_RenderText_Solid( font_3, data_final_2.c_str(), textColor_3 );
