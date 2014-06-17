@@ -26,6 +26,9 @@ void Capp::OnEvent(SDL_Event* Event)
                 case SDLK_a:
                     winkel -= 4;
                     break;
+                case SDLK_g:
+                    Menu=Spielendcard;
+                    break;
                 case SDLK_d:
                     winkel += 4;
                     break;
