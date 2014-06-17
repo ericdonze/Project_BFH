@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <fstream>
 using namespace std;
 
 
@@ -40,16 +41,16 @@ void Capp::OnRender_3()
 
             data_2="Highscore: ";
 
-            std::stringstream ss;
-            ss << score;
             string data_3 = ss.str();
             data_final = data_2 + data_3;
-            //std::cout<<data_final<<std::endl;
+
             message_2 = TTF_RenderText_Solid( font_2, data_final.c_str(), textColor_2 );
             text_2 = SDL_CreateTextureFromSurface(Renderer,message_2);
             SDL_QueryTexture(text_2, NULL, NULL, &w, &h);
             textRect_2.x=WindowWidth/2-w/2;textRect_2.y=WindowHeight/2-h/2;textRect_2.w=w;textRect_2.h=h;
             SDL_RenderCopy(Renderer, text_2, NULL, &textRect_2);
+
+            //Here ADU !!!!!!!!!!!!!!!!
 
             SDL_RenderPresent(Renderer);
 }

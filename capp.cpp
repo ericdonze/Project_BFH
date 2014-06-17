@@ -31,6 +31,7 @@ Capp::Capp()//ctor
     text_1=NULL;
     text_2=NULL;
     score = 0;
+    highscore = 0;
 }
 
 Capp::~Capp()
