@@ -1,5 +1,6 @@
 #include "Capp.h"
 #include "entity.h"
+
 void Capp::OnLoop() {
     if(SDL_GetTicks()- waitTime > tick)
     {
@@ -51,6 +52,59 @@ void Capp::OnLoop() {
             Mix_PlayChannel( -1, gcrash, 0 );
             OnAnimation(Stock[i]->get_x_position(),Stock[i]->get_y_position());
             SDL_Delay(300);
+        if(cnt_point == 0)
+        {
+            cnt_point = 1;
+            monFlux_I.open("highscore.txt");
+
+
+                if(monFlux_I)  //On teste si tout est OK
+                    {
+
+
+                    monFlux_I >> highscore;
+                    cout << highscore << endl;
+
+                    }
+                else
+                    {
+                        cout << "ERREUR: Impossible d'ouvrir le fichier." << endl;
+                    }
+
+                    monFlux_I.close();
+
+
+                if(score > highscore)
+                {
+
+                monFlux_O.open("highscore.txt");
+
+                if(monFlux_O)  //On teste si tout est OK
+                    {
+
+                    monFlux_O << score << endl;
+                    ss << score;
+
+                    }
+                else
+                    {
+                        cout << "ERREUR: Impossible d'ouvrir le fichier." << endl;
+                    }
+
+                    monFlux_O.close();
+                }
+                else
+                {
+
+                    ss << highscore;
+                }
+        }
+        else
+        {
+            //if it's the second crash
+        }
+            cout << "stream: " << ss <<endl;
+
             Menu=Spielendcard;
         }
         if(!Stock[i]->inside_playfield())

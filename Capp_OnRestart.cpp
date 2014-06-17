@@ -14,6 +14,7 @@ void Capp::OnRestart()
     OnCreate();
     score = 0;
     tick=10000;
+    cnt_point = 0;
 
 
 
