@@ -24,13 +24,18 @@ Capp::Capp()//ctor
 
     textColor.r=255;textColor.g=255;textColor.b=255;
     textColor_2.r=255;textColor_2.g=0;textColor_2.b=0;
+    textColor_3.r=255;textColor_3.g=0;textColor_3.b=0;
     message_1 = NULL;
     message_2 = NULL;
+    message_3 = NULL;
     font_1 = NULL;
     font_2 = NULL;
+    font_3 = NULL;
     text_1=NULL;
     text_2=NULL;
+    text_3=NULL;
     score = 0;
+    highscore = 0;
 }
 
 Capp::~Capp()

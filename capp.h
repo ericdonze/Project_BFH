@@ -9,6 +9,8 @@
 #include "button.h"
 #include <vector>
 #include <stdio.h>
+#include <fstream>
+#include <sstream>
 
 #define Hauptmenu 0
 #define Spielablauf 1
@@ -48,6 +50,7 @@ class Capp
     private:
 
         bool Running;
+        bool cnt_point = 0;
         unsigned int i;
 
         int x_Pos;
@@ -67,12 +70,16 @@ class Capp
         SDL_Texture* Background_3 = NULL;
         SDL_Texture* text_1=NULL;
         SDL_Texture* text_2=NULL;
+        SDL_Texture* text_3=NULL;
         SDL_Color textColor;
         SDL_Color textColor_2;
+        SDL_Color textColor_3;
         SDL_Rect textRect;
         SDL_Rect textRect_2;
+        SDL_Rect textRect_3;
         TTF_Font *font_1;
         TTF_Font *font_2;
+        TTF_Font *font_3;
         Mix_Chunk *gcrash;
         Mix_Chunk *gintro;
         Mix_Chunk *gpilot_funk_1;
@@ -82,6 +89,7 @@ class Capp
         Mix_Chunk *gpilot_funk_5;
         SDL_Surface *message_1;
         SDL_Surface *message_2;
+        SDL_Surface *message_3;
         SDL_Texture* Avion = NULL;
         SDL_Rect* dest = NULL;
         SDL_Rect* src = NULL;
@@ -94,6 +102,12 @@ class Capp
         std::string data_2;
         std::string data_3;
         std::string data_final;
+        std::string data_4;
+        std::string data_5;
+        std::string data_final_2;
+        std::stringstream ss;
+        std::stringstream ss_2;
+
 
 
         unsigned int frameLimit = SDL_GetTicks() + 16;
@@ -110,6 +124,9 @@ class Capp
         unsigned char Taster_2=0;
         unsigned char Taster_3=0;
         int score;                      //variable for the score
+        int highscore = 0;
+        ofstream monFlux_O;
+        ifstream monFlux_I;
         Uint32 startTime = 0;
         Uint32 waitTime = 0;
         Uint32 tick = 10000;

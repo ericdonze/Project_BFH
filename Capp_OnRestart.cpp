@@ -13,9 +13,9 @@ void Capp::OnRestart()
     Stock.clear();
     OnCreate();
     score = 0;
+    ss.str("");
+    ss_2.str("");
     tick=10000;
-
-
-
+    cnt_point = 0;
 }
 
