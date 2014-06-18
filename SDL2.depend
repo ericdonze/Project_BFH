@@ -201,9 +201,10 @@
 	<iostream>
 	<string>
 
-1401875007 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.h
+1402440495 c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.h
 	<SDL.h>
 	<SDL_ttf.h>
+	<SDL_mixer.h>
 	<string.h>
 	"entity.h"
 	"button.h"
@@ -217,26 +218,27 @@
 	<iostream>
 	<string>
 
-1401875007 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.cpp
+1402439762 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp.cpp
 	"capp.h"
 
 1399450242 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oncleanp.cpp
 	"Capp.h"
 	<SDL_image.h>
 
-1401863181 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onevent.cpp
+1402439761 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onevent.cpp
 	"Capp.h"
 	"math.h"
 
-1401875007 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oninit.cpp
+1402439761 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_oninit.cpp
 	"Capp.h"
 	"entity.h"
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
+	<SDL_mixer.h>
 	<stdio.h>
 
-1401875007 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onloop.cpp
+1402439761 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onloop.cpp
 	"Capp.h"
 	"entity.h"
 
@@ -283,7 +285,7 @@
 	<SDL_image.h>
 	<stdio.h>
 
-1401875007 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onrestart.cpp
+1402439761 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onrestart.cpp
 	"Capp.h"
 	<SDL.h>
 	<SDL_ttf.h>
@@ -340,4 +342,8 @@
 	<stdio.h>
 	"time.h"
 	<stdlib.h>
+
+1402439761 source:c:\users\maximilian\documents\bfh\informatik\softwaredesign\programm git\capp_onanimation.cpp
+	"Capp.h"
+	<SDL_image.h>
 
