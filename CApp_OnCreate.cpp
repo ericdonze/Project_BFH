@@ -18,9 +18,9 @@ void Capp::OnCreate(){
 
     srand (time(NULL)); // init the random
 
-    alea = rand() % 4;
+    alea = rand() % 4;  //alea = random number between 0 and 3
 
-    switch(alea)
+    switch(alea)    // select the beginning position
     {
         case 0:
                 xpos = 0;
@@ -50,9 +50,9 @@ void Capp::OnCreate(){
 
     srand (time(NULL)); // init the random
 
-    alea = rand() % 3;   // v3 in the range 1985-2014
+    alea = rand() % 3; //alea = random number between 0 and 2
 
-    switch(alea)
+    switch(alea)    // select the aircraft
     {
         case 0:
                 choix_1 = Small;
@@ -69,9 +69,9 @@ void Capp::OnCreate(){
 
     srand (time(NULL)); // init the random
 
-    alea = rand() % 5;   // v3 in the range 1985-2014
+    alea = rand() % 5;   //alea = random number between 0 and 4
 
-    switch(alea)
+    switch(alea) // select the order
     {
         case 0:
                 choix_2 = Up;
@@ -94,7 +94,7 @@ void Capp::OnCreate(){
             break;
     }
 
-    Stock.push_back(new Entity(choix_1,choix_2,xpos,ypos,cap,WindowWidth,WindowHeight,Renderer));//creat the new aircraft
+    Stock.push_back(new Entity(choix_1,choix_2,xpos,ypos,cap,WindowWidth,WindowHeight,Renderer));//create the new aircraft
 
 
 

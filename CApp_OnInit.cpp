@@ -146,7 +146,7 @@ bool Capp::OnInit() {
         return false;
     }
 
-    Loading_Surf = IMG_Load("bombe.png");
+    Loading_Surf = IMG_Load("bombe.png");   // init the surface from the image bomb.PNG to make the animation
 	if( Loading_Surf == NULL )
 	{
 		printf( "Unable to load image %s! SDL_image Error: %s\n", "bombe.png", IMG_GetError() );

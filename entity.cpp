@@ -10,9 +10,9 @@
 
 #define PI 3.14159265
 
-Entity::Entity()
+Entity::Entity()    // constructor
 {
-    //ctor
+
     new_Posx = 0;
     new_Posy = 0;
     new_cap = 4;
@@ -30,9 +30,9 @@ Entity::Entity()
     rect_dest.h = 20;
 }
 
-Entity::Entity(EEntity aircraft,IEntity Infos,int xposition, int yposition, int cap,int w,int h, SDL_Renderer* render)
+Entity::Entity(EEntity aircraft,IEntity Infos,int xposition, int yposition, int cap,int w,int h, SDL_Renderer* render) // overloaded constructor
 {
-    //ctor
+
     new_Posx = 0;
     new_Posy = 0;
     cap_goto=cap;
@@ -52,7 +52,7 @@ Entity::Entity(EEntity aircraft,IEntity Infos,int xposition, int yposition, int 
 
     order = Infos;
     model = aircraft;
-    switch(Infos)
+    switch(Infos)   // choose the right text for each aircraft
     {
         case 0:
             Info_Flugzeug="Flugzeug Landen";
@@ -73,7 +73,7 @@ Entity::Entity(EEntity aircraft,IEntity Infos,int xposition, int yposition, int 
         break;
 
     }
-    switch(aircraft)
+    switch(aircraft)    // load the right image size for each aircraft
     {
         case 2:
         rect_dest.w = 25;
@@ -93,7 +93,7 @@ Entity::Entity(EEntity aircraft,IEntity Infos,int xposition, int yposition, int 
     }
 
 
-    switch(aircraft)
+    switch(aircraft)    // load the right image for each aircraft
     {
         case 2:
         Loading_Surf_Entity = IMG_Load("hughes_25-25.png");
@@ -137,7 +137,7 @@ Entity::Entity(EEntity aircraft,IEntity Infos,int xposition, int yposition, int 
 
 
 
-	Loading_Surf_Entity = IMG_Load("cercle_rouge.png");
+	Loading_Surf_Entity = IMG_Load("cercle_rouge.png"); // load the red circle for the selected aircraft
 
 	if( Loading_Surf_Entity == NULL )
 	{
@@ -161,9 +161,9 @@ Entity::Entity(EEntity aircraft,IEntity Infos,int xposition, int yposition, int 
 
 }
 
-Entity::~Entity()
+Entity::~Entity()// destructor
 {
-    //dtor
+
 }
 
 SDL_Texture* Entity::getBild()
@@ -233,7 +233,7 @@ bool Entity::inside_entity(int mouse_x, int mouse_y)// check if the mouse over t
         return false;
     }
 }
-bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
+bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2) // this function does not work !!!
 {
     int virt_x0=Stock[0]->getrect_dest().x;
     int virt_y0=Stock[0]->getrect_dest().y;
@@ -264,6 +264,7 @@ bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
 
        }
     }
+    return false;
 }
 bool Entity::land(std::vector<Entity*> Stock)       //function test if the aircraft is above a landing place
 {
@@ -308,7 +309,7 @@ bool Entity::crash(std::vector<Entity*> Stock, unsigned int n)      //function c
     {
 
 
-
+            // control if the aircraft don't touch them
         if (((rect_dest.x + rect_dest.w < Stock[i]->getrect_dest().x)
             || (rect_dest.x > Stock[i]->getrect_dest().x + Stock[i]->getrect_dest().w)
             || ((rect_dest.y + rect_dest.h < Stock[i]->getrect_dest().y)

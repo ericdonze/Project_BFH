@@ -51,11 +51,11 @@ void Capp::OnLoop() {
             if(cnt_point == 0)//write the score
             {
                 cnt_point = 1;
-                monFlux_I.open("highscore.txt");
-                if(monFlux_I)  //On teste si tout est OK
+                monFlux_I.open("highscore.txt"); // Open the file stream in Input Mode
+                if(monFlux_I)
                 {
-                    monFlux_I >> highscore;
-                    cout << highscore << endl;
+                    monFlux_I >> highscore; //read the score in the file
+
                 }
                 else
                 {
@@ -64,8 +64,8 @@ void Capp::OnLoop() {
                 monFlux_I.close();
                 if(score > highscore)
                 {
-                    monFlux_O.open("highscore.txt");
-                    if(monFlux_O)  //On teste si tout est OK
+                    monFlux_O.open("highscore.txt");    // Open the file stream in Output Mode
+                    if(monFlux_O)
                     {
                         monFlux_O << score << endl;
                     }
@@ -82,8 +82,7 @@ void Capp::OnLoop() {
             {
                 //if it's the second crash
             }
-            cout << "stream: " << ss <<endl;
-            cout << "stream: " << ss_2 <<endl;
+
             Menu=Spielendcard;
         }
         if(!Stock[i]->inside_playfield())//check if the aircraft is left the playfield

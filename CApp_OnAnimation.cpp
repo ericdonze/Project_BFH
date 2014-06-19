@@ -6,7 +6,7 @@ void Capp::OnAnimation(int x_dest, int y_dest){
     x_dest -= 68;       //that x_dest is in the middle of the image
     y_dest -= 68;       //that y_dest is in the middle of the image
 
-    SpriteRect[0].x = 0;
+    SpriteRect[0].x = 0;        // define the position on the image bomb.PNG
     SpriteRect[0].y = 0;
     SpriteRect[0].w = 134;
     SpriteRect[0].h = 134;
@@ -66,15 +66,15 @@ void Capp::OnAnimation(int x_dest, int y_dest){
     SpriteRect[11].w = 134;
     SpriteRect[11].h = 134;
 
-    Test_anim.x = x_dest;
-    Test_anim.y = y_dest;
-    Test_anim.w = 134;
-    Test_anim.h = 134;
+    Anim_dest.x = x_dest;
+    Anim_dest.y = y_dest;
+    Anim_dest.w = 134;
+    Anim_dest.h = 134;
 
     int i;
     for(i= 1;i<WALKING_ANIMATION_FRAMES;i++)    //for an 12 step animation
     {
-        SDL_RenderCopy(Renderer, Sprite_Anim, &SpriteRect[i], &Test_anim);
+        SDL_RenderCopy(Renderer, Sprite_Anim, &SpriteRect[i], &Anim_dest);  //give the information from the image to the Render
         SDL_RenderPresent(Renderer);
 
         SDL_Delay(30);

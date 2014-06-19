@@ -60,37 +60,37 @@ class Capp
         int Cap_now;
         Entity Airbus;
 
-        SDL_Window* Window; //You can draw on it
-        SDL_Renderer* Renderer = NULL;
-        SDL_Surface* Sprite = NULL;
-        SDL_Texture* Sprite_Anim = NULL;
-        SDL_Surface* Loading_Surf = NULL;
-        SDL_Texture* Background_1 = NULL;
-        SDL_Texture* Background_2 = NULL;
-        SDL_Texture* Background_3 = NULL;
-        SDL_Texture* text_1=NULL;
-        SDL_Texture* text_2=NULL;
-        SDL_Texture* text_3=NULL;
-        SDL_Color textColor;
-        SDL_Color textColor_2;
-        SDL_Color textColor_3;
-        SDL_Rect textRect;
-        SDL_Rect textRect_2;
-        SDL_Rect textRect_3;
-        TTF_Font *font_1;
-        TTF_Font *font_2;
-        TTF_Font *font_3;
-        Mix_Chunk *gcrash;
-        Mix_Chunk *gintro;
-        Mix_Chunk *gpilot_funk_1;
-        Mix_Chunk *gpilot_funk_2;
-        Mix_Chunk *gpilot_funk_3;
-        Mix_Chunk *gpilot_funk_4;
-        Mix_Chunk *gpilot_funk_5;
-        SDL_Surface *message_1;
-        SDL_Surface *message_2;
-        SDL_Surface *message_3;
-        SDL_Texture* Avion = NULL;
+        SDL_Window* Window;                 //Pointer on the main window
+        SDL_Renderer* Renderer = NULL;      //Pointer on the  main Renderer
+        SDL_Surface* Sprite = NULL;         //Pointer on the Surface for the animation
+        SDL_Texture* Sprite_Anim = NULL;    //Pointer on the Texture for the animation
+        SDL_Surface* Loading_Surf = NULL;   //Pointer on the Surface to load all the image
+        SDL_Texture* Background_1 = NULL;   //Pointer on the Texture for the Background
+        SDL_Texture* Background_2 = NULL;   //Pointer on the Texture for the Background
+        SDL_Texture* Background_3 = NULL;   //Pointer on the Texture for the Background
+        SDL_Texture* text_1=NULL;           //Pointer on the Texture
+        SDL_Texture* text_2=NULL;           //Pointer on the Texture
+        SDL_Texture* text_3=NULL;           //Pointer on the Texture
+        SDL_Color textColor;                //Variable for a SDL_color
+        SDL_Color textColor_2;              //Variable for a SDL_color
+        SDL_Color textColor_3;              //Variable for a SDL_color
+        SDL_Rect textRect;                  //position and size variable for the text
+        SDL_Rect textRect_2;                //position and size variable for the text
+        SDL_Rect textRect_3;                //position and size variable for the text
+        TTF_Font *font_1;                   //pointer for the TTF Font
+        TTF_Font *font_2;                   //pointer for the TTF Font
+        TTF_Font *font_3;                   //pointer for the TTF Font
+        Mix_Chunk *gcrash;                  //Sound for the crash
+        Mix_Chunk *gintro;                  //Sound for the into
+        Mix_Chunk *gpilot_funk_1;           //Sound for the selected aircraft
+        Mix_Chunk *gpilot_funk_2;           //Sound for the selected aircraft
+        Mix_Chunk *gpilot_funk_3;           //Sound for the selected aircraft
+        Mix_Chunk *gpilot_funk_4;           //Sound for the selected aircraft
+        Mix_Chunk *gpilot_funk_5;           //Sound for the selected aircraft
+        SDL_Surface *message_1;             //Pointer on the Renderer
+        SDL_Surface *message_2;             //Pointer on the Renderer
+        SDL_Surface *message_3;             //Pointer on the Renderer
+        SDL_Texture* Avion = NULL;          //Pointer on the Texture
         SDL_Rect* dest = NULL;
         SDL_Rect* src = NULL;
 
@@ -98,15 +98,15 @@ class Capp
 
         std::vector<Entity*> Stock;             //vector who contain all Entity
         std::vector<Button*> button;            //vector who contain all Button
-        std::string data_1;
-        std::string data_2;
-        std::string data_3;
-        std::string data_final;
-        std::string data_4;
-        std::string data_5;
-        std::string data_final_2;
-        std::stringstream ss;
-        std::stringstream ss_2;
+        std::string data_1;                     //string for the score text
+        std::string data_2;                     //string for the score text
+        std::string data_3;                     //string for the score text
+        std::string data_final;                 //string for the score text
+        std::string data_4;                     //string for the high score text
+        std::string data_5;                     //string for the high score text
+        std::string data_final_2;               //string for the high score text
+        std::stringstream ss;                   //string stream for the score text
+        std::stringstream ss_2;                 //string stream for the high score text
 
 
 
@@ -114,26 +114,26 @@ class Capp
         int Menu=0;
         int mouse_x;                    //x position from mouse
         int mouse_y;                    //y position from mouse
-        int vector_x;
-        int vector_y;
-        int winkel=4;
+        int vector_x;                   //x variable for the angle vector
+        int vector_y;                   //y variable for the angle vector
+        int winkel=4;                   //beginning angle
         unsigned int z,data_old=0,query;
         int w=0,h=0;
-        unsigned char Taster_0=0;
-        unsigned char Taster_1=0;
-        unsigned char Taster_2=0;
-        unsigned char Taster_3=0;
+        unsigned char Taster_0=0;       //beginning value 0 = not pushed
+        unsigned char Taster_1=0;       //beginning value 0 = not pushed
+        unsigned char Taster_2=0;       //beginning value 0 = not pushed
+        unsigned char Taster_3=0;       //beginning value 0 = not pushed
         int score;                      //variable for the score
-        int highscore = 0;
-        ofstream monFlux_O;
-        ifstream monFlux_I;
+        int highscore = 0;              //variable for the high score
+        ofstream monFlux_O;             //Output file stream
+        ifstream monFlux_I;             //Input file stream
         Uint32 startTime = 0;
         Uint32 waitTime = 0;
-        Uint32 tick = 10000;
+        Uint32 tick = 10000;            //Beginning value for one Tick
 
-        int WALKING_ANIMATION_FRAMES = 12;
-        SDL_Rect SpriteRect[12];
-        SDL_Rect Test_anim;
+        int WALKING_ANIMATION_FRAMES = 12;  // number of image for the explosion
+        SDL_Rect SpriteRect[12];            // position and size of each bomb image
+        SDL_Rect Anim_dest;                 // destination position of the animation
 
 
 };

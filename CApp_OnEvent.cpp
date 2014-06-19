@@ -73,9 +73,9 @@ void Capp::OnEvent(SDL_Event* Event)
                             }
                             else
                             {
-                                OnPilotFunk();
+                                OnPilotFunk();      //random sound when an aircraft is selected
                                 Stock[i]->set_On_click(1);
-                                winkel=Stock[i]->get_cap_next();
+                                winkel=Stock[i]->get_cap_next();    //winkel = the next cap from the aircraft i
                             }
                         }
                         else
@@ -119,14 +119,14 @@ void Capp::OnEvent(SDL_Event* Event)
                     {
                         if(Stock[i]->get_On_click()==true&&Stock[i]->inside_entity(mouse_x,mouse_y)==false)
                         {
-                            vector_x=mouse_x-(Stock[i]->get_x_position()+Stock[i]->get_width()/2);            // Misst denn winkel des Vectors zwischen Objekt und Maus
+                            vector_x=mouse_x-(Stock[i]->get_x_position()+Stock[i]->get_width()/2);
                             vector_y=mouse_y-(Stock[i]->get_y_position()+Stock[i]->get_height()/2);
-                            winkel=(atan2(vector_y, vector_x)*(180/3.14159));
+                            winkel=(atan2(vector_y, vector_x)*(180/3.14159));                              //calculate the angle from the vector between the object and the mouse
                             if(winkel<0)
                             {
                                 winkel+=360;
                             }
-                            printf("winkel=%d\n",winkel);
+
                         }
                     }
                 }

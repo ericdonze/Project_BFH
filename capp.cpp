@@ -92,7 +92,7 @@ int Capp::OnExecute() {
     return 0;
 }
 
-SDL_Renderer* Capp::get_Renderer()
+SDL_Renderer* Capp::get_Renderer() // return the pointer from the Renderer
 {
     return Renderer;
 }
@@ -106,7 +106,7 @@ SDL_Renderer* Capp::get_Renderer()
 int main(int argc, char* argv[]) {
 
 
-    Capp theApp;
+    Capp theApp; // crate an Object from the Class CApp
 
-    return theApp.OnExecute();
+    return theApp.OnExecute();  // start the game
 }
