@@ -33,7 +33,7 @@ class Entity                    //class for each aircraft
 {
     public:
         Entity();                                                                                           //default constructor
-        Entity(EEntity aircraft,IEntity Infos,int xposition, int yposition, int cap, SDL_Renderer* render); //overloaded constructor
+        Entity(EEntity aircraft,IEntity Infos,int xposition, int yposition, int cap,int w,int h, SDL_Renderer* render); //overloaded constructor
         virtual ~Entity();
     public:
 
@@ -55,7 +55,6 @@ class Entity                    //class for each aircraft
         bool inside_entity(int mouse_x, int mouse_y);   //function test if the mouse is above an Entity
         bool inside_playfield();                        //function test if the Entity is still on the playground
         int game_point();                               //function manage the game points
-        void set_window_size(int w,int h);
 
 
         bool get_On_click();                                            //function returns if the aircraft is selected or not

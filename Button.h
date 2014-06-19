@@ -14,7 +14,7 @@ class Button
 {
         public:
         Button();
-        Button(int Taster, int xposition, int yposition,SDL_Renderer* Renderer);
+        Button(int Taster, int xposition, int yposition,SDL_Renderer* Renderer);//to create a button
         virtual ~Button();
     public:
 
@@ -27,12 +27,7 @@ class Button
         SDL_Rect getdest_test();
         void setdest_test(SDL_Rect truc);
 
-        void set_position(int X_Achse,int Y_Achse);
         void render(SDL_Renderer* Renderer,char Taster);
-        int get_hoehe(void);
-        int get_breite(void);
-        int get_x_position(void);
-        int get_y_position(void);
         char inside_button(int mouse_x, int mouse_y);
 
         private:

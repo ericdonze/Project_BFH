@@ -30,7 +30,7 @@ Entity::Entity()
     rect_dest.h = 20;
 }
 
-Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int cap, SDL_Renderer* moi)
+Entity::Entity(EEntity aircraft,IEntity Infos,int xposition, int yposition, int cap,int w,int h, SDL_Renderer* render)
 {
     //ctor
     new_Posx = 0;
@@ -123,7 +123,7 @@ Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int
 	{
 		SDL_QueryTexture(Bild, NULL, NULL, &rect_dest.w, &rect_dest.h);
                                                                                                 //Create texture from surface
-        Bild = SDL_CreateTextureFromSurface(moi, Loading_Surf_Entity);
+        Bild = SDL_CreateTextureFromSurface(render, Loading_Surf_Entity);
 		if( Bild == NULL )
 		{
 			printf( "Unable to create texture from %s! SDL Error: %s\n", "Entity.png", SDL_GetError() );
@@ -147,7 +147,7 @@ Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int
 	{
 		SDL_QueryTexture(Cercle, NULL, NULL, &rect_dest.w, &rect_dest.h);
                                                                                                 //Create texture from surface
-        Cercle = SDL_CreateTextureFromSurface(moi, Loading_Surf_Entity);
+        Cercle = SDL_CreateTextureFromSurface(render, Loading_Surf_Entity);
 		if( Cercle == NULL )
 		{
 			printf( "Unable to create texture from %s! SDL Error: %s\n", "Cercle.png", SDL_GetError() );
@@ -156,6 +156,8 @@ Entity::Entity(EEntity aircraft,IEntity Infos, int xposition, int yposition, int
 
 		SDL_FreeSurface(Loading_Surf_Entity);
 	}
+    screenwidth=w;
+    screenheight=h;
 
 }
 
@@ -211,16 +213,16 @@ int Entity::get_height()
 {
     return rect_dest.h;
 }
-void Entity::set_infos(std::string* p)
+void Entity::set_infos(std::string* p)//give the aircraftinformation back
 {
     *p=Info_Flugzeug;
 
 }
-double Entity::get_cap_next()
+double Entity::get_cap_next()//give the next step of the aircraft back
 {
     return angle;
 }
-bool Entity::inside_entity(int mouse_x, int mouse_y)
+bool Entity::inside_entity(int mouse_x, int mouse_y)// check if the mouse over the aircraft
 {
     if(mouse_x>rect_dest.x-20&&mouse_x<rect_dest.x+rect_dest.w+20&&mouse_y>rect_dest.y-20&&mouse_y<rect_dest.y+rect_dest.h+20)
     {
@@ -262,37 +264,35 @@ bool Entity::precrash(std::vector<Entity*> Stock,int  cap1, int cap2)
 
        }
     }
-
-
 }
 bool Entity::land(std::vector<Entity*> Stock)       //function test if the aircraft is above a landing place
 {
     switch (model)
     {
-    case 0:
+    case 0://the small aircaft
         if(screenwidth/2.1573>rect_dest.x-20&&screenwidth/2.1573<rect_dest.x+rect_dest.w&&screenheight/1.6351>rect_dest.y-20&&screenheight/1.6351<rect_dest.y+rect_dest.h&&new_cap>44&&new_cap<64&&order==0)
         {
-            return true;
+            return true;//the underside of the yellow airfield
         }
         if(screenwidth/1.9086>rect_dest.x-20&&screenwidth/1.9086<rect_dest.x+rect_dest.w&&screenheight/1.292>rect_dest.y-20&&screenheight/1.292<rect_dest.y+rect_dest.h&&new_cap>224&&new_cap<244&&order==0)
         {
-            return true;
+            return true;//the overside of the yellow airfield
         }
         break;
-    case 1:
+    case 1://the big aircraft
         if(screenwidth/3.1475>rect_dest.x-20&&screenwidth/3.1475<rect_dest.x+rect_dest.w&&screenheight/4.3512>rect_dest.y-20&&screenheight/4.3512<rect_dest.y+rect_dest.h&&new_cap>44&&new_cap<64&&order==0)
         {
-           return true;
+           return true;//the underside of the red airfield
         }
         if(screenwidth/2.2776>rect_dest.x-20&&screenwidth/2.2776<rect_dest.x+rect_dest.w&&screenheight/1.8345>rect_dest.y-20&&screenheight/1.8345<rect_dest.y+rect_dest.h&&new_cap>224&&new_cap<244&&order==0)
         {
-           return true;
+           return true;//the overside of the red airfield
         }
         break;
-    case 2:
+    case 2://the heli
         if(screenwidth/1.9067>rect_dest.x-20&&screenwidth/1.9067<rect_dest.x+rect_dest.w&&screenheight/1.6351>rect_dest.y-20&&screenheight/1.6351<rect_dest.y+rect_dest.h+20&&order==0)
         {
-           return true;
+           return true;//the midpoint of the green heliairport
         }
         break;
     }
@@ -344,24 +344,15 @@ bool Entity::crash(std::vector<Entity*> Stock, unsigned int n)      //function c
     return false;
 
 }
-void Entity::set_window_size(int w,int h)
-{
-    screenwidth=w;
-    screenheight=h;
-}
+
 void Entity::fly(int cap,char go)       //function move the aircraft a tick further
 {
-    if (go==2)
-    {
-        new_cap=cap;
-        cap_goto=cap;
-    }
-    if(cap_goto!=cap&&go==0)
+    if(cap_goto!=cap&&go==0)            //to save the take the new cap
     {
         go=1;
         cap=cap_goto;
     }
-    if(go==1)
+    if(go==1)                           //go to the new cap
     {
         cap_goto=cap;
         delta_cap=new_cap-cap;
@@ -396,9 +387,9 @@ void Entity::fly(int cap,char go)       //function move the aircraft a tick furt
         new_cap=cap;
     }
     angle = new_cap;
-    rect_dest.x += (cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
+    rect_dest.x += (cos( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));//set the new position of the aircraft
 
-    rect_dest.y +=( sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));
+    rect_dest.y +=( sin( new_cap * PI / 180.0 )* 5 *sqrt((pow(cos(new_cap* PI / 180.0 ),2))+(pow(sin(new_cap* PI / 180.0 ),2))));//set the new position of the aircraft
 
 
 }
@@ -446,7 +437,7 @@ void Entity::set_On_click(bool click)
 {
     On_click = click;
 }
-bool Entity::inside_playfield()
+bool Entity::inside_playfield()//check if the aircraft inside the playfield
 {
     if(rect_dest.x>-49&&rect_dest.x<1929&&rect_dest.y>-49&&rect_dest.y<1074)
     {
@@ -458,12 +449,10 @@ bool Entity::inside_playfield()
     }
 }
 
-int Entity::game_point()
+int Entity::game_point()//give the point back
 {
-
-    switch(order)
+    switch(order)//100 point for landing, 10 for the correct side, -10 for the false side
     {
-
         case 0:
             if(rect_dest.x>-49&&rect_dest.x<screenwidth+50&&rect_dest.y>-49&&rect_dest.y<screenheight+50)
             {

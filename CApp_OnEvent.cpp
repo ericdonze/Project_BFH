@@ -46,10 +46,10 @@ void Capp::OnEvent(SDL_Event* Event)
             if((Event->button.button == SDL_BUTTON_LEFT))// left mouse click
             {
 
-                SDL_GetMouseState( &mouse_x, &mouse_y ); //Gibt die Mouseposition heraus
-                printf("x=%d, y=%d", mouse_x, mouse_y);
+                SDL_GetMouseState( &mouse_x, &mouse_y ); //Give the mouse position
                 if(Menu==Hauptmenu)
                 {
+                    //check if the buttons are clicked
                     if(button[0]->inside_button(mouse_x,mouse_y)==true)
                     {
                         Menu=Spielablauf;
@@ -62,6 +62,7 @@ void Capp::OnEvent(SDL_Event* Event)
                 }
                 else if(Menu==Spielablauf)
                 {
+                    //check all aircraft and mark it
                     for(i=0;i<Stock.size();i++)
                     {
                         if(Stock[i]->inside_entity(mouse_x,mouse_y)==true)
@@ -90,6 +91,7 @@ void Capp::OnEvent(SDL_Event* Event)
 
                 else if(Menu==Spielendcard)
                 {
+                    //check all button if the are clicked
                     if(button[1]->inside_button(mouse_x,mouse_y)==true)
                     {
                         Running=0;
@@ -110,6 +112,7 @@ void Capp::OnEvent(SDL_Event* Event)
             }
             else if((Event->button.button == SDL_BUTTON_RIGHT))
             {
+                //calculated the angel for the aircraft
                 if(Menu==Spielablauf)
                 {
                     for(i=0;i<Stock.size();i++)
@@ -132,9 +135,10 @@ void Capp::OnEvent(SDL_Event* Event)
         }
         else if( Event->type == SDL_MOUSEMOTION )
         {
-            SDL_GetMouseState( &mouse_x, &mouse_y );//Gibt die Mouseposition heraus
+            SDL_GetMouseState( &mouse_x, &mouse_y );//give the mouse position back
             if(Menu==Hauptmenu||Menu==Spielendcard)
             {
+                //make the special effect from the button
                 if(button[0]->inside_button(mouse_x,mouse_y)==true)
                 {
                     Taster_0=1;
@@ -168,7 +172,6 @@ void Capp::OnEvent(SDL_Event* Event)
                     Taster_3=0;
                 }
             }
-            //printf("x=%d,y=%d,w=%d,h=%d\n",button[0]->get_x_position(),button[0]->get_y_position(),button[0]->get_breite(),button[0]->get_hoehe());
         }
 
 }

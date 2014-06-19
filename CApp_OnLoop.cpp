@@ -2,29 +2,28 @@
 #include "entity.h"
 
 void Capp::OnLoop() {
-    if(SDL_GetTicks()- waitTime > tick)
+    if(SDL_GetTicks()- waitTime > tick)//creat all ticktime a aircraft
     {
         OnCreate();
         waitTime=SDL_GetTicks();
-        if(tick>1000)
+        if(tick>1000)//make the tick time smaller but not under 1sec
         {
             tick-=tick/40;
         }
     }
     for(unsigned int i=0;i<Stock.size();i++)
     {
-        if(Stock[i]->get_On_click()==true)
+        if(Stock[i]->get_On_click()==true)//Just when the aircraft is marked
         {
-            Stock[i]->set_window_size(WindowWidth,WindowHeight);
             if(winkel!=Stock[i]->get_cap_next())
             {
-                Stock[i]->fly(winkel,1);
+                Stock[i]->fly(winkel,1);//give the new cap
             }
             else
             {
-                Stock[i]->fly(Stock[i]->get_cap_next(),0);
+                Stock[i]->fly(Stock[i]->get_cap_next(),0);//go to the old cap
             }
-            Stock[i]->set_infos(&data_1);
+            Stock[i]->set_infos(&data_1);//give the aircraft information back
             std::cout<<data_1<<std::endl;
             message_1 = TTF_RenderText_Solid( font_1, data_1.c_str(), textColor );
             text_1 = SDL_CreateTextureFromSurface(Renderer,message_1);
@@ -35,21 +34,21 @@ void Capp::OnLoop() {
         else
         {
             z++;
-            Stock[i]->fly(Stock[i]->get_cap_next(),0);
+            Stock[i]->fly(Stock[i]->get_cap_next(),0);//let the aircraft fly
         }
-        if(Stock[i]->land(Stock)==1)
+        if(Stock[i]->land(Stock)==1)//check if the aircraft is landing
         {
             score += Stock[i]->game_point();
             Stock[i]->set_On_click(0);
             delete Stock[i];
             Stock.erase(Stock.begin()+i);
         }
-        if(Stock[i]->crash(Stock,i)==1)
+        if(Stock[i]->crash(Stock,i)==1)// check if the aircraft is crashing
         {
             Mix_PlayChannel( -1, gcrash, 0 );
             OnAnimation(Stock[i]->get_x_position(),Stock[i]->get_y_position());
             SDL_Delay(300);
-            if(cnt_point == 0)
+            if(cnt_point == 0)//write the score
             {
                 cnt_point = 1;
                 monFlux_I.open("highscore.txt");
@@ -87,7 +86,7 @@ void Capp::OnLoop() {
             cout << "stream: " << ss_2 <<endl;
             Menu=Spielendcard;
         }
-        if(!Stock[i]->inside_playfield())
+        if(!Stock[i]->inside_playfield())//check if the aircraft is left the playfield
         {
             score += Stock[i]->game_point();
             delete Stock[i];
@@ -96,7 +95,7 @@ void Capp::OnLoop() {
     }
     if(z==Stock.size())
     {
-        if (data_old==1)
+        if (data_old==1)// when no aircraft is marked then it write nothing on the screen
         {
             data_1="";
             std::cout<<data_1<<std::endl;
