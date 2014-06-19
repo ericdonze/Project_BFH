@@ -6,17 +6,17 @@
 
 void Capp::OnRestart()
 {
-    for(i=0;i<Stock.size();i++)
+    for(i=0;i<Stock.size();i++) //delete all aircraft
     {
         delete Stock[i];
     }
-    Stock.clear();
-    OnCreate();
-    score = 0;
-    tick=10000;
-    cnt_point = 0;
-
-
+    Stock.clear();              //clean the stock
+    OnCreate();                 //create a new aircraft
+    score = 0;                  //{
+    ss.str("");                 //set the point back
+    ss_2.str("");               //
+    cnt_point = 0;              //}
+    tick=10000;                 //set the time back to 10sec
 
 }
 

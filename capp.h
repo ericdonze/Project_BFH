@@ -70,12 +70,16 @@ class Capp
         SDL_Texture* Background_3 = NULL;
         SDL_Texture* text_1=NULL;
         SDL_Texture* text_2=NULL;
+        SDL_Texture* text_3=NULL;
         SDL_Color textColor;
         SDL_Color textColor_2;
+        SDL_Color textColor_3;
         SDL_Rect textRect;
         SDL_Rect textRect_2;
+        SDL_Rect textRect_3;
         TTF_Font *font_1;
         TTF_Font *font_2;
+        TTF_Font *font_3;
         Mix_Chunk *gcrash;
         Mix_Chunk *gintro;
         Mix_Chunk *gpilot_funk_1;
@@ -85,6 +89,7 @@ class Capp
         Mix_Chunk *gpilot_funk_5;
         SDL_Surface *message_1;
         SDL_Surface *message_2;
+        SDL_Surface *message_3;
         SDL_Texture* Avion = NULL;
         SDL_Rect* dest = NULL;
         SDL_Rect* src = NULL;
@@ -101,6 +106,7 @@ class Capp
         std::string data_5;
         std::string data_final_2;
         std::stringstream ss;
+        std::stringstream ss_2;
 
 
 

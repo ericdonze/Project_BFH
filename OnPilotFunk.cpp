@@ -8,7 +8,7 @@
 #include "time.h"
 #include <stdlib.h>
 
-void Capp::OnPilotFunk() // Random playback of radio message
+void Capp::OnPilotFunk() // Random playback of 5 different radio message
 {
     char music;
     srand (time(NULL));

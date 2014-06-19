@@ -94,7 +94,7 @@ void Capp::OnCreate(){
             break;
     }
 
-    Stock.push_back(new Entity(choix_1,choix_2,xpos,ypos,cap,Renderer));
+    Stock.push_back(new Entity(choix_1,choix_2,xpos,ypos,cap,WindowWidth,WindowHeight,Renderer));//creat the new aircraft
 
 
 

@@ -37,11 +37,7 @@ bool Capp::OnInit() {
 
 
     Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED); //creation renderer
-
-    Stock.push_back(new Entity(Small,Landing,0,WindowHeight/7.5,0,Renderer));
-    Stock.push_back(new Entity(Heli,Right,0,WindowHeight/2.5,10,Renderer));
-    Stock.push_back(new Entity(Big,Left,0,WindowHeight/1.5,30,Renderer));
-
+    //create all buttons
     button.push_back(new Button(0,WindowWidth/1.5,WindowHeight/1.5,Renderer));
     button.push_back(new Button(1,WindowWidth/7.5,WindowHeight/1.5,Renderer));
     button.push_back(new Button(2,WindowWidth/1.5,WindowHeight/1.5,Renderer));
@@ -108,7 +104,7 @@ bool Capp::OnInit() {
     {
         return false;
     }
-
+    //create all font to write on the screen
     font_1 = TTF_OpenFont( "Tahoma.ttf", 20 );
     if( font_1 == NULL )
     {
@@ -120,6 +116,12 @@ bool Capp::OnInit() {
         printf( "Unable to create texture from %s! SDL Error: %s\n", "Tahoma.ttf", SDL_GetError() );
     }
     data_2="";
+    font_3 = TTF_OpenFont( "Tahoma.ttf", 50 );
+    if( font_3 == NULL )
+    {
+        printf( "Unable to create texture from %s! SDL Error: %s\n", "Tahoma.ttf", SDL_GetError() );
+    }
+    data_4="";
 
     //Initialize SDL_mixer
     if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
