@@ -24,7 +24,6 @@ void Capp::OnLoop() {
                 Stock[i]->fly(Stock[i]->get_cap_next(),0);//go to the old cap
             }
             Stock[i]->set_infos(&data_1);//give the aircraft information back
-            std::cout<<data_1<<std::endl;
             message_1 = TTF_RenderText_Solid( font_1, data_1.c_str(), textColor );
             text_1 = SDL_CreateTextureFromSurface(Renderer,message_1);
             SDL_QueryTexture(text_1, NULL, NULL, &w, &h);
@@ -97,7 +96,6 @@ void Capp::OnLoop() {
         if (data_old==1)// when no aircraft is marked then it write nothing on the screen
         {
             data_1="";
-            std::cout<<data_1<<std::endl;
             message_1 = TTF_RenderText_Solid( font_1, data_1.c_str(), textColor );
             text_1 = SDL_CreateTextureFromSurface(Renderer,message_1);
             SDL_QueryTexture(text_1, NULL, NULL, &w, &h);
